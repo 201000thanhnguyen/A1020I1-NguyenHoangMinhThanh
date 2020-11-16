@@ -5,3 +5,5 @@ tutorial : https://stackoverflow.com/questions/24114676/git-error-failed-to-push
 git log để xem các commit thay đổi gần, git log -2 là xem 2 thay đổi gần và gần nhất là -1
 
 dùng q để thoát khỏi git log
+
+tài liệu tham khảo: https://viblo.asia/p/tap-hop-nhung-cau-lenh-git-huu-dung-dWrvwWr2vw38
