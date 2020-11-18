@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" method="GET">
+		<label for="so">nhập liệu</label>
+		<input type="number" id="so" name="so">&nbsp&nbsp&nbsp
+		<label for="gt">giá trị</label>
+		<select id="gt" name="gt">
+			<option value="vnd">VND</option>
+			<option value="usd">USD</option>
+		</select>&nbsp&nbsp&nbsp
+		<label for="cv">chuyển đổi</label>
+		<select name="cv" id="cv">
+			<option value="usd">USD</option>
+			<option value="vnd">VND</option>
+		</select>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<label id="kqtt"></label>
+
+		
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button type="button" onclick="showKq()">kiểm tra</button>
+	</form>
+	<script type="text/javascript">
+		function showKq() {
+			var a = document.getElementById('so').value;
+			var b = document.getElementById('gt').value;
+			var c = document.getElementById('cv').value;
+			var vnd = 1000; usd = 23000;
+			var kq;
+			if ((b == "usd") && (c == "vnd")) {
+				kq = a * usd;
+			}else if (b == "usd" && c == "usd") {
+				kq = a;
+			}else if (b == "vnd" && c == "usd") {
+				kq = a / usd;
+			}else {
+				kq = a;
+			}
+				alert(kq);
+			document.getElementById('kqtt').innerHTML = kq;
+		}
+	</script>
+</body>
+</html>	
