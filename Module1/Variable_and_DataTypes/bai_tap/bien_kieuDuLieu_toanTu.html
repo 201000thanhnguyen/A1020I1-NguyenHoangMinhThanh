@@ -8,7 +8,7 @@
 <body>
 	
 	<!-- bài 1 -->
-	<!-- <form action="" method="GET">
+	<form action="" method="GET">
 		<label for="ly">nhập điểm lý</label>
 		<input type="number" id="ly" name="ly" min="0" max="10">
 		<br>
@@ -33,29 +33,44 @@
 			var diemtb = (Number(a) +Number(b) + Number(c)) / 3;
 			document.getElementById('kq').innerHTML=diemtb;
 		}
-	</script> -->
+	</script>
 	<!-- bài 1 -->
 
 	<!-- bài 2 -->
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
 		var doC = prompt('nhập độ C vào ');
 		var kq = Number(doC) * 1.8 + 32;
 		alert("kết quả độ F là : "+kq)	
-	</script> -->
+	</script>
 	<!-- bài 2 -->
 	<hr>
 	<br>
-	<!-- bải 3 -->
+	<!-- bải 3 ; bài 4-->
 	<form method="GET">
 		<p>tính diện tích hình tròn</p>
-		<label for="dt">nhập đơn vị</label>
-		<input type="number" name="dt" id="dt" min="0">
+		<label for="layr">nhập bán kính r : </label>
+		<input type="number" name="layr" id="layr" min="0">
 		<br>
 		
-		<input type="submit" name="" value="tính">
+		<input type="button" name="" onclick="dientich()" value="kết quả diện tích">
+		<br>
+		<br>
+		<input type="button" name="" onclick="chuvi()" value="kết quả chu vi">
 	</form>
+	<label id="kqlayr"></label>
 	<script type="text/javascript">
-		
+		var pi = Math.PI;
+		function dientich(){
+			var r = document.getElementById('layr').value;
+			var ttkqdt = pi*Number(r)*Number(r);
+			document.getElementById('kqlayr').innerHTML="diện tích là : "+ttkqdt;
+		};
+
+		function chuvi(){
+			var r = document.getElementById('layr').value;
+			var ttkqcv = 2*pi*Number(r);
+			document.getElementById('kqlayr').innerHTML="chu vi là : "+ttkqcv;
+		}
 	</script>
 	<!-- bải 3 -->
 </body>
