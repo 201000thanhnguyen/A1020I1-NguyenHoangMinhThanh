@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Bài máy tính em chỉ hiểu sơ sơ do có hỏi anh Tiến rồi, em sẽ hỏi kỹ hơn vào lần học tại lớp</h1>
+	<br>
+	<form action="" method="GET">
+		<input type="number" name="hs1" id="hs1" style="width: 100px; text-align: center;" placeholder="nhập hệ số">
+		<label id="pheptinh">...</label>
+		<input type="number" name="hs2" id="hs2" style="width: 100px; text-align: center;" placeholder="nhập hệ số">
+		<label>&nbsp =</label>
+		&nbsp <label id="kqpt">(load)</label>
+
+		<br><br>
+		<input type="button" onclick="cong()" name="" value="cong(+)">
+		<input type="button" onclick="tru()" name="" value="tru(-)">
+		<input type="button" onclick="nhan()" name="" value="nhan(x)">
+		<input type="button" onclick="chia()" name="" value="chia(/)">
+	</form>
+
+	<form action="" method="GET">
+		
+	</form>
+	<script type="text/javascript">
+
+		function cong(){
+			var hs_1 = document.getElementById('hs1').value;
+			var hs_2 = document.getElementById('hs2').value;
+			var kq_cong = Number(hs_1) + Number(hs_2);
+			document.getElementById('pheptinh').innerHTML='+';
+			document.getElementById('kqpt').innerHTML=kq_cong;
+		}
+
+		function tru(){
+			var hs_1 = document.getElementById('hs1').value;
+			var hs_2 = document.getElementById('hs2').value;
+			var kq_cong = Number(hs_1) - Number(hs_2);
+			document.getElementById('pheptinh').innerHTML='-';
+			document.getElementById('kqpt').innerHTML=kq_cong;
+		}
+
+		function nhan(){
+			var hs_1 = document.getElementById('hs1').value;
+			var hs_2 = document.getElementById('hs2').value;
+			var kq_cong = Number(hs_1) * Number(hs_2);
+			document.getElementById('pheptinh').innerHTML='X';
+			document.getElementById('kqpt').innerHTML=kq_cong;
+		}
+		
+		function chia(){
+			var hs_1 = document.getElementById('hs1').value;
+			var hs_2 = document.getElementById('hs2').value;
+			var kq_cong = Number(hs_1) / Number(hs_2);
+			document.getElementById('pheptinh').innerHTML='/';
+			document.getElementById('kqpt').innerHTML=kq_cong;
+		}
+
+	</script>
+
+	<br><hr><br>
+	<!-- nâng cao lên làm máy tính -->
+	<form name="calculator">
+		<table>
+			<tr>
+				<td colspan="4">
+					<input type="text" name="display" disabled>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="button" name="one" value="1" onclick="calculator.display.value += 1"></td>
+				<td><input type="button" name="two" value="2" onclick="calculator.display.value += 2"></td>
+				<td><input type="button" name="three" value="3" onclick="calculator.display.value += 3"></td>
+				<td><input type="button" class="operator" name="plus" value="+" onclick="calculator.display.value += '+'"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="four" value="4" onclick="calculator.display.value += 4"></td>
+				<td><input type="button" name="five" value="5" onclick="calculator.display.value += 5"></td>
+				<td><input type="button" name="six" value="6" onclick="calculator.display.value += 6"></td>
+				<td><input type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="seven" value="7" onclick="calculator.display.value += 7"></td>
+				<td><input type="button" name="eight" value="8" onclick="calculator.display.value += 8"></td>
+				<td><input type="button" name="nine" value="9" onclick="calculator.display.value += 9"></td>
+				<td><input type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'"></td>
+			</tr>
+			<tr>
+				<td><input type="button" class="operator" id="clear" name="clear" value="C" onclick="calculator.display.value = ''"></td>
+				<td><input type="button" class="operator" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
+				<td><input type="button" class="operator" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
+				<td><input type="button" class="operator" name="div" value="/" onclick="phepChia()"></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function phepChia(){
+				calculator.display.value += '/';
+			}
+		</script>
+	</form>
+	<!-- nâng cao lên làm máy tính -->
+</body>
+</html>	
