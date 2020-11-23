@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body style="text-align: center;">
+	<form action="" method="GET">
+		<input type="text" name="tham_so" id="tham_so" disabled>
+		<br>
+		<br>
+		<button type="button" style="width: 50px;" onclick="ol1()" id="on1" value="1">1</button>
+		<button type="button" style="width: 50px;" onclick="ol2()" id="on2" value="2">2</button>
+		<button type="button" style="width: 50px;" onclick="ol3()" id="on3" value="3">3</button>
+		<button type="button" style="width: 50px;" onclick="cong()" id="idcong" value="+">+</button>
+		<br>
+		<br>
+		<button type="button" style="width: 50px;" onclick="ol4()" id="on4" value="4">4</button>
+		<button type="button" style="width: 50px;" onclick="ol5()" id="on5" value="5">5</button>
+		<button type="button" style="width: 50px;" onclick="ol6()" id="on6" value="6">6</button>
+		<button type="button" style="width: 50px;" onclick="tru()" id="idtru" value="-">-</button>
+		<br>
+		<br>
+		<button type="button" style="width: 50px;" onclick="ol7()" id="on7" value="7">7</button>
+		<button type="button" style="width: 50px;" onclick="ol8()" id="on8" value="8">8</button>
+		<button type="button" style="width: 50px;" onclick="ol9()" id="on9" value="9">9</button>
+		<button type="button" style="width: 50px;" onclick="nhan()" id="idnhan" value="*">X</button>
+		<br>
+		<br>
+		<button type="button" style="width: 50px;" onclick="result()" id="bang" value="=">=</button>
+		<button type="button" style="width: 50px;" onclick="ol0()" id="on0" value="0">0</button>
+		<button type="reset" style="width: 50px;" onclick="" id="clear" value="clear">C</button>
+		<button type="button" style="width: 50px;" onclick="chia()" id="idchia" value="/">/</button>
+		<br>
+	</form>
+
+	<script type="text/javascript">
+		function ol1(){
+			var nb1 = document.getElementById('on1').value;
+			document.getElementById('tham_so').value += nb1;
+		}
+		function ol2(){
+			var nb2 = document.getElementById('on2').value;
+			document.getElementById('tham_so').value += nb2;
+		}
+		function ol3(){
+			var nb3 = document.getElementById('on3').value;
+			document.getElementById('tham_so').value += nb3;
+		}
+		function ol4(){
+			var nb4 = document.getElementById('on4').value;
+			document.getElementById('tham_so').value += nb4;
+		}
+		function ol5(){
+			var nb5 = document.getElementById('on5').value;
+			document.getElementById('tham_so').value += nb5;
+		}
+		function ol6(){
+			var nb6 = document.getElementById('on6').value;
+			document.getElementById('tham_so').value += nb6;
+		}
+		function ol7(){
+			var nb7 = document.getElementById('on7').value;
+			document.getElementById('tham_so').value += nb7;
+		}
+		function ol8(){
+			var nb8 = document.getElementById('on8').value;
+			document.getElementById('tham_so').value += nb8;
+		}
+		function ol9(){
+			var nb9 = document.getElementById('on9').value;
+			document.getElementById('tham_so').value += nb9;
+		}
+		function ol0(){
+			var nb0 = document.getElementById('on0').value;
+			document.getElementById('tham_so').value += nb0;
+		}
+		function cong(){
+			var congts = document.getElementById('idcong').value;
+			document.getElementById('tham_so').value += congts;
+		}
+		function tru(){
+			var truts = document.getElementById('idtru').value;
+			document.getElementById('tham_so').value += truts;
+		}
+		function nhan(){
+			var nhants = document.getElementById('idnhan').value;
+			document.getElementById('tham_so').value += nhants;
+		}
+		function chia(){
+			var chiats = document.getElementById('idchia').value;
+			document.getElementById('tham_so').value += chiats;
+		}
+		function result(){
+			var kqbang = document.getElementById('bang').value;
+			document.getElementById('tham_so').value = eval(document.getElementById('tham_so').value);
+		}
+	</script>
+</body>
+</html>	

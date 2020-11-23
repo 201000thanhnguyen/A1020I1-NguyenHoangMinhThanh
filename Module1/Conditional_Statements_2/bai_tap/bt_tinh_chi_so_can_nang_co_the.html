@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var chieu_cao = parseInt(prompt("mời bạn nhập chiều cao : ", ""));
+		var can_nang = parseInt(prompt("mời bạn nhập cân nặng : ", ""));
+		var bmi = can_nang / (chieu_cao ^ 2);
+		if (bmi < 18) {
+			alert('chỉ số bmi của bạn là : '+bmi+' => thiếu cân');
+		}else if (bmi < 25) {
+			alert('chỉ số bmi của bạn là : '+bmi+' => bình thường');
+		}else if (bmi < 30) {
+			alert('chỉ số bmi của bạn là : '+bmi+' => thừa cân');
+		}else {
+			alert('chỉ số bmi của bạn là : '+bmi+' => béo phì');
+		}
+	</script>
+</body>
+</html>	
