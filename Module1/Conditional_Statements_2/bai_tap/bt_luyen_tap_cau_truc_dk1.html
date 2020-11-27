@@ -55,9 +55,66 @@
 		}
 	</script> -->
 	<!-- bài 4 -->
-
-	<!-- bài 5 -->
 	
 	<!-- bài 5 -->
+	<!-- <script type="text/javascript">
+		var a = parseInt(prompt("nhập điểm hệ số 1: "));
+		var b = parseInt(prompt("nhập điểm giữa kỳ: "));
+		var c = parseInt(prompt("nhập điểm cuối kỳ: "));
+
+		var kq = ((a*1) + (b*2) + (c*3))/6;
+		if (kq > 8.5) {
+			alert(kq + ' đạt học lực giỏi');
+		}else if (kq > 6.5) {
+			alert(kq + ' đạt học lực khá');
+		}else if (kq > 3.5) {
+			alert(kq + ' đạt học lực trung bình');
+		}else {
+			alert(kq + ' yếu');
+		}
+	</script> -->
+	<!-- bài 5 -->
+
+	<!-- bài 6 -->
+	<!-- <script type="text/javascript">
+		var a = parseInt(prompt("bạn vừa bán được món hàng trị giá bao nhiêu ngàn? : "));
+		var kq;
+		if (a <= 200000 && a > 0) {
+			kq = a * 3 / 100;
+			alert('hoa hồng của bạn là : '+ kq);
+		}else if (a > 200000 && a <= 500000) {
+			kq = (200000 * 3 / 100) + ((a - 200000) * 5 / 100);
+			alert('hoa hồng của bạn là : '+ kq);
+		}else if (a > 500000) {
+			kq = (200000 * 3 / 100) + ((500000 - 200000) * 5 / 100) + ((a - 500000) * 10 / 100);
+			alert('hoa hồng của bạn là : '+ kq);
+		}else {
+			alert('cái gì vậy');
+		}
+	</script> -->
+	<!-- bài 6 -->
+
+	<!-- bài 7 -->
+	<script type="text/javascript">
+		// Phí thuê bao bắt buộc là 25 nghìn.
+		// 600 đồng cho mỗi gọi của 50 phút đầu tiên.
+		// 400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+		// 200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.
+		
+		var sophut = parseInt(prompt("nhập số phút đã sử dụng : "));
+		var phi = 0, tong;
+		var phicodinh = 25;
+		if (sophut > 200) {
+			phi = (sophut - 200)*200+150*400+50*600;
+		}else if (sophut > 50) {
+			phi = (sophut - 50)*400+50*600;
+		}else {
+			phi = sophut*600;
+		}
+
+		alert('bạn đã gọi '+sophut+', và số tiền bạn phải trả là : '+ (tong = 0.01*phi+phicodinh));
+
+	</script>
+	<!-- bài 7 -->
 </body>
 </html>	
