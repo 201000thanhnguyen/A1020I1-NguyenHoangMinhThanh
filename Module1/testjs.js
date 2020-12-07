@@ -1,0 +1,1 @@
+var string2Num=parseInt(""123xyz"");

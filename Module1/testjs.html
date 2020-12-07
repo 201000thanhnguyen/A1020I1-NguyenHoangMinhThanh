@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[];
+        let n=parseInt(prompt("nhập số phần tử :"));
+        for(let i=0;i<n;i++){
+          a[i]= parseInt( prompt("nhập vào phần tử thứ "+i));  
+            }
+        let x=parseInt(prompt("nhập số muốn chèn vào mảng:"));
+        let k=parseInt(prompt("nhập vị trí muốn chèn:"));
+         //cách 1
+        for (i=n; i >= k; i--) {
+                a[i] = a[i-1]
+            }                              
+            a[k] = x;
+            n++;
+        for( i=0;i<n;i++){
+            document.write(a[i]);
+            }
+        // cách 2
+        //a.splice(k, 0, x);
+        //for( i=0;i<=n;i++){
+               //document.write(a[i]);
+               // }
+    </script>
+</body>
+</html>/
