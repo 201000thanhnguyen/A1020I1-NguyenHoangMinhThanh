@@ -6,18 +6,26 @@
 	<title>Document</title>
 </head>
 <body>
-	<script type="text/javascript">
-		var tuDienus = ['hello', 'good bye', 'apple'];
-		var tuDienvn = ['xin chào', 'tạm biệt', 'táo'];
+	<label for="en">en :</label>
+    <input type="text" value="" id="en">
+    <input type="button" value="Translate" onclick="trans()">
+    <h1 id="result"><br></h1>
+    <script>
+        let res = document.getElementById("result");
 
-		for (var i = 0; i < tuDienus.length; i++) {
-			var tuVung = prompt("nhập vào 1 từ tiếng anh : ");
-			if (tuVung == tuDienus[i]) {
-				alert('từ tiếng Việt là '+tuDienvn);
-			}else {
-				alert('không có');
-			}
-		}
-	</script>
+        function trans() {
+            let input = document.getElementById("en").value;
+            let EN = ["dog", "cat", "mouse"];
+            let VI = ["chó", "mèo", "chuột"];
+            for (let i = 0; i < EN.length; i++) {
+                if (input == EN[i]) {
+                    res.innerHTML = `${input} = ${VI[i]}`
+                    break;
+                } else {
+                    res.innerHTML = `no data`
+                }
+            }
+        }
+    </script>
 </body>
 </html>	
