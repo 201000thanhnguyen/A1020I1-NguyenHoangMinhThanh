@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvasShape" height="800" width="1000"></canvas>
+
+	<script type="text/javascript">
+
+		let canvasS = document.getElementById("canvasShape");
+        let context = canvasS.getContext("2d");
+
+		class Rectangle{
+			constructor(chieuDai, chieuRong){
+				this.dai = chieuDai;
+				this.rong = chieuRong;
+			}
+
+			kqDienTich(){
+				return this.dai * this.rong;
+			}
+
+			kqChuVi(){
+				return (this.dai + this.rong) * 2;
+			}
+
+			showImg(){
+				context.rect(200, 200, this.dai, this.rong);
+		        context.stroke();
+		        context.fillStyle = "red";
+		        context.fill();
+			}
+		}
+
+
+		var dodai = parseInt(prompt("nhập chiều dài : "));
+		var dorong = parseInt(prompt("nhập chiều rộng : "));
+		var hcnTest = new Rectangle(dodai, dorong);
+		console.log(hcnTest.kqDienTich());
+		console.log(hcnTest.kqChuVi());
+		hcnTest.showImg();
+	</script>
+</body>
+</html>	

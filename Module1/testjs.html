@@ -2,32 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Title</title>
 </head>
 <body>
-    <script>
-        let a=[];
-        let n=parseInt(prompt("nhập số phần tử :"));
-        for(let i=0;i<n;i++){
-          a[i]= parseInt( prompt("nhập vào phần tử thứ "+i));  
+<script>
+    // Tạo một đối tượng sinh viên
+    let sinhVien1={
+        ten: "Nguyễn Văn A",
+        tuoi: 18,
+        noi(){
+            console.log(" nói tiếng việt");
+        }
+    };
+    // let name =sinhVien1.ten; // gọi tên thuộc tính "ten"
+    // console.log(name);
+    // sinhVien1.noi() // gọi phương thức "noi";
+// tạo class SinhVien bằng function.
+    let SinhVien= function (name, age) {
+        this.ten = name;
+        this.tuoi = age;
+        this.noi= function () {
+            console.log("nói tiếng việt");
+        }
+    };
+    // tạo  3 đối tượng bằng class SinhVien
+    let sinhVien2 = new SinhVien("Nguyễn Văn B",20);
+    let sinhVien3 = new SinhVien("Nguyễn Văn C",21);
+    let sinhVien4 = new SinhVien("Nguyễn Văn D",22);
+    // Nhập tên và tuổi từ bàn phím
+    // let ten =prompt("Nhập vào tên sinh viên");
+    // let tuoi= prompt("Nhập vào tuổi");
+    // let sinhVien5 = new SinhVien(ten, tuoi);
+    // console.log(sinhVien5.ten);
+    // console.log(sinhVien5.tuoi);
+// Tạo Class bằng từ khóa class;
+    class Student{
+        constructor(name, age) {
+            this.name= name;
+            this.age = age;
+        }
+        say(text){
+           console.log(text);
+        }
+    }
+//  tạo đối tượng studuent băng class Student
+//     let studen1 = new Student("Marry", 20);
+//     console.log(studen1.name);
+//     console.log(studen1.age);
+// tạo một danh sách sinh viên;
+    let danhSachSV=[];
+    let number = prompt(" nhập số lượng sinh viên cần thêm");
+    for (let i=0; i<number; i++){
+        let name= prompt("Nhập tên sinh viên thứ "+(i+1));
+        let age= prompt("Nhập tuổi sinh viên thứ "+(i+1));
+        let student = new Student(name, age);
+        danhSachSV.push(student);
+    }
+    // console.log(danhSachSV);
+        for (let i =0; i<danhSachSV.length;i++){
+            if (danhSachSV[i].age>18){
+                console.log(danhSachSV[i].name)
+                danhSachSV[i].say("Hello");
+            }else {
+                console.log(danhSachSV[i].name)
+                danhSachSV[i].say("Xin chào");
             }
-        let x=parseInt(prompt("nhập số muốn chèn vào mảng:"));
-        let k=parseInt(prompt("nhập vị trí muốn chèn:"));
-         //cách 1
-        for (i=n; i >= k; i--) {
-                a[i] = a[i-1]
-            }                              
-            a[k] = x;
-            n++;
-        for( i=0;i<n;i++){
-            document.write(a[i]);
-            }
-        // cách 2
-        //a.splice(k, 0, x);
-        //for( i=0;i<=n;i++){
-               //document.write(a[i]);
-               // }
-    </script>
+        }
+</script>
 </body>
-</html>/
+</html>

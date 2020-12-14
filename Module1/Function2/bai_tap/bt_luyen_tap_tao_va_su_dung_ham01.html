@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<input type="button" name="ms" id="ms" onclick="alertMessage()" value="xin chào">
+	
+	<!-- câu 2 -->
+	<br>
+	<br>
+	<br>
+	<form action="" method="GET">
+		<input type="number" name="doiso1" id="doiso1d">
+		<input type="button" name="gh1" id="gh1" onclick="goiham1(getElementById('doiso1d').value)" value="tăng lên 1">
+	</form>
+	<br>
+	<br>
+	<form action="" method="GET">
+		<input type="number" name="ts1" id="ts1">
+		<input type="number" name="ts2" id="ts2">
+		<input type="button" name="gh1" id="gh1" onclick="abThonBao(getElementById('ts1').value, getElementById('ts2').value)" value="thông báo">
+	</form>
+
+
+	<script type="text/javascript">
+		
+		// câu 1
+		function alertMessage() {
+			alert('xin chào');
+		}
+		// câu 1
+
+		// câu 2
+		function goiham1(tang1) {
+			var eptang1 = parseInt(tang1);
+			document.getElementById('doiso1d').value = eptang1 + 1;
+		}
+		// câu 2
+
+		// câu 3
+		function abThonBao(ala, alb) {
+			var eala = parseInt(ala);
+			var ealb = parseInt(alb);
+			if (eala > ealb) {
+				alert(eala + " lớn hơn "+ealb);
+			}else {
+				var eal = eala + ealb;
+				alert('tổng 2 số là : '+ eal);
+			}
+		}
+		// câu 3
+
+		// câu 4
+		function addNumbers() {
+		    firstNum = 4;
+		    secondNum = 8;
+		    result = firstNum + secondNum;
+		    return (alert("giá trị cho trước là : " + result));
+		}
+		result = 0;
+		result = addNumbers(); 
+		// câu 4
+
+		// câu 5
+		
+		// câu 5
+
+	</script>
+</body>
+</html>	

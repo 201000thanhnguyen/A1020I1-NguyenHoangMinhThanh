@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" method="GET">
+		<input type="number" name="cv" id="cv">
+		<br>
+		<input type="button" name="cvtofeet" onclick="footToMeter(window.cv.value)" value="foot sang meters">
+		<input type="button" name="cvtometers" onclick="meterToFoot(window.cv.value)" value="meters sang foot">
+	</form>
+
+	<script type="text/javascript">
+		function footToMeter(foot) {
+			var meters1 = parseFloat(foot);
+			// meter = 0.305 * foot
+			var meters2 = 0.305 * meters1;
+			alert('meters = '+meters2);
+		}
+
+		function meterToFoot(meter) {
+			var foot1 = parseFloat(meter);
+			// foot = 3.279 * meter 
+			var foot2 = 3.279 * foot1;
+			alert('foot = '+foot2);
+		}
+	</script>
+</body>
+</html>	

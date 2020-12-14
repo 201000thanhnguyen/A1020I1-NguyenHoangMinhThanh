@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Temperature{
+			constructor(doC){
+				this.doC = doC;
+			}
+
+			convertToK(){
+				return  this.doC + 273.15;
+			}
+
+			convertToF(){
+				return this.doC * 9/5 + 32;	
+			}
+		}
+
+		var thamSoC = parseInt(prompt("nhập độ C : "));
+		var testTemperature = new Temperature(thamSoC);
+		console.log("độ F là : "+testTemperature.convertToF());
+		console.log("độ K là : "+testTemperature.convertToK());
+	</script>
+</body>
+</html>	

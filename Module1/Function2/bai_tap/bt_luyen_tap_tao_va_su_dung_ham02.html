@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- bài 1 -->
+	<p>bài 1</p>
+	<form action="" method="GET">
+		<input type="number" name="nb1" id="nb1">
+		<input type="button" name="getnb1" id="getnb1" value="bình phương" onclick="binhphuong(window.nb1.value)">
+	</form>
+
+	<!-- bài 2 -->
+	<hr>
+	<p>bài 2</p>
+	<form action="" method="GET">
+		<input type="number" name="bk1" id="bk1">
+		<input type="button" name="getbk1" id="getbk1" value="tính diện tích" onclick="dientich(window.bk1.value)">
+		<input type="button" name="getbk1" id="getbk1" value="tính chu vi" onclick="chuvi(window.bk1.value)">
+	</form>
+
+	<!-- bài 3 -->
+	<hr>
+	<p>bài 3</p>
+	<form action="" method="GET">
+		<input type="number" name="gt1" id="gt1">
+		<input type="button" name="getgt1" id="getgt1" value="tính giai thừa" onclick="giaithua(window.gt1.value)">
+	</form>
+
+	<!-- bài 4 -->
+	<hr>
+	<p>bài 4</p>
+	<input type="" name="checknb" id="checknb">
+	<input type="button" name="" id="" onclick="checknumber(window.checknb.value)" value="check">
+
+	<!-- bài 5 -->
+	<hr>
+	<p>bài 5</p>
+	<input type="number" name="tsa" id="tsa">
+	<input type="number" name="tsb" id="tsb">
+	<input type="number" name="tsc" id="tsc">
+	<input type="button" name="timmin" id="timmin" onclick="minso((window.tsa.value),(window.tsb.value),(window.tsc.value));" value="số nhỏ nhất">
+
+	<!-- bài 8 -->
+	<hr>
+	<p>bài 8</p>
+	<input type="number" name="mangdao" id="mangdao">
+	<input type="button" name="daoarr" id="daoarr" onclick="setmang(window.mangdao.value)" value="thực thi">
+
+	<script type="text/javascript">
+		// bài 1
+		function binhphuong(bp) {
+			var epbp = parseInt(bp);
+			var setbp1 = epbp * epbp;
+			document.getElementById('nb1').value = setbp1;
+		}
+
+		// bài 2
+		function dientich(rdt) {
+			var eprdt = parseInt(rdt);
+			var setrdt1 = (eprdt * eprdt) * Math.PI;
+			document.getElementById('bk1').value = setrdt1;
+		}
+		function chuvi(rcv) {
+			var eprcv = parseInt(rcv);
+			var setrcv1 = 2* eprcv * Math.PI;
+			document.getElementById('bk1').value = setrcv1;
+		}
+
+		// bài 3
+		function giaithua(gt) {
+            let resultgt=1
+            for (let i=1;i<=gt;i++) {
+                resultgt = resultgt*i;
+            }
+            // return resultgt;
+            document.getElementById('gt1').value = resultgt;
+        }
+
+        // bài 4
+        function checknumber(cnb) {
+            // return(isNaN(cnb))
+            if (!isNaN(cnb)) {
+            	alert('là số');
+            }else {
+            	alert('không phải số');
+            }
+        }
+
+        // bài 5
+        function minso(a1,b1,c1) {
+        	let a = parseInt(a1);
+        	let b = parseInt(b1);
+        	let c = parseInt(c1);
+            let mini = a;
+            if (mini>b) {
+                mini = b
+            } 
+            if (mini>c){
+                mini = c
+            }
+            alert(mini);
+        }
+
+        // bài 6
+        function swapArr(mang) {
+            alert(mang.reverse());
+        }
+
+		function setmang(spt) {
+			var epspt = parseInt(spt);
+			var arrdao = [];
+			for (var i = 0; i < epspt; i++) {
+				arrdao[i] = prompt("nhập phần tử thứ " + (i+1));		
+			}
+			return swapArr(arrdao);
+		}
+
+	</script>
+</body>
+</html>	
