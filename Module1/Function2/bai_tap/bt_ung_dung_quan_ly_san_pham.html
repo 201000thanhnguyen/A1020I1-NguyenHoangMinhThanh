@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    table tr th {
+        min-width: 100px;
+    }
+    </style>
+</head>
+
+<body>
+	<input type="button" name="" onclick="addSp()" value="thêm sản phẩm">
+    <script type="text/javascript">
+    var arrSp = ['apple', 'samsung', 'nokia'];
+    showSp();
+
+    function showSp() {
+        document.write('<table border="1">\n' +
+            '\t\t<tr>\n' +
+            '\t\t\t<th>stt</th>\n' +
+            '\t\t\t<th>name</th>\n' +
+            '\t\t\t<th>delete</th>\n' +
+            '\t\t\t<th>fix</th>\n' +
+            '\t\t</tr>');
+        for (var i = 0; i < arrSp.length; i++) {
+            document.write('<tr>\n' +
+                '            <td>'+(i+1)+'</td>\n' +
+                '            <td>'+arrSp[i]+'</td>\n' +
+                '            <td><input type="button" name="" id="" onclick="deleteSp('+i+')" value="delete"></td>\n' +
+                '            <td><input type="button" name="" id="" onclick="fixSp('+i+')" value="fix"></td>\n' +
+                '        </tr>');
+        }
+
+        document.write('</table>');
+    }
+
+    function deleteSp(tsXoa) {
+        arrSp.splice(tsXoa, 1);
+        showSp();
+    }
+
+    function fixSp(tsFix) {
+        var newNameSp = prompt("nhập tên sản phẩm : ");
+        if (newNameSp!=null && newNameSp!="") {
+        	arrSp[tsFix]=newNameSp;
+        } 
+
+        showSp();
+    }
+
+    function addSp() {
+    	var nameSpNew = prompt('nhập tên sản phẩm : ');
+    	arrSp.push(nameSpNew);
+    	showSp();
+    }
+    </script>
+</body>
+
+</html>
