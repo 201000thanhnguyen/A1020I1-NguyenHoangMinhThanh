@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		let name;
+		let cmnd;
+		let birthday;
+		let email;
+		let address;
+		let typeService;
+		let typeRoom;
+		let typeCustomer;
+		let discount;
+		let quantityIncluded;
+		let rendDays;
+
+		name = prompt("input name:");
+		cmnd = prompt("input cmnd:");
+		birthday = prompt("input birthday:");
+		email = prompt("input email:");
+		address = prompt("input address:");
+		typeService = prompt("input typeService:");
+		typeRoom = prompt("input typeRoom:");
+		typeCustomer = prompt("input typeCustomer:");
+		discount = prompt("input discount:");
+		quantityIncluded = prompt("input quantityIncluded:");
+		rendDays = prompt("input rendDays:");
+
+		totalPay = 300*rendDays*(1-discount/100);
+
+		alert('name : '+name+'cmnd'+cmnd+'totalPay: '+totalPay);
+
+	</script>
+</body>
+</html>	

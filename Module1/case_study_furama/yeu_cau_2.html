@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		let name = 'thành';
+		let cmnd = '123';
+		let birthday = '10/20/2000';
+		let email = 'gmail@gmail.gmail';
+		let address = 'Đà Nẵng';
+		let typeService = 'villa';
+		let typeRoom = 'Vip';
+		let typeCustomer = 'Diamond';
+		let discount = 10;
+		let quantityIncluded = 10;
+		let rendDays = 7;
+		let totalPay;
+
+		let choose = prompt("1. Hiển thị thông tin khách hàng\n2. chỉnh sửa thông tin khách hàng\n3. hiển thị giá sau khi được giảm giá");
+
+		switch (choose) {
+			case "1":
+				alert('tên: '+name+'\n ngày sinh : '+birthday+'\n email : '+email+'\n');
+				break;
+			case "2":
+				let chooseEdit = prompt('1.tên: '+name+'\n 2.ngày sinh : '+birthday+'\n 3.email : '+email+'\n');
+
+				switch (chooseEdit) {
+					case "1":
+						name = prompt("change name: ");
+						break;
+					case "2":
+						birthday = prompt("change birthday: ");
+						break;
+					case "3":
+						email = prompt("change email: ");
+						break;
+					default:
+						alert('bạn hãy chọn các chức năng có trong trình đơn');
+						break;
+				}
+				alert('tên: '+name+'\n ngày sinh : '+birthday+'\n email : '+email+'\n');
+				break;
+				case "3":
+					let money = 0;
+					if (typeService == "villa") {
+						money = 500;
+					}else if (typeService == "house") {
+						money = 300;
+					}else {
+						money = 100;
+					}
+
+					let temp = 0;
+					if (address == 'Đà Nẵng') {
+						temp += 20;
+					}else if (address == 'Huế') {
+						temp += 10;
+					}else {
+						temp += 5;
+					}
+
+					if (rendDays>7) {
+						temp += 30;
+					}else if (rendDays >5) {
+						temp += 20;	
+					}else {
+						temp += 10;
+					}
+
+					alert('total pay: '+(money*rendDays-temp));
+					break;
+			default:
+				alert('failed');
+				break;
+		}
+	</script>
+</body>
+</html>		
