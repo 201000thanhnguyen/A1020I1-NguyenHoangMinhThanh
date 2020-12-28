@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		let arrListCT = [];
+		function displayMainMenu(){
+			let choose = parseInt(prompt(" 1. thêm mới customers \n 2. hiển thị thông tin customers \n 3. chỉnh sửa thông tin customers \n 4. xoá customers \n 5. thoát"));
+			switch (choose) {
+				case 1:
+					addNewCT();
+					break;
+				case 2:
+					displayCT();
+					break;
+				case 3:
+					editCT();
+					break;
+				case 4:
+					deleteCT();
+					break;
+				case 5:
+					
+					break;
+				default:
+					// statements_def
+					break;
+			}
+		}
+
+		function addNewCT(){
+
+			let cusInfo = [];
+
+			let name = prompt("input name:");
+			let cmnd = prompt("input cmnd:");
+			let birthday = prompt("input birthday:");
+			let email = prompt("input email:");
+			let address = prompt("input address:");
+			let typeService = prompt("input typeService:");
+			let typeRoom = prompt("input typeRoom:");
+			let typeCustomer = prompt("input typeCustomer:");
+			let discount = prompt("input discount:");
+			let quantityIncluded = prompt("input quantityIncluded:");
+			let rendDays = prompt("input rendDays:");
+
+			cusInfo.push(name);
+			cusInfo.push(cmnd);
+			cusInfo.push(birthday);
+			cusInfo.push(email);
+			cusInfo.push(address);
+			cusInfo.push(typeService);
+			cusInfo.push(typeRoom);
+			cusInfo.push(typeCustomer);
+			cusInfo.push(discount);
+			cusInfo.push(quantityIncluded);
+			cusInfo.push(rendDays);
+
+			arrListCT.push(cusInfo);
+
+			displayMainMenu();
+		}
+
+		function displayCT(){
+			let temp = "";
+			let stt = 0;
+			for (var i = 0; i < arrListCT.length; i++) {
+				temp += stt++ +". "+ arrListCT[i][0] + "\n";
+			}
+			let chooseDisplay = parseInt(prompt(temp));
+			alert('tên: '+arrListCT[chooseDisplay][0]+'\n cmnd : '+arrListCT[chooseDisplay][1]+'\n email : '+arrListCT[chooseDisplay][3]+'\n');
+			displayMainMenu();
+		}
+
+		function editCT(){
+			let temp = "";
+			let stt = 0;
+			for (var i = 0; i < arrListCT.length; i++) {
+				temp += stt+". "+ arrListCT[i][0] + "\n";
+			}
+			let chooseDisplay = parseInt(prompt(temp));
+			let chooseEdit = prompt('1.tên: '+arrListCT[chooseDisplay][0]+'\n2. cmnd : '+arrListCT[chooseDisplay][1]+'\n3. email : '+arrListCT[chooseDisplay][3]+'\n');
+
+				switch (chooseEdit) {
+					case "1":
+						arrListCT[chooseDisplay][0] = prompt("change name: ");
+						break;
+					case "2":
+						arrListCT[chooseDisplay][1] = prompt("change cmnd: ");
+						break;
+					case "3":
+						arrListCT[chooseDisplay][3] = prompt("change email: ");
+						break;
+					default:
+						alert('bạn hãy chọn các chức năng có trong trình đơn');
+						break;
+				}
+				editCT();
+		}
+
+		function deleteCT(){
+			let temp = "";
+			let stt = 0;
+			for (var i = 0; i < arrListCT.length; i++) {
+				temp += stt++ +". "+ arrListCT[i][0] + "\n";
+			}
+			let chooseDelete = parseInt(prompt(temp));
+			let check = parseInt(prompt("bạn muốn xoá customers : \n1.Yes \n2.No"));
+			if (check == 1) {
+				arrListCT.splice(chooseDelete,1);
+			}else {
+				alert('yêu cầu không hợp lệ');
+			}
+
+			displayMainMenu();
+		}
+
+		displayMainMenu();
+	</script>
+</body>
+</html>	

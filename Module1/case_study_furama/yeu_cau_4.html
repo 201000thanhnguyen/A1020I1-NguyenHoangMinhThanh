@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		let arrNameCT = [];
+		while (true) {
+			let choose = parseInt(prompt("1. thêm mới customers \n 2. xoá customers"));
+			switch (choose) {
+				case 1: {
+					let numberR = parseInt(prompt("nhập số lượng cần thêm customers : "));
+					for (var i = 0; i < numberR; i++) {
+						let nameCustomer = prompt("tên của customers : ");
+						arrNameCT.push(nameCustomer);
+					};
+					let ketQuaAddName = "";
+					arrNameCT.sort();
+					let stt = 1;
+					for (var j = 0; j < arrNameCT.length; j++) {
+						ketQuaAddName += stt++ +". "+arrNameCT[j]+"\n";
+					}
+					alert(ketQuaAddName);
+					break;
+				}
+				case 2 : {
+					let check = false;
+					let nameCustomer = prompt("bạn muốn xoá customers : ");
+					for (var i = 0; i < arrNameCT.length; i++) {
+						if (arrNameCT[i] == nameCustomer) {
+							arrNameCT.splice(i,1);
+							check = true;
+						}
+					}
+					if (!check) {
+						alert('tên vừa nhập không tồn tại');
+					}
+					let ketQuaAddName = "";
+					arrNameCT.sort();
+					let stt = 1;
+					for (var j = 0; j < arrNameCT.length; j++) {
+						ketQuaAddName += stt++ +". "+arrNameCT[j]+"\n";
+					}
+					alert(ketQuaAddName);
+				}
+				default:
+					// statements_def
+					break;
+			}
+		}
+	</script>
+</body>
+</html>	
