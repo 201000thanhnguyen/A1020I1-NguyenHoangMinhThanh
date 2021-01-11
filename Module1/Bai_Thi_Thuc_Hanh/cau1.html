@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		let mangSoNguyen = new Array(3);
+		for (var i = 0; i < mangSoNguyen.length; i++) {
+			mangSoNguyen[i] = parseInt(prompt('nhập vào phần tử thứ '+ i));
+		}
+
+		if (mangSoNguyen.length > 20) {
+			alert('mảng của bạn lớn hơn 20 phần tử');
+		}else {
+			for (var i = 0; i < mangSoNguyen.length; i++) {
+				if (isNaN(mangSoNguyen[i])) {
+					// alert('mảng không hợp lệ');
+					break;
+				}else {	
+					// alert('mảng hợp lệ');
+				}
+			}
+		}
+
+		for (var j = 0; j < mangSoNguyen.length; j++) {
+			if (mangSoNguyen[j] % 3 == 0 && mangSoNguyen[j] % 5 == 0) {
+				alert('số : '+mangSoNguyen[j]+' là bội chung của 3 và 5');
+			}
+		}
+
+		console.log(mangSoNguyen);
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    class KhachHang {
+        constructor(maKhachHang, tenKhachHang, soDienThoai, diaChi, email) {
+            this.maKhachHang = maKhachHang;
+            this.tenKhachHang = tenKhachHang;
+            this.soDienThoai = soDienThoai;
+            this.diaChi = diaChi;
+            this.email = email;
+        }
+        setMa(maKhachHang) {
+            this.maKhachHang = maKhachHang;
+        }
+        getMa() {
+            return this.maKhachHang
+        }
+        setTen(tenKhachHang) {
+            this.tenKhachHang = tenKhachHang;
+        }
+        getTen() {
+            return this.tenKhachHang
+        }
+        setsoDienThoai(soDienThoai) {
+            this.soDienThoai = soDienThoai;
+        }
+        getsoDienThoai() {
+            return this.soDienThoai;
+        }
+        setdiaChi(diaChi) {
+            this.diaChi = diaChi;
+        }
+        getdiaChi() {
+            return this.diaChi;
+        }
+        setEmail(email) {
+            this.email = email;
+        }
+        getEmail() {
+            return this.email;
+        }
+    }
+    let danhSachKhachHang = [];
+
+    function hienThiDanhSach() {
+        let choose = parseInt(prompt("1. thêm mới khách hàng." + "\n" +
+            "2. hiển thị thông tin khách hàng."));
+        switch (choose) {
+            case 1:
+                themMoiKhachHang();
+                break;
+            case 2:
+                hienThiKhachHang();
+                break;
+            default:
+                alert("thất bại")
+        }
+    }
+
+    function themMoiKhachHang() {
+        let cus = new KhachHang();
+        let maKhachHang = prompt("Nhập mã khách hàng");
+        let tenKhachHang = prompt("Nhập tên khách hàng");
+        let soDienThoai = prompt("Nhập số điện thoại khách hàng")
+        let email = prompt("Nhập email khách hàng");
+        let diaChi = prompt("Nhap dia chi");
+        cus.setMa(maKhachHang);
+        cus.setTen(tenKhachHang);
+        cus.setsoDienThoai(soDienThoai);
+        cus.setEmail(email);
+        cus.setdiaChi(diaChi);
+        danhSachKhachHang.push(cus);
+        alert("Ban da them thanh cong ")
+        hienThiDanhSach();
+    }
+
+    function hienThiKhachHang() {
+        let temp = "";
+        for (let i = 0; i < danhSachKhachHang.length; i++) {
+            temp += i + ". Name: " + danhSachKhachHang[i].getTen() + "\n";
+        }
+        let chon = parseInt(prompt(temp));
+        alert(
+            "Mã khách hàng: " + danhSachKhachHang[chon].getMa() + "\n" +
+            "Tên khách hàng: " + danhSachKhachHang[chon].getTen() + "\n" +
+            "số phone khách hàng: " + danhSachKhachHang[chon].getsoDienThoai() + "\n" +
+            "Email khách hàng: " + danhSachKhachHang[chon].getEmail() + "\n" +
+            "Địa chỉ khách hàng: " + danhSachKhachHang[chon].getdiaChi());
+        hienThiDanhSach();
+    }
+    hienThiDanhSach();
+    </script>
+</body>
+
+</html>

@@ -65,20 +65,20 @@
 
 		do{
 			countAt = 0;
-			countDoc = 0;
+			countDot = 0;
 			email = prompt("input email:");
 			for (var i = 0; i < email.length; i++) {
 				if (email.charAt(i)=="@") {
 					countAt++;
 					for (var j = i+1; j < email.length; j++) {
 						if (email.charAt(j)==".") {
-							countDoc++;
+							countDot++;
 						}
 					}
 				}
 			}
 
-			if (countAt!=1 || countDoc<1) {
+			if (countAt!=1 || countDot<1) {
 				alert('email không đúng định dạng');
 			}else {
 				check=true;

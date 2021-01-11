@@ -1,2 +1,3 @@
-var date = new Date();
-console.log(date);
+var a = '1';
+a = parseInt(a);
+console.log(typeof(a));

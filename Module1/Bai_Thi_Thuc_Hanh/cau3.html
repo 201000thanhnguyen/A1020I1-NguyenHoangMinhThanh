@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		let mangN = [];
+		let mangKq = [];
+		let dem = 0;
+		let nhapNPt = parseInt(prompt('bạn muốn có bao nhiêu phần tử trong mảng : '));
+		for (var i = 0; i < nhapNPt; i++) {
+			mangN[i] = parseInt(prompt('nhập phần tử : '+i));
+		}
+		var k = parseInt(prompt('mời bạn nhập k : '));
+		for (var q = 0; q < mangN.length; q++) {
+			for (var j = mangN[q]; j < mangN.length; j++) {
+				// alert(mangN[q] + " + " + mangN[j] + " = " + eval(mangN[q] + mangN[j]) );
+				var tongCapMang = eval(mangN[q] + mangN[j]);
+				var cacCapMang = mangN[q] + "-" + mangN[j]
+				if (tongCapMang % k == 0) {
+					// alert(tongCapMang);
+					mangKq.push(cacCapMang)
+					dem += 1;
+				}
+			}
+		}
+		 alert('có '+dem+' cặp chia hết cho '+k);
+		 alert('các cặp chia hết cho '+k+' là : '+mangKq);
+	</script>
+</body>
+</html>	

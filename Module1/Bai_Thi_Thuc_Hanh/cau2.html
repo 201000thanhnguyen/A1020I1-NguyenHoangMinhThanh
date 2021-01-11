@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		let nhapDiem = parseInt(prompt('nhập điểm số của học sinh : '));
+		var lamTron = nhapDiem;
+		if (nhapDiem < 0 || nhapDiem > 100) {
+			alert('điểm không hợp lệ');
+		}else {
+			if (nhapDiem < 50) {
+				alert('học sinh này đã trượt');
+			}else {
+				for (var i = 1; i <= 5; i++) {
+					
+					if (lamTron % 5 == 0) {
+						break;
+					}
+					lamTron++;
+				}
+				if (lamTron - nhapDiem < 3) {
+					nhapDiem = lamTron;
+				}
+				alert('điểm là : '+nhapDiem);
+			}
+		}
+	</script>
+</body>
+</html>	
