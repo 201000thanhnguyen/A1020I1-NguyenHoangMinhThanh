@@ -1,11 +1,14 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class test {
     public static void main(String[] args) {
-        String stringArray[] = {"Hello ", " how", " are", " you", " welcome", " to", " Tutorialspoint"};
-        StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < stringArray.length; i++) {
-            sb.append(stringArray[i]);
-        }
-        String str = sb.toString();
-        System.out.println(str);
+        var a = 1;
+        int b = 2;
+        var c = "alo";
+        var d = true;
+        var e = 1.2f;
+        var f = 2L;
+        System.out.println((a + b)+c + d + e + f);
     }
 }
