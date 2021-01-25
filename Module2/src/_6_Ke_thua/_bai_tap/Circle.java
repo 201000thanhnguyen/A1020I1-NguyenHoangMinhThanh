@@ -1,8 +1,8 @@
 package _6_Ke_thua._bai_tap;
 
 public class Circle {
-    protected double radius;
-    protected String color;
+    private double radius;
+    private String color;
 
     public Circle(double radius) {
         this.radius = radius;
