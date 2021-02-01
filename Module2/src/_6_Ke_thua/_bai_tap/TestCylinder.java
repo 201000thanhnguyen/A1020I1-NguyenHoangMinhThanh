@@ -14,7 +14,5 @@ public class TestCylinder {
                 + " base area=" + c2.getArea()
                 + " volume=" + c2.getVolume());
 
-
-
     }
 }
