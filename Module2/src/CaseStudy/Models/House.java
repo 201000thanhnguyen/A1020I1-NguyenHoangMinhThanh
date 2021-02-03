@@ -47,18 +47,11 @@ public class House extends Services {
         this.soTang = soTang;
     }
 
+
     @Override
     public void showInfor() {
         System.out.println(
-                "Services{" +
-                        "tenDichVu='" + getTenDichVu() + '\'' +
-                        ", dienTichSuDung=" + getDienTichSuDung() +
-                        ", chiPhiThue=" + getChiPhiThue() +
-                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                        ", kieuThue='" + getKieuThue() + '\'' +
-                        ", id='" + getId() + '\'' +
-                        '}' +
-                        "\n\tHouse{" +
+                        "House{" +
                         "tieuChuanPhong='" + tieuChuanPhong + '\'' +
                         ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
                         ", soTang=" + soTang +

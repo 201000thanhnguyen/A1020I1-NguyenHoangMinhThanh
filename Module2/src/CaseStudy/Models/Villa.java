@@ -61,15 +61,7 @@ public class Villa extends Services {
     @Override
     public void showInfor() {
         System.out.println(
-                "Services{" +
-                        "tenDichVu='" + getTenDichVu() + '\'' +
-                        ", dienTichSuDung=" + getDienTichSuDung() +
-                        ", chiPhiThue=" + getChiPhiThue() +
-                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                        ", kieuThue='" + getKieuThue() + '\'' +
-                        ", id='" + getId() + '\'' +
-                        '}' +
-                        "\n\tVilla{" +
+                        "Villa{" +
                         "tieuChuanPhong='" + tieuChuanPhong + '\'' +
                         ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
                         ", dienTichHoBoi=" + dienTichHoBoi +
