@@ -1,4 +1,4 @@
-package CaseStudy.Models;
+package CaseStudy.Models.Models;
 
 public abstract class Services {
     private String tenDichVu;
@@ -67,6 +67,18 @@ public abstract class Services {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Services{" +
+                "tenDichVu='" + getTenDichVu() + '\'' +
+                ", dienTichSuDung=" + getDienTichSuDung() +
+                ", chiPhiThue=" + getChiPhiThue() +
+                ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
+                ", kieuThue='" + getKieuThue() + '\'' +
+                ", id='" + getId() + '\'' +
+                '}';
     }
 
     public abstract void showInfor();

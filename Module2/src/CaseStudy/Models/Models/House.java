@@ -1,4 +1,4 @@
-package CaseStudy.Models;
+package CaseStudy.Models.Models;
 
 public class House extends Services {
 
@@ -52,9 +52,15 @@ public class House extends Services {
     public void showInfor() {
         System.out.println(
                         "House{" +
-                        "tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                        ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
-                        ", soTang=" + soTang +
+                        "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
+                        ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
+                        ", soTang= " + soTang +
+                        ", tenDichVu='" + getTenDichVu() + '\'' +
+                        ", dienTichSuDung=" + getDienTichSuDung() +
+                        ", chiPhiThue=" + getChiPhiThue() +
+                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
+                        ", kieuThue='" + getKieuThue() + '\'' +
+                        ", id='" + getId() + '\'' +
                         '}');
     }
 

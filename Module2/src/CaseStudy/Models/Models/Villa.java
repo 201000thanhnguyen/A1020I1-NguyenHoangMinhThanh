@@ -1,4 +1,4 @@
-package CaseStudy.Models;
+package CaseStudy.Models.Models;
 
 public class Villa extends Services {
 
@@ -62,10 +62,16 @@ public class Villa extends Services {
     public void showInfor() {
         System.out.println(
                         "Villa{" +
-                        "tieuChuanPhong='" + tieuChuanPhong + '\'' +
-                        ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
-                        ", dienTichHoBoi=" + dienTichHoBoi +
-                        ", soTang=" + soTang +
+                        "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
+                        ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
+                        ", dienTichHoBoi= " + dienTichHoBoi +
+                        ", soTang= " + soTang +
+                        ", tenDichVu='" + getTenDichVu() + '\'' +
+                        ", dienTichSuDung=" + getDienTichSuDung() +
+                        ", chiPhiThue=" + getChiPhiThue() +
+                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
+                        ", kieuThue='" + getKieuThue() + '\'' +
+                        ", id='" + getId() + '\'' +
                         '}');
     }
 
