@@ -1,8 +1,9 @@
 package _8_CleanCode_and_Refactoring._thuc_hanh;
 
+import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CylinderTest {
     @Test

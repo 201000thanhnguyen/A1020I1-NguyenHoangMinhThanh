@@ -1,4 +1,4 @@
-package CaseStudy.Models.Models;
+package CaseStudy.Models;
 
 public class Room extends Services {
     private String dichVuMienPhiDiKem;

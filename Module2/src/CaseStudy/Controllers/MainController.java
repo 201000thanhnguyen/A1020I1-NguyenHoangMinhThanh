@@ -1,4 +1,4 @@
-package CaseStudy.Models.Controllers;
+package CaseStudy.Controllers;
 
 import java.util.Scanner;
 

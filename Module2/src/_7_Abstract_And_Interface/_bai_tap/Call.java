@@ -16,7 +16,7 @@ public class Call {
         list.add(resizeable1);
         list.add(resizeable2);
         list.add(resizeable3);
-
+        list.remove(1);
         Random random = new Random();
         for (var item: list) {
             if (item instanceof Circle){
