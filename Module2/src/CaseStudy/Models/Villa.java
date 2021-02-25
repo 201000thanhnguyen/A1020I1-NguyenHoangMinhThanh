@@ -75,4 +75,19 @@ public class Villa extends Services {
                         '}');
     }
 
+    @Override
+    public String toString() {
+        return "Villa{" +
+                "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
+                ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
+                ", dienTichHoBoi= " + dienTichHoBoi +
+                ", soTang= " + soTang +
+                ", tenDichVu='" + getTenDichVu() + '\'' +
+                ", dienTichSuDung=" + getDienTichSuDung() +
+                ", chiPhiThue=" + getChiPhiThue() +
+                ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
+                ", kieuThue='" + getKieuThue() + '\'' +
+                ", id='" + getId() + '\'' +
+                '}';
+    }
 }
