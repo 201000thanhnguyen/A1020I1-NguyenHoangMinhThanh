@@ -19,5 +19,6 @@ public class ReverseCharWithStack {
         String result = new String(charArrayNew);
 
         return result;
+
     }
 }
