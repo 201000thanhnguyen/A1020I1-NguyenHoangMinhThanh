@@ -1,34 +1,23 @@
 package _11_Stack_And_Queue._bai_tap;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class ReverseCharWithStack {
 
-    public static String reverseChar(String str) {
-        char[] charNew = str.toCharArray();
+    public static String ReverseString(String chuoi) {
+        char[] charArray = chuoi.toCharArray();
+        char[] charArrayNew = new char[charArray.length];
+
         Stack<Character> stackChar = new Stack<>();
-        for (int i = charNew.length-1; i >= 0; i--){
-            stackChar.push(charNew[i]);
-            for (int j = 0; j < charNew.length; j++){
-                if (j + i+1 == charNew.length){
-                    charNew[j] = stackChar.get(j);
-                }
-            }
+        for (int i = 0; i < charArray.length; i++){
+            stackChar.push(charArray[i]);
         }
-        return "chưa xong :V";
-    }
 
-    public static void main(String[] args) {
-        String chuoi = "a bc def";
-        char[] test_arr = chuoi.toCharArray();
+        for (int i = 0; i < charArray.length; i++){
+            charArrayNew[i] = stackChar.pop();
+        }
+        String result = new String(charArrayNew);
 
-        Stack<Character> stackChar = new Stack<>();
-
-
-
-        String a = new String(test_arr);
-        System.out.println(a);
-        System.out.println(Arrays.toString(test_arr));
+        return result;
     }
 }
