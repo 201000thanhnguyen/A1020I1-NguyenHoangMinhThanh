@@ -6,6 +6,7 @@ import java.util.Queue;
 public class PalindromeWithQueue {
 
     public static String isSymmetry(String str1) {
+        str1 = str1.toLowerCase();
         char[] arrChar1 = str1.toCharArray();
         char[] arrChar2 = new char[arrChar1.length];
         Queue<Character> characterQueue = new LinkedList<>();
