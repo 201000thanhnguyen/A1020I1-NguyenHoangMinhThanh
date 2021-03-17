@@ -33,6 +33,7 @@ public class MainController {
                     addNewServices();
                     break;
                 case 2:
+                    showServices();
                     break;
                 case 3:
                     break;
@@ -51,6 +52,7 @@ public class MainController {
         }while (!stop);
     }
 
+    // complete menu add new services
     public static void addNewServices(){
         Scanner scanner = new Scanner(System.in);
         int choose;
@@ -88,6 +90,7 @@ public class MainController {
         }while (!stop);
     }
 
+    // complete add new villa template
     public static void addNewVilla(){
         Scanner scanner = new Scanner(System.in);
         Villa villa = new Villa();
@@ -116,10 +119,23 @@ public class MainController {
         villa.setTieuChuanPhong(scanner.nextLine());
 
         try {
-            FileWriter fileWriter = new FileWriter("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\CaseStudy\\Data\\Villa.csv",false);
+            FileWriter fileWriter = new FileWriter("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\CaseStudy\\Data\\Villa.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             System.out.println(villa.toString());
-            bufferedWriter.write(villa.toString());
+            bufferedWriter.write(
+                    villa.getId()+";"+
+                    villa.getKieuThue()+";"+
+                    villa.getSoLuongNguoiToiDa()+";"+
+                    villa.getChiPhiThue()+";"+
+                    villa.getDienTichSuDung()+";"+
+                    villa.getTenDichVu()+";"+
+                    villa.getSoTang()+";"+
+                    villa.getDienTichHoBoi()+";"+
+                    villa.getMoTaTienNghiKhac()+";"+
+                    villa.getTieuChuanPhong()+";"+
+                    villa.getKieuThue());
+            bufferedWriter.newLine();
+
             bufferedWriter.flush();
             bufferedWriter.close();
             fileWriter.close();
@@ -129,7 +145,84 @@ public class MainController {
     }
 
     public static void showServices(){
-        System.out.println("showServices()");
+        Scanner scanner = new Scanner(System.in);
+        int choose;
+        boolean exit = false;
+        do {
+            System.out.println(
+                    "1.\tShow all Villa\n" +
+                    "2.\tShow all House\n" +
+                    "3.\tShow all Room\n" +
+                    "4.\tShow All Name Villa Not Duplicate\n" +
+                    "5.\tShow All Name House Not Duplicate\n" +
+                    "6.\tShow All Name Name Not Duplicate\n" +
+                    "7.\tBack to menu\n" +
+                    "8.\tExit\n"
+            );
+            System.out.print("moi ban chon menu : ");
+            choose = scanner.nextInt();
+            switch (choose){
+                case 1:
+                    showAllVilla();
+                    break;
+                case 2:
+                    System.out.println("chua co");
+                    break;
+                case 3:
+                    System.out.println("chua co");
+                    break;
+                case 4:
+                    System.out.println("chua co");
+                    break;
+                case 5:
+                    System.out.println("chua co");
+                    break;
+                case 6:
+                    System.out.println("chua co");
+                    break;
+                case 7:
+                    displayMainMenu();
+                    break;
+                case 8:
+                    stop = true;
+                    break;
+                default:
+                    break;
+            }
+        }while (!stop);
+    }
+
+    public static void showAllVilla(){
+        try {
+            FileReader fileReader = new FileReader("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\CaseStudy\\Data\\Villa.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line = "";
+            String[] lineString = null;
+            while (true){
+                line = bufferedReader.readLine();
+                if (line == null) {
+                    break;
+                }
+                lineString = line.split(";");
+                System.out.print(lineString[0]);
+                System.out.print(lineString[1]);
+                System.out.print(lineString[2]);
+                System.out.print(lineString[3]);
+                System.out.print(lineString[4]);
+                System.out.print(lineString[5]);
+                System.out.print(lineString[6]);
+                System.out.print(lineString[7]);
+                System.out.print(lineString[8]);
+                System.out.print(lineString[9]);
+                System.out.println(lineString[10]);
+
+            }
+            fileReader.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

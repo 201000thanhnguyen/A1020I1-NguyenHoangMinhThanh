@@ -7,7 +7,7 @@ public class Villa extends Services {
     private double dienTichHoBoi;
     private int soTang;
 
-    public Villa(){
+    public Villa() {
 
     }
 
@@ -61,33 +61,18 @@ public class Villa extends Services {
     @Override
     public void showInfor() {
         System.out.println(
-                        "Villa{" +
-                        "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
-                        ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
-                        ", dienTichHoBoi= " + dienTichHoBoi +
-                        ", soTang= " + soTang +
-                        ", tenDichVu='" + getTenDichVu() + '\'' +
-                        ", dienTichSuDung=" + getDienTichSuDung() +
-                        ", chiPhiThue=" + getChiPhiThue() +
-                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                        ", kieuThue='" + getKieuThue() + '\'' +
-                        ", id='" + getId() + '\'' +
-                        '}');
-    }
+                "Villa{" +
+                    ", id='" + getId() + '\'' +
+                    ", kieuThue='" + getKieuThue() + '\'' +
+                    ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
+                    ", chiPhiThue=" + getChiPhiThue() +
+                    ", dienTichSuDung=" + getDienTichSuDung() +
+                    ", tenDichVu='" + getTenDichVu() + '\'' +
+                    ", soTang= " + soTang +
+                    ", dienTichHoBoi= " + dienTichHoBoi +
+                    ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
+                    "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
+                    '}');
+}
 
-    @Override
-    public String toString() {
-        return "Villa{" +
-                "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
-                ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
-                ", dienTichHoBoi= " + dienTichHoBoi +
-                ", soTang= " + soTang +
-                ", tenDichVu='" + getTenDichVu() + '\'' +
-                ", dienTichSuDung=" + getDienTichSuDung() +
-                ", chiPhiThue=" + getChiPhiThue() +
-                ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                ", kieuThue='" + getKieuThue() + '\'' +
-                ", id='" + getId() + '\'' +
-                '}';
-    }
 }
