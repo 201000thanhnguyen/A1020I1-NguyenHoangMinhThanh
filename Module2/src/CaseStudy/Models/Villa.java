@@ -71,7 +71,7 @@ public class Villa extends Services {
                     ", soTang= " + soTang +
                     ", dienTichHoBoi= " + dienTichHoBoi +
                     ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
-                    "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
+                    ", tieuChuanPhong= '" + tieuChuanPhong + '\'' +
                     '}');
 }
 

@@ -199,24 +199,26 @@ public class MainController {
 
             String line = "";
             String[] lineString = null;
+            int stt = 1;
             while (true){
                 line = bufferedReader.readLine();
                 if (line == null) {
                     break;
                 }
                 lineString = line.split(";");
-                System.out.print(lineString[0]);
-                System.out.print(lineString[1]);
-                System.out.print(lineString[2]);
-                System.out.print(lineString[3]);
-                System.out.print(lineString[4]);
-                System.out.print(lineString[5]);
-                System.out.print(lineString[6]);
-                System.out.print(lineString[7]);
-                System.out.print(lineString[8]);
-                System.out.print(lineString[9]);
-                System.out.println(lineString[10]);
+                System.out.print("stt "+stt+" - ");
+                System.out.print(" id : "+lineString[0]);
+                System.out.print(", kieu thue : "+lineString[1]);
+                System.out.print(", so luong nguoi toi da : "+lineString[2]);
+                System.out.print(", chi phi thue : "+lineString[3]);
+                System.out.print(", dien tich su dung : "+lineString[4]);
+                System.out.print("\n\t ten dich vu : "+lineString[5]);
+                System.out.print(", so tang : "+lineString[6]);
+                System.out.print(", dien tich ho boi : "+lineString[7]);
+                System.out.print(", mo ta tien nghi khac : "+lineString[8]);
+                System.out.print(", tieu chuan phong : "+lineString[9]+"\n");
 
+                stt++;
             }
             fileReader.close();
             bufferedReader.close();
