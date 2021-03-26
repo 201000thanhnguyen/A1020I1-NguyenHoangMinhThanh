@@ -1,25 +1,16 @@
 package CaseStudy.Models;
 
 public class Villa extends Services {
-
     private String tieuChuanPhong;
     private String moTaTienNghiKhac;
-    private double dienTichHoBoi;
+    private int dienTichHoBoi;
     private int soTang;
 
     public Villa() {
-
     }
 
-    public Villa(String tieuChuanPhong, String moTaTienNghiKhac, double dienTichHoBoi, int soTang) {
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.moTaTienNghiKhac = moTaTienNghiKhac;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
-    }
-
-    public Villa(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue, String id, String tieuChuanPhong, String moTaTienNghiKhac, double dienTichHoBoi, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue, id);
+    public Villa(String id, String tenDichVu, int dienTichSuDung, int chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, int dienTichHoBoi, int soTang) {
+        super(id, tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dienTichHoBoi = dienTichHoBoi;
@@ -42,11 +33,11 @@ public class Villa extends Services {
         this.moTaTienNghiKhac = moTaTienNghiKhac;
     }
 
-    public double getDienTichHoBoi() {
+    public int getDienTichHoBoi() {
         return dienTichHoBoi;
     }
 
-    public void setDienTichHoBoi(double dienTichHoBoi) {
+    public void setDienTichHoBoi(int dienTichHoBoi) {
         this.dienTichHoBoi = dienTichHoBoi;
     }
 
@@ -61,18 +52,30 @@ public class Villa extends Services {
     @Override
     public void showInfor() {
         System.out.println(
-                "Villa{" +
-                    ", id='" + getId() + '\'' +
-                    ", kieuThue='" + getKieuThue() + '\'' +
-                    ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                    ", chiPhiThue=" + getChiPhiThue() +
-                    ", dienTichSuDung=" + getDienTichSuDung() +
-                    ", tenDichVu='" + getTenDichVu() + '\'' +
-                    ", soTang= " + soTang +
-                    ", dienTichHoBoi= " + dienTichHoBoi +
-                    ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
-                    ", tieuChuanPhong= '" + tieuChuanPhong + '\'' +
-                    '}');
-}
+                "\nId: " + getId() +
+                "\nTên dịch vụ: " + getTenDichVu() +
+                "\nDiện tích sử dụng: " + getDienTichSuDung() +
+                "\nChi phí thuê: " + getChiPhiThue() +
+                "\nSố lượng người tối đa: " + getSoLuongNguoi() +
+                "\nKiểu thuê: " + getKieuThue() +
+                "\nTiêu chuẩn phòng: " + getTieuChuanPhong() +
+                "\nMô tả tiện nghi khác: " + getMoTaTienNghiKhac() +
+                "\nDiện tích hồ bơi " + getDienTichHoBoi() +
+                "\nSố tầng: " + getSoTang());
+    }
+
+    @Override
+    public String toString() {
+        return "\n\tId: " + getId() +
+                "\n\tTên dịch vụ: " + getTenDichVu() +
+                "\n\tDiện tích sử dụng: " + getDienTichSuDung() +
+                "\n\tChi phí thuê: " + getChiPhiThue() +
+                "\n\tSố lượng người tối đa: " + getSoLuongNguoi() +
+                "\n\tKiểu thuê: " + getKieuThue() +
+                "\n\tTiêu chuẩn phòng: " + getTieuChuanPhong() +
+                "\n\tMô tả tiện nghi khác: " + getMoTaTienNghiKhac() +
+                "\n\tDiện tích hồ bơi " + getDienTichHoBoi() +
+                "\n\tSố tầng: " + getSoTang();
+    }
 
 }

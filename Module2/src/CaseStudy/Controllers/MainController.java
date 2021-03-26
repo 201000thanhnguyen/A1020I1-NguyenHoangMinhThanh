@@ -1,34 +1,33 @@
 package CaseStudy.Controllers;
 
-import CaseStudy.Models.Villa;
+import CaseStudy.Manager.*;
+import CaseStudy.Models.*;
+import CaseStudy.Commons.*;
 
-import java.io.*;
-import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class MainController {
-
-    private static boolean stop = false;
-
-    public static void displayMainMenu(){
-
-        Scanner scanner = new Scanner(System.in);
-
-        int choose;
-        boolean exit = false;
+    private static void displayMainMenu(){
+        Scanner sc = new Scanner(System.in);
+        int chooseMenu;
         do {
-            System.out.println(
-                    "1.\tAdd New Services\n" +
-                    "2.\tShow Services\n" +
-                    "3.\tAdd New Customer\n" +
-                    "4.\tShow Information of Customer\n" +
-                    "5.\tAdd New Booking\n" +
-                    "6.\tShow Information of Employee\n" +
-                    "7.\tExit\n"
-            );
-            System.out.print("moi ban chon menu : ");
-            choose = scanner.nextInt();
-            switch (choose){
+            System.out.println("-----------------------------");
+            System.out.println("1. Add New Services");
+            System.out.println("2. Show Services");
+            System.out.println("3. Add New Customer");
+            System.out.println("4. Show Information of Customer");
+            System.out.println("5. Add New Booking");
+            System.out.println("6. Show Information of Employee");
+            System.out.println("7. Search Employee");
+            System.out.println("8. Show Queue of Customer");
+            System.out.println("9. Exit");
+            System.out.print("Choose: ");
+            chooseMenu = Integer.parseInt(sc.nextLine());
+
+            switch (chooseMenu){
                 case 1:
                     addNewServices();
                     break;
@@ -36,195 +35,198 @@ public class MainController {
                     showServices();
                     break;
                 case 3:
+                    CustomerManager.addNewCustomer();
                     break;
                 case 4:
+                    CustomerManager.showInformationCustomer();
                     break;
                 case 5:
+                    addNewBooking();
                     break;
                 case 6:
+                    EmployeeManager.showEmployee();
                     break;
                 case 7:
-                    stop = true;
+                    EmployeeManager.searchEmployee();
                     break;
-                default:
+                case 8:
+                    showQueueOfCustomer();
                     break;
+                case 9:
+                    System.out.println("Đã thoát!");
+                    System.exit(0);
             }
-        }while (!stop);
+        }while (chooseMenu != 0);
     }
-
-    // complete menu add new services
-    public static void addNewServices(){
-        Scanner scanner = new Scanner(System.in);
-        int choose;
-        boolean exit = false;
+    
+    private static void addNewServices(){
+        Scanner sc = new Scanner(System.in);
+        int chooseServices;
         do {
-            System.out.println(
-                    "1.\tAdd New Villa\n" +
-                    "2.\tAdd New House\n" +
-                    "3.\tAdd New Room\n" +
-                    "4.\tBack to menu\n" +
-                    "5.\tExit\n"
-            );
-            System.out.print("moi ban chon menu : ");
-            choose = scanner.nextInt();
-            switch (choose){
+            System.out.println("-----------------------------");
+            System.out.println("1. Add New Villa");
+            System.out.println("2. Add New House");
+            System.out.println("3. Add New Room");
+            System.out.println("4. Back to menu");
+            System.out.println("5. Exit");
+            System.out.print("Choose: ");
+            chooseServices = Integer.parseInt(sc.nextLine());
+
+            switch (chooseServices){
                 case 1:
-                    System.out.println("add new villa");
-                    addNewVilla();
+                    VillaManager.addNewVilla();
                     break;
                 case 2:
-                    System.out.println("add new house");
+                    HouseManager.addNewHouse();
                     break;
                 case 3:
-                    System.out.println("add new room");
+                    RoomManager.addNewRoom();
                     break;
                 case 4:
                     displayMainMenu();
                     break;
                 case 5:
-                    stop = true;
-                    break;
-                default:
-                    break;
+                    System.out.println("Đã thoát!");
+                    System.exit(0);
             }
-        }while (!stop);
-    }
-
-    // complete add new villa template
-    public static void addNewVilla(){
-        Scanner scanner = new Scanner(System.in);
-        Villa villa = new Villa();
-        villa.showInfor();
-        System.out.print("nhap id cho villa: ");
-        villa.setId(scanner.nextLine());
-        System.out.print("nhap kieu thue cho villa: ");
-        villa.setKieuThue(scanner.nextLine());
-        System.out.print("nhap so luong nguoi toi da cho villa: ");
-        villa.setSoLuongNguoiToiDa(scanner.nextInt());
-        System.out.print("nhap chi phi thue cho villa: ");
-        villa.setChiPhiThue(scanner.nextDouble());
-        System.out.print("nhap dien tich su dung cho villa: ");
-        villa.setDienTichSuDung(scanner.nextDouble());
-        System.out.print("nhap ten dich vu cho villa: ");
-        scanner.skip("\\R");
-        villa.setTenDichVu(scanner.nextLine());
-        System.out.print("nhap so tang cho villa: ");
-        villa.setSoTang(scanner.nextInt());
-        System.out.print("nhap dien tich ho boi cho villa: ");
-        villa.setDienTichHoBoi(scanner.nextDouble());
-        System.out.print("nhap mo ta tien nghi khac cho villa: ");
-        scanner.skip("\\R");
-        villa.setMoTaTienNghiKhac(scanner.nextLine());
-        System.out.print("nhap tieuu chuan phong cho villa: ");
-        villa.setTieuChuanPhong(scanner.nextLine());
-
-        try {
-            FileWriter fileWriter = new FileWriter("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\CaseStudy\\Data\\Villa.csv",true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            System.out.println(villa.toString());
-            bufferedWriter.write(
-                    villa.getId()+";"+
-                    villa.getKieuThue()+";"+
-                    villa.getSoLuongNguoiToiDa()+";"+
-                    villa.getChiPhiThue()+";"+
-                    villa.getDienTichSuDung()+";"+
-                    villa.getTenDichVu()+";"+
-                    villa.getSoTang()+";"+
-                    villa.getDienTichHoBoi()+";"+
-                    villa.getMoTaTienNghiKhac()+";"+
-                    villa.getTieuChuanPhong()+";"+
-                    villa.getKieuThue());
-            bufferedWriter.newLine();
-
-            bufferedWriter.flush();
-            bufferedWriter.close();
-            fileWriter.close();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+        }while (chooseServices != 0);
     }
 
     public static void showServices(){
-        Scanner scanner = new Scanner(System.in);
-        int choose;
-        boolean exit = false;
+        Scanner sc = new Scanner(System.in);
+        int chooseServices;
         do {
-            System.out.println(
-                    "1.\tShow all Villa\n" +
-                    "2.\tShow all House\n" +
-                    "3.\tShow all Room\n" +
-                    "4.\tShow All Name Villa Not Duplicate\n" +
-                    "5.\tShow All Name House Not Duplicate\n" +
-                    "6.\tShow All Name Name Not Duplicate\n" +
-                    "7.\tBack to menu\n" +
-                    "8.\tExit\n"
-            );
-            System.out.print("moi ban chon menu : ");
-            choose = scanner.nextInt();
-            switch (choose){
+            System.out.println("-----------------------------");
+            System.out.println("1. Show all Villa");
+            System.out.println("2. Show all House");
+            System.out.println("3. Show all Room");
+            System.out.println("4. Show all Name Villa Not Duplicate");
+            System.out.println("5. Show all Name House Not Duplicate");
+            System.out.println("6. Show all Name Room Not Duplicate");
+            System.out.println("7. Back to menu");
+            System.out.println("8. Exit");
+            System.out.print("Choose: ");
+            chooseServices = sc.nextInt();
+
+            switch (chooseServices){
                 case 1:
-                    showAllVilla();
+                    VillaManager.showVillaList();
                     break;
                 case 2:
-                    System.out.println("chua co");
+                    HouseManager.showHouseList();
                     break;
                 case 3:
-                    System.out.println("chua co");
+                    RoomManager.showRoomList();
                     break;
                 case 4:
-                    System.out.println("chua co");
+                    FileUtils.readNameFileVilla();
                     break;
                 case 5:
-                    System.out.println("chua co");
+                    FileUtils.readNameFileHouse();
                     break;
                 case 6:
-                    System.out.println("chua co");
+                    FileUtils.readNameFileRoom();
                     break;
                 case 7:
                     displayMainMenu();
                     break;
                 case 8:
-                    stop = true;
-                    break;
-                default:
-                    break;
+                    System.out.println("Đã thoát!");
+                    System.exit(0);
             }
-        }while (!stop);
+        }while (chooseServices != 0);
     }
 
-    public static void showAllVilla(){
-        try {
-            FileReader fileReader = new FileReader("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\CaseStudy\\Data\\Villa.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+    public static void addNewBooking(){
+        Scanner sc = new Scanner(System.in);
+        List<Customer> customerList = FileUtils.readFileCustomer();
+        CustomerManager.showInformationCustomer();
+        System.out.println("Chọn customer: ");
+        int chooseCus = Integer.parseInt(sc.nextLine());
+        List<Villa> villaList = null;
+        List<House> houseList = null;
+        List<Room> roomList = null;
+        String line;
 
-            String line = "";
-            String[] lineString = null;
-            int stt = 1;
-            while (true){
-                line = bufferedReader.readLine();
-                if (line == null) {
+        Customer customer = customerList.get(chooseCus);
+        line = customer.getNameCus() + ", " + customer.getBirthdayCus() + ", " + customer.getGenderCus() + ", " +
+                customer.getIdCardCus() + ", " + customer.getPhoneCus() + ", " + customer.getEmailCus() + ", " +
+                customer.getTypeCus() + ", " + customer.getAddressCus() + ", ";
+        FileUtils.writeFile("src/Data/Booking.csv", line);
+
+        do {
+            System.out.println("-----------------------------");
+            System.out.println("1. Booking Villa");
+            System.out.println("2. Booking House");
+            System.out.println("3. Booking Room");
+            System.out.println("4. Back to menu");
+            System.out.println("5. Exit");
+            System.out.print("Choose: ");
+            int chooseBooking = Integer.parseInt(sc.nextLine());
+
+            switch (chooseBooking){
+                case 1:
+                    villaList = FileUtils.readFileVilla();
+                    VillaManager.showVillaList();
+                    System.out.println("Chọn villa cần book: ");
+                    int chooseVilla = Integer.parseInt(sc.nextLine());
+                    Villa villa = villaList.get(chooseVilla - 1);
+                    line = villa.getId() + ", " + villa.getTenDichVu() + ", " + villa.getDienTichSuDung() + ", " +
+                            villa.getChiPhiThue() + ", " + villa.getSoLuongNguoi() + ", " + villa.getKieuThue() + ", " +
+                            villa.getTieuChuanPhong() + ", " + villa.getMoTaTienNghiKhac() + ", " +
+                            villa.getDienTichHoBoi() + ", " + villa.getSoTang();
+                    FileUtils.writeFileBooking("src/Data/Booking.csv", line);
                     break;
-                }
-                lineString = line.split(";");
-                System.out.print("stt "+stt+" - ");
-                System.out.print(" id : "+lineString[0]);
-                System.out.print(", kieu thue : "+lineString[1]);
-                System.out.print(", so luong nguoi toi da : "+lineString[2]);
-                System.out.print(", chi phi thue : "+lineString[3]);
-                System.out.print(", dien tich su dung : "+lineString[4]);
-                System.out.print("\n\t ten dich vu : "+lineString[5]);
-                System.out.print(", so tang : "+lineString[6]);
-                System.out.print(", dien tich ho boi : "+lineString[7]);
-                System.out.print(", mo ta tien nghi khac : "+lineString[8]);
-                System.out.print(", tieu chuan phong : "+lineString[9]+"\n");
-
-                stt++;
+                case 2:
+                    houseList = FileUtils.readFileHouse();
+                    HouseManager.showHouseList();
+                    System.out.println("Chọn villa cần book: ");
+                    int chooseHouse = Integer.parseInt(sc.nextLine());
+                    House house = houseList.get(chooseHouse - 1);
+                    line = house.getId() + ", " + house.getTenDichVu() + ", " + house.getDienTichSuDung() + ", " +
+                            house.getChiPhiThue() + ", " + house.getSoLuongNguoi() + ", " + house.getKieuThue() + ", " +
+                            house.getMoTaTienNghiKhac() + ", " + house.getTieuChuanPhong() + ", " + house.getSoTang();
+                    FileUtils.writeFileBooking("src/Data/Booking.csv", line);
+                    break;
+                case 3:
+                    roomList = FileUtils.readFileRoom();
+                    RoomManager.showRoomList();
+                    System.out.println("Chọn villa cần book: ");
+                    int chooseRoom = Integer.parseInt(sc.nextLine());
+                    Room room = roomList.get(chooseRoom - 1);
+                    line = room.getId() + ", " + room.getTenDichVu() + ", " + room.getDienTichSuDung() + ", " +
+                            room.getChiPhiThue() + ", " + room.getSoLuongNguoi() + ", " + room.getKieuThue() + ", " +
+                            room.getDichVuMienPhiDiKem();
+                    FileUtils.writeFileBooking("src/Data/Booking.csv", line);
+                    break;
+                case 4:
+                    displayMainMenu();
+                    break;
+                case 5:
+                    System.out.println("Đã thoát!");
+                    System.exit(0);
             }
-            fileReader.close();
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        }while (chooseCus != 0);
+    }
+
+    public static void showQueueOfCustomer(){
+        Queue<Customer> customerQueue = new LinkedList<>();
+        List<Customer> customerList = FileUtils.readFileCustomer();
+        CustomerManager.showInformationCustomer();
+
+        customerQueue.add(customerList.get(3));
+        customerQueue.add(customerList.get(1));
+        customerQueue.add(customerList.get(5));
+        Customer customer = null;
+        System.out.println("Khách hàng mua vé");
+        while (!customerQueue.isEmpty()){
+            customer = customerQueue.poll();
+            customer.showInfor();
         }
     }
 
+    public static void main(String[] args) {
+        displayMainMenu();
+    }
 }

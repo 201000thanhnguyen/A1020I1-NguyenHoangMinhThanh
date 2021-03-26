@@ -1,23 +1,15 @@
 package CaseStudy.Models;
 
 public class House extends Services {
-
     private String tieuChuanPhong;
     private String moTaTienNghiKhac;
     private int soTang;
 
-    public House(){
-
+    public House() {
     }
 
-    public House(String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.moTaTienNghiKhac = moTaTienNghiKhac;
-        this.soTang = soTang;
-    }
-
-    public House(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue, String id, String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue, id);
+    public House(String id, String tenDichVu, int dienTichSuDung, int chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
+        super(id, tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.soTang = soTang;
@@ -47,21 +39,30 @@ public class House extends Services {
         this.soTang = soTang;
     }
 
-
     @Override
     public void showInfor() {
         System.out.println(
-                        "House{" +
-                        "tieuChuanPhong= '" + tieuChuanPhong + '\'' +
-                        ", moTaTienNghiKhac= '" + moTaTienNghiKhac + '\'' +
-                        ", soTang= " + soTang +
-                        ", tenDichVu='" + getTenDichVu() + '\'' +
-                        ", dienTichSuDung=" + getDienTichSuDung() +
-                        ", chiPhiThue=" + getChiPhiThue() +
-                        ", soLuongNguoiToiDa=" + getSoLuongNguoiToiDa() +
-                        ", kieuThue='" + getKieuThue() + '\'' +
-                        ", id='" + getId() + '\'' +
-                        '}');
+                "\nId: " + getId() +
+                "\nTên dịch vụ: " + getTenDichVu() +
+                "\nDiện tích sử dụng " + getDienTichSuDung() +
+                "\nChi phí thuê: " + getChiPhiThue() +
+                "\nSố lượng người tối đa: " + getSoLuongNguoi() +
+                "\nKiểu thuê: " + getKieuThue() +
+                "\nTiêu chuẩn phòng: " + getTieuChuanPhong() +
+                "\nMô tả tiện nghi khác: " + getMoTaTienNghiKhac() +
+                "\nSố tầng: " + getSoTang());
     }
 
+    @Override
+    public String toString() {
+        return "\n\tId: " + getId() +
+                "\n\tTên dịch vụ: " + getTenDichVu() +
+                "\n\tDiện tích sử dụng " + getDienTichSuDung() +
+                "\n\tChi phí thuê: " + getChiPhiThue() +
+                "\n\tSố lượng người tối đa: " + getSoLuongNguoi() +
+                "\n\tKiểu thuê: " + getKieuThue() +
+                "\n\tTiêu chuẩn phòng: " + getTieuChuanPhong() +
+                "\n\tMô tả tiện nghi khác: " + getMoTaTienNghiKhac() +
+                "\n\tSố tầng: " + getSoTang();
+    }
 }
