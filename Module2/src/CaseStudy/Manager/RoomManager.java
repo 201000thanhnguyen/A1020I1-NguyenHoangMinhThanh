@@ -1,7 +1,7 @@
 package CaseStudy.Manager;
 
-import Commons.FileUtils;
-import Models.Room;
+import CaseStudy.Commons.FileUtils;
+import CaseStudy.Models.Room;
 
 import java.util.ArrayList;
 import java.util.List;
