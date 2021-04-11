@@ -43,8 +43,20 @@ insert into KhachHang
 insert into DichVu
 		(TenDichVu,DienTich,SoTang,SoNguoiToiDa,ChiPhiThue,IDKieuThue,IDLoaiDichVu,TrangThai)
 	values
-		('Luxury Furama Dana Villa','300','3','35','400','3','',''),
-		('TIA Wellness Resort','260','2','30','390','3','',''),
-		('Furama Resort Danang','265','2','30','380','','',''),
-		('Jang House','230','5','20','70','4','',''),
-		('Him Lam Apartment','255','2','20','320','','','');
+		('Luxury Furama Dana Villa','300','3','35','400','3','1','đang hoạt động'),
+		('TIA Wellness Resort','260','2','30','390','3','1','sẵn sàng'),
+		('Furama Resort Danang','265','2','30','380','2','2','sẵn sàng'),
+		('Jang House','230','5','20','70','4','2','đang hoạt động'),
+		('Him Lam Apartment','255','2','20','320','2','3','sẵn sàng');
+
+insert into HopDong
+		(IDNhanVien,IDKhachHang,IDDichVu,NgayLamHopDong,NgayKetThuc,TienDatCoc,TongTien)
+	values
+		(3, 5, 1, '2020-4-28', '2030-7-28', 17000, 56000),
+		(4, 1, 3, '2018-6-12', '2035-5-21', 26000, 80000),
+		(6, 3, 2, '2019-10-20', '2040-6-12', 20000, 85000),
+		(1, 3, 2, '2019-10-20', '2040-6-12', 20000, 85000),
+		(5, 1, 2, '2019-10-20', '2040-6-12', 25000, 70000),
+		(2, 5, 1, '2020-4-28', '2030-7-28', 27000, 72000);
+	
+
