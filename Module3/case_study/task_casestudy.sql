@@ -137,13 +137,12 @@ set KhachHang.IdLoaiKhach = 1
 where ( KhachHang.IdLoaiKhach = 4) and (year(NgayLamHopDong) = 2019) and (HopDong.TongTien >=2000) ;
 
 -- yêu cầu 18
-SET SQL_SAFE_UPDATES = 0;
 delete from KhachHang
 where IdKhachHang in (
 select IdKhachHang
 from HopDong 
 where year(NgayLamHopDong) <= 2016);
-SET SQL_SAFE_UPDATES = 1;
+
 
 -- yêu cầu 19
 update DichVuDiKem
