@@ -125,9 +125,43 @@ where year(NgayLamHopDong) between '2018' and '2019'
 group by HopDong.IDNhanVien
 having SoLanLapHD = 3;
 
--- yêu cầu 16 (fail)
+-- yêu cầu 16
 delete from NhanVien nv
 where IDNhanVien not in (
 select nv.IDNhanVien from HopDong hd where hd.NgayLamHopDong >= "2017-1-1" and hd.NgayLamHopDong < "2019-12-31" and nv.IDNhanVien is not null );
         
+-- yêu cầu 17
+update KhachHang
+inner join HopDong on KhachHang.IdKhachHang = HopDong.IdKhachHang
+set KhachHang.IdLoaiKhach = 1
+where ( KhachHang.IdLoaiKhach = 4) and (year(NgayLamHopDong) = 2019) and (HopDong.TongTien >=2000) ;
+
 -- yêu cầu 18
+SET SQL_SAFE_UPDATES = 0;
+delete from KhachHang
+where IdKhachHang in (
+select IdKhachHang
+from HopDong 
+where year(NgayLamHopDong) <= 2016);
+SET SQL_SAFE_UPDATES = 1;
+
+-- yêu cầu 19
+update DichVuDiKem
+inner join HopDongChiTiet  on HopDongChiTiet.IDDichVuDiKem = DichVuDiKem.IDDichVuDiKem
+set Gia = Gia*2
+where DichVuDiKem.IDDichVuDiKem in (
+select * from(
+select DichVuDiKem.IDDichVuDiKem
+from DichVuDiKem 
+inner join HopDongChiTiet  on HopDongChiTiet.IDDichVuDiKem = DichVuDiKem.IDDichVuDiKem
+inner join HopDong  on HopDongChiTiet.IDHopDong = HopDong.IDHopDong
+where year(HopDong.NgayLamHopDong) = '2019') as temp 
+group by DichVuDiKem.IDDichVuDiKem
+having count(HopDongChiTiet.IDDichVuDiKem) >= 2);
+
+-- yêu cầu 20
+select IDNhanVien ID,HoTen HoTen,Email Email, SDT Phone, NgaySinh NgaySinh, DiaChi DiaChi
+from NhanVien
+union all
+select IDKhachHang ID,HoTen HoTen,Email Email, SDT Phone, NgaySinh NgaySinh, DiaCHi DiaChi
+from KhachHang
