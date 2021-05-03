@@ -8,13 +8,13 @@ import java.util.Date;
 
 
 @WebServlet(name = "HomeServlet", urlPatterns = "/abc")
-public class HomeServlet extends HttpServlet {
+public class HelloServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("hello", "project");
+        request.setAttribute("hello", "hello world");
         request.getRequestDispatcher("xyz.jsp").forward(request, response);
     }
 }
