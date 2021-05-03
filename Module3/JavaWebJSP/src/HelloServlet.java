@@ -15,6 +15,6 @@ public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("hello", "project");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("xyz.jsp").forward(request, response);
     }
 }
