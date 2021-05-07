@@ -24,7 +24,7 @@
         <tr>
             <td>${item.name}</td>
             <td><c:out value="${item.dateOfBirth}"/></td>
-            <td><c:out value="">item.address</c:out></td>
+            <td><c:out value="${item.address}"/></td>
             <td>
                 <img src="${pageContext.request.contextPath}/Images/noAvatar.jpg" style="width: 50px; height: 50px;"/>
             </td>
