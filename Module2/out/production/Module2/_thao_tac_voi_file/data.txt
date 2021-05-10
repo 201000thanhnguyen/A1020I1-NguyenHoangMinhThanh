@@ -1,3 +1,0 @@
-hoc sinh 1	20	9.0
-hoc sinh 2	21	8.0
-hoc sinh 3	22	7.0
