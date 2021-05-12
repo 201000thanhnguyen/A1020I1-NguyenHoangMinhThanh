@@ -109,7 +109,7 @@ public class Product {
             System.out.println("no products");
         }else {
             int stt =1;
-            for (var item :
+            for (Product item :
                     listProduct) {
                 System.out.println("stt " + stt++ +" : "+item.toString());
             }

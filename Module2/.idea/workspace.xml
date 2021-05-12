@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eccb164f-b41a-44ca-bd04-532232947541" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/DisplayProduct.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Controllers/product/ListProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Models/bean/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Models/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Models/repository/impl/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Models/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/src/Models/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/web/Images/noAvatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/web/Views/Product/add.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/web/Views/Product/detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/web/Views/Product/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module3/MVCModel/bai_tap/DisplayProduct/web/Views/Product/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Module2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.resources/.root/4.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.urischeme.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.16.0.20200318-1040.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.tips.ide/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/.metadata/version.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Controllers/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Data/Villa.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Models/House.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Models/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Models/Services.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Models/Villa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/CaseStudy/Views/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/META-INF/Module2.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_10_Danh_sach/_thuc_hanh/MyList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_10_Danh_sach/_thuc_hanh/MyListTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/CheckStringRepeatWithMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/DecimalToBinaryWithStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/PalindromeWithQueue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/ReverseArrayWithStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_bai_tap/ReverseCharWithStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_thuc_hanh/GenericStackClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_thuc_hanh/LinkedListQueueClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_thuc_hanh/MyGenericStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_thuc_hanh/MyLinkedListQueue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_11_Stack_And_Queue/_thuc_hanh/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_12_Java_Collection_Framework/_bai_tap/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_12_Java_Collection_Framework/_bai_tap/call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_12_Java_Collection_Framework/_thuc_hanh/call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_13_Thuat_Toan_Tim_Kiem/_bai_tap/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_13_Thuat_Toan_Tim_Kiem/_bai_tap/TimChuoiTangDan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_13_Thuat_Toan_Tim_Kiem/_thuc_hanh/AlgorithmComplexityTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_13_Thuat_Toan_Tim_Kiem/_thuc_hanh/BinarySearch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_13_Thuat_Toan_Tim_Kiem/_thuc_hanh/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_14_Thuat_Toan_Sap_Xep/_bai_tap/InsertSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_14_Thuat_Toan_Sap_Xep/_bai_tap/call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_14_Thuat_Toan_Sap_Xep/_thuc_hanh/BubbleSortByStep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_14_Thuat_Toan_Sap_Xep/_thuc_hanh/SelectionSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_14_Thuat_Toan_Sap_Xep/_thuc_hanh/call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_bai_tap/GeometricObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_bai_tap/IllegalTriangleException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_bai_tap/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_bai_tap/TriangleWithException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_thuc_hanh/ArrayExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_thuc_hanh/ArrayIndexOutOfBoundsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_thuc_hanh/CalculationExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_15_Exception_Debug/_thuc_hanh/LinearEquationResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_bai_tap/ChuyenDoiTienTe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_bai_tap/HienThiLoiChao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/GiaiBatPhuongTrinhBacNhat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/HienThiTgHeThong.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/KhaiBaoVaSuDungBien.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/KiemTraNamNhuan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/SuDungToanTu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/TinhChiSoCanNangCoThe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_1_Introduction_to_Java/_thuc_hanh/TinhSoNgayTrongThang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_bai_tap/HienThi20SoNguyenToDauTien.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_bai_tap/HienThiCacLoaiHinh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_bai_tap/HienThiCacSoNguyenToNhoHon100.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_thuc_hanh/ThietKeMenuChoUngDung.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_thuc_hanh/ThucHanhKiemTraSoNguyenTo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_thuc_hanh/TimUCLNCuaAVaBb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_2_Vong_lap_trong_Java/_thuc_hanh/UngDungTinhTienLaiChoVay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/GopMang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/ThemPhanTuVaoMang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/TimGiaTriNhoNhatTrongMang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/TimPTLonNhatTronMang2Chieu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/TinhTongCacSoOCotXacDinh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/XoaPhanTuKhoiMang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_thuc_hanh/DaoNguocCacPhanTuCuaMang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_3_Mang_va_phuong_thuc_trong_Java/_thuc_hanh/UngDungDemSoLuongSinhVienThiDo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_bai_tap/Fan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_bai_tap/GoiFan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_bai_tap/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_bai_tap/StopWatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_thuc_hanh/A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_4_lop_va_doi_tuong_trong_Java/_thuc_hanh/Simple.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_5_Access_modifier/_bai_tap/AccessModifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_5_Access_modifier/_bai_tap/TestCircle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/CallTriangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Cylinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/MoveablePoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Point2D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Point3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/TesstPoint2DPoint3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/TestCylinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_bai_tap/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_6_Ke_thua/_thuc_hanh/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Colorable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Resizeable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_7_Abstract_And_Interface/_bai_tap/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_8_CleanCode_and_Refactoring/_bai_tap/TennisGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_8_CleanCode_and_Refactoring/_bai_tap/TennisGameTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_8_CleanCode_and_Refactoring/_thuc_hanh/Cylinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_8_CleanCode_and_Refactoring/_thuc_hanh/CylinderTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_thao_tac_voi_file/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_thao_tac_voi_file/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Module2/_thao_tac_voi_file/data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_12_Java_Collection_Framework/_bai_tap/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_12_Java_Collection_Framework/_bai_tap/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/ThemPhanTuVaoMang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_3_Mang_va_phuong_thuc_trong_Java/_bai_tap/ThemPhanTuVaoMang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_7_Abstract_And_Interface/_bai_tap/Call.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_7_Abstract_And_Interface/_bai_tap/Call.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_thao_tac_voi_file/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_thao_tac_voi_file/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module3/JSPAndJSTL/DisplayCustomer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module3/JSPAndJSTL/DisplayCustomer/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+  </component>
+  <component name="ProjectId" id="1sIhp0WDEuweuXhoRRtEl4HWiHJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Call" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_7_Abstract_And_Interface._bai_tap.Call" />
+      <module name="Module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_7_Abstract_And_Interface._bai_tap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="_thao_tac_voi_file.Main" />
+      <module name="Module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_thao_tac_voi_file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Call" />
+      <item itemvalue="Application.Main" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eccb164f-b41a-44ca-bd04-532232947541" name="Default Changelist" comment="" />
+      <created>1620566189442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620566189442</updated>
+      <workItem from="1620566193527" duration="4795000" />
+      <workItem from="1620613426964" duration="138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="657" y="138" key="#Activation" timestamp="1620570189971">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="657" y="138" key="#Activation/0.0.1920.1040@0.0.1920.1040" timestamp="1620570189971" />
+    <state x="657" y="138" key="#Call" timestamp="1620569778628">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="657" y="138" key="#Call/0.0.1920.1040@0.0.1920.1040" timestamp="1620569778628" />
+    <state x="657" y="138" key="#Main" timestamp="1620568532750">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="657" y="138" key="#Main/0.0.1920.1040@0.0.1920.1040" timestamp="1620568532750" />
+    <state x="440" y="94" key="#Project_Structure" timestamp="1620568062261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620568062261" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620570378732">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620570378732" />
+    <state x="689" y="309" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1620570200621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="309" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620570200621" />
+    <state x="806" y="199" key="EnvironmentVariablesDialog" timestamp="1620566846927">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="806" y="199" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620566846927" />
+    <state x="635" y="229" key="FileChooserDialogImpl" timestamp="1620570168772">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="635" y="229" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620570168772" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1620613565507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620613565507" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1620613565507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620613565507" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1620613565507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620613565507" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1620613565507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620613565507" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1620571034009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620571034009" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1620571034009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620571034009" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1620571034009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620571034009" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1620571034009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620571034009" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1620613547468">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620613547468" />
+    <state x="664" y="411" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1620566757150">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="664" y="411" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1620566757150" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1620570367039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620570367039" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/_7_Abstract_And_Interface/_bai_tap/Call.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

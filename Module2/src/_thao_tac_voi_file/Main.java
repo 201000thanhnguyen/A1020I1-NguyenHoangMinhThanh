@@ -20,7 +20,7 @@ public class Main {
             FileWriter fileWriter = new FileWriter("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\_thao_tac_voi_file\\data.txt",false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            for (var item : students) {
+            for (Student item : students) {
                 bufferedWriter.write(item.toString());
                 bufferedWriter.newLine();
             }
@@ -33,7 +33,7 @@ public class Main {
         }
 
         try {
-            FileReader fileReader = new FileReader("data.txt");
+            FileReader fileReader = new FileReader("D:\\NguyenHoangMinhThanh_A1020I1\\A1020I1-NguyenHoangMinhThanh\\Module2\\src\\_thao_tac_voi_file\\data.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
             while (true){

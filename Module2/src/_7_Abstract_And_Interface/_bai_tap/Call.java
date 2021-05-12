@@ -18,7 +18,7 @@ public class Call {
         list.add(resizeable3);
         list.remove(1);
         Random random = new Random();
-        for (var item: list) {
+        for (Resizeable item: list) {
             if (item instanceof Circle){
                 Circle circle = (Circle)item;
                 System.out.println("(truoc) dien tich "+circle.getClass().getSimpleName()+" : "+circle.getArea());

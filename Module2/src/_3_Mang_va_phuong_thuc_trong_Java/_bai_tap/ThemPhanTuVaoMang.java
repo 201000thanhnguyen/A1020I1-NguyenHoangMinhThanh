@@ -37,7 +37,7 @@ public class ThemPhanTuVaoMang {
             }
         }
         System.out.println("mang cua ban la : ");
-        for (var item : mang2 ) {
+        for (int item : mang2 ) {
             System.out.print(item + " ");
         }
         System.out.println();
