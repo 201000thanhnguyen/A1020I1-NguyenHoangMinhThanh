@@ -29,12 +29,30 @@
                 <td><c:out value="${item.nameUser}"/></td>
                 <td><c:out value="${item.email}"/></td>
                 <td><c:out value="${item.country}"/></td>
-                <td>detail</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td>
+                    <button>
+                        <a href="/User?action=detailUser&id=<c:out value="${item.id}"/>">detail</a>
+                    </button>
+                </td>
+                <td>
+                    <button>
+                        <a href="/User?action=editUser&id=<c:out value="${item.id}"/>">edit</a>
+                    </button>
+                </td>
+                <td>
+                    <button onclick="sureDelete(<c:out value="${item.id}"/>)">delete</button>
+                </td>
             </tr>
         </c:forEach>
     </table>
+
+    <script>
+        function sureDelete(id){
+            if (confirm("Are you sure you want to delete this data?")){
+                location.href = "/User?action=deleteUser&id="+id;
+            }
+        }
+    </script>
 </div>
 </body>
 </html>

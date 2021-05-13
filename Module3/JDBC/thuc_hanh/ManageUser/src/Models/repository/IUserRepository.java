@@ -14,5 +14,5 @@ public interface IUserRepository {
 
     String editUser(User user);
 
-    String detailUser(int id);
+    User detailUser(int id);
 }

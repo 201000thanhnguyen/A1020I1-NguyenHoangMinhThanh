@@ -24,7 +24,10 @@ public class UserServlet extends HttpServlet {
         }
         switch (action){
             case "addUser":
-                addUserController(request, response);
+                addUserPost(request, response);
+                break;
+            case "editUser":
+                editUserPost(request, response);
                 break;
             default:
                 break;
@@ -42,17 +45,27 @@ public class UserServlet extends HttpServlet {
             case "addUser":
                 response.sendRedirect("/User/add.jsp");
                 break;
+            case "deleteUser":
+                deleteUserGet(request, response);
+                break;
+            case "editUser":
+                editUserGet(request, response);
+                break;
+            case "detailUser":
+                detailUserGet(request, response);
+                break;
             default:
                 break;
         }
     }
+
 
     protected void redirectHome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("listUser", this.service.listUser());
         request.getRequestDispatcher("/User/index.jsp").forward(request,response);
     }
 
-    private void addUserController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void addUserPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String nameUser = request.getParameter("nameUser");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
@@ -66,5 +79,38 @@ public class UserServlet extends HttpServlet {
 
         request.setAttribute("msg", msg);
         redirectHome(request, response);
+    }
+
+    private void deleteUserGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        String msg = this.service.deleteUser(id);
+        request.setAttribute("msg", msg);
+        redirectHome(request, response);
+    }
+
+    private void editUserGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = this.service.detailUser(id);
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("/User/edit.jsp").forward(request,response);
+    }
+
+    private void editUserPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nameUser = request.getParameter("nameUser");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+
+        User user = new User(id, nameUser, email, country);
+        String msg = this.service.editUser(user);
+        request.setAttribute("msg", msg);
+        redirectHome(request, response);
+    }
+
+    private void detailUserGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = this.service.detailUser(id);
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("/User/detail.jsp").forward(request,response);
     }
 }

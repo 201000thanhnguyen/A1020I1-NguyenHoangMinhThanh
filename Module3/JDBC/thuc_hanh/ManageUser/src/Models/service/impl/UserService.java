@@ -23,16 +23,16 @@ public class UserService implements IUserService {
 
     @Override
     public String deleteUser(int id) {
-        return null;
+        return this.repository.deleteUser(id);
     }
 
     @Override
     public String editUser(User user) {
-        return null;
+        return this.repository.editUser(user);
     }
 
     @Override
-    public String detailUser(int id) {
-        return null;
+    public User detailUser(int id) {
+        return this.repository.detailUser(id);
     }
 }
