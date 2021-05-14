@@ -7,7 +7,12 @@
 </head>
 <body>
 <div>
-    <h2>edit user</h2>
+    <h2>
+        <a href="/User">Home</a>
+    </h2>
+</div>
+<div>
+    <h3>edit user</h3>
 </div>
 <div>
     <form action="/User?action=editUser&id=<c:out value="${user.id}"/>" method="post">

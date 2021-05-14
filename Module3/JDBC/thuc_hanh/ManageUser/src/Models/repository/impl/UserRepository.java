@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class UserRepository implements IUserRepository {
@@ -113,5 +115,85 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<User> searchCountry(String country) {
+        List<User> userList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement =
+                    this.baseRepository.getConnection().prepareStatement("select * from users where country = ?");
+            preparedStatement.setString(1, country);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setNameUser(resultSet.getString("nameUser"));
+                user.setEmail(resultSet.getString("email"));
+                user.setCountry(resultSet.getString("country"));
+
+                userList.add(user);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    @Override
+    public List<User> sortNameASC() {
+        List<User> userList = new ArrayList<>();
+//        try {
+//            Statement statement =
+//                    this.baseRepository.getConnection().createStatement();
+//            ResultSet resultSet = statement.executeQuery("select * from users order by nameUser ASC");
+//            while (resultSet.next()){
+//                User user = new User();
+//                user.setId(resultSet.getInt("id"));
+//                user.setNameUser(resultSet.getString("nameUser"));
+//                user.setEmail(resultSet.getString("email"));
+//                user.setCountry(resultSet.getString("country"));
+//
+//                userList.add(user);
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+        try {
+            userList = listUser();
+            Collections.sort(userList, (o1, o2) -> o1.getNameUser().compareTo(o2.getNameUser()));
+//            Collections.sort(userList, Comparator.comparing(User::getNameUser));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    @Override
+    public List<User> sortNameDESC() {
+        List<User> userList = new ArrayList<>();
+//        try {
+//            Statement statement =
+//                    this.baseRepository.getConnection().createStatement();
+//            ResultSet resultSet = statement.executeQuery("select * from users order by nameUser DESC");
+//            while (resultSet.next()){
+//                User user = new User();
+//                user.setId(resultSet.getInt("id"));
+//                user.setNameUser(resultSet.getString("nameUser"));
+//                user.setEmail(resultSet.getString("email"));
+//                user.setCountry(resultSet.getString("country"));
+//
+//                userList.add(user);
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+        try {
+            userList = listUser();
+            Collections.sort(userList, (o1, o2) -> o2.getNameUser().compareTo(o1.getNameUser()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return userList;
     }
 }

@@ -12,7 +12,12 @@
 </head>
 <body>
 <div>
-    <h2>add user</h2>
+    <div>
+        <h2>
+            <a href="/User">Home</a>
+        </h2>
+    </div>
+    <h3>add user</h3>
     <div>
         <form action="/User?action=addUser" method="post">
             <label for="nameUser">name user : </label>

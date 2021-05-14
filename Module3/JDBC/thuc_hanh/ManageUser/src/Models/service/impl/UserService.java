@@ -35,4 +35,19 @@ public class UserService implements IUserService {
     public User detailUser(int id) {
         return this.repository.detailUser(id);
     }
+
+    @Override
+    public List<User> searchCountry(String country) {
+        return this.repository.searchCountry(country);
+    }
+
+    @Override
+    public List<User> sortNameASC() {
+        return this.repository.sortNameASC();
+    }
+
+    @Override
+    public List<User> sortNameDESC() {
+        return this.repository.sortNameDESC();
+    }
 }

@@ -14,4 +14,10 @@ public interface IUserService {
     String editUser(User user);
 
     User detailUser(int id);
+
+    List<User> searchCountry(String country);
+
+    List<User> sortNameASC();
+
+    List<User> sortNameDESC();
 }

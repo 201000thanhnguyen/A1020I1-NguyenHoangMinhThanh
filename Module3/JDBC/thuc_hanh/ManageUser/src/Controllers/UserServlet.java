@@ -54,6 +54,15 @@ public class UserServlet extends HttpServlet {
             case "detailUser":
                 detailUserGet(request, response);
                 break;
+            case "searchCountry":
+                searchCountryGet(request, response);
+                break;
+            case "sortNameASC":
+                sortNameASC(request, response);
+                break;
+            case "sortNameDESC":
+                sortNameDESC(request, response);
+                break;
             default:
                 break;
         }
@@ -112,5 +121,21 @@ public class UserServlet extends HttpServlet {
         User user = this.service.detailUser(id);
         request.setAttribute("user", user);
         request.getRequestDispatcher("/User/detail.jsp").forward(request,response);
+    }
+
+    private void searchCountryGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String country = request.getParameter("country");
+        request.setAttribute("listUser", this.service.searchCountry(country));
+        request.getRequestDispatcher("/User/index.jsp").forward(request, response);
+    }
+
+    private void sortNameASC(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listUser", this.service.sortNameASC());
+        request.getRequestDispatcher("/User/index.jsp").forward(request,response);
+    }
+
+    private void sortNameDESC(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listUser", this.service.sortNameDESC());
+        request.getRequestDispatcher("/User/index.jsp").forward(request,response);
     }
 }
