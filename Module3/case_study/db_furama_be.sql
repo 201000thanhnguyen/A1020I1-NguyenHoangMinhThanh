@@ -206,10 +206,9 @@ insert into CustomerType (customerTypeName)
 		('Member');
 
 insert into Customer 
-		(customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress)
 	values
-		('1', 'cus 1', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
-		('3', 'cus 2', '2002-11-09', '0', '123454399', '0935353599', 'cus2@gmail.com', 'Canada');
+		(null, '1', 'cus 1', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '3', 'cus 2', '2002-11-09', '0', '123454399', '0935353599', 'cus2@gmail.com', 'Canada');
 
 insert into ServiceType (serviceTypeName)
 	values
@@ -255,7 +254,9 @@ insert into ContractDetail
 		('2', '3', '60'),
 		('2', '4', '60');
 
+-- test query
 
+select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId
 
 
 
