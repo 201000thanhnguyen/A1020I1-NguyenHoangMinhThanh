@@ -1,6 +1,6 @@
-drop database if exists demo;
-create database demo;
-use demo;
+drop database if exists demo1;
+create database demo1;
+use demo1;
 
 create table products(
 id int,

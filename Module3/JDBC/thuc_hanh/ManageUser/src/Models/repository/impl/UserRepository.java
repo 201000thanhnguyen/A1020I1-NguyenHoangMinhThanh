@@ -4,10 +4,7 @@ import Models.bean.User;
 import Models.repository.BaseRepository;
 import Models.repository.IUserRepository;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,8 +18,16 @@ public class UserRepository implements IUserRepository {
     public List<User> listUser() {
         List<User> userList = new ArrayList<>();
         try {
-            Statement statement = this.baseRepository.getConnection().createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from users");
+//            Statement statement = this.baseRepository.getConnection().createStatement();
+//            ResultSet resultSet = statement.executeQuery("select * from users");
+
+            CallableStatement callableStatement =
+                    this.baseRepository.getConnection().prepareCall(
+                      "call sp_select_user()"
+                    );
+
+            ResultSet resultSet = callableStatement.executeQuery();
+
             User user = null;
             while (resultSet.next()) {
                 user = new User();
@@ -65,12 +70,19 @@ public class UserRepository implements IUserRepository {
     {
         int msg = 0;
         try {
-            PreparedStatement preparedStatement =
-                    this.baseRepository.getConnection().prepareStatement(
-                      "delete from users where id = ?"
+//            PreparedStatement preparedStatement =
+//                    this.baseRepository.getConnection().prepareStatement(
+//                      "delete from users where id = ?"
+//                    );
+//            preparedStatement.setInt(1, id);
+//            msg = preparedStatement.executeUpdate();
+
+            CallableStatement callableStatement =
+                    this.baseRepository.getConnection().prepareCall(
+                            "call sp_delete_user(?)"
                     );
-            preparedStatement.setInt(1, id);
-            msg = preparedStatement.executeUpdate();
+            callableStatement.setInt(1,id);
+            msg = callableStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

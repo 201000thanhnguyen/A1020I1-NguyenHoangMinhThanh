@@ -48,8 +48,9 @@ public class CustomerRepository implements ICustomerRepository {
         try {
             PreparedStatement preparedStatement =
                     this.connectRepository.getConnection().prepareStatement(
-                            "insert into Customer"
+                            "insert into Customer values (null , ?, ?, ?, ?, ?, ?, ?, ?)"
                     );
+            preparedStatement.setInt(1, customer.getCustomerTypeId());
 
             return "add success";
         }catch (Exception e){

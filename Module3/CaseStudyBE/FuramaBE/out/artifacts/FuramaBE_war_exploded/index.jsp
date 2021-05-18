@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/_layout/_header.jsp"%>
 
 <div class="jumbotron jumbotron-fluid">
