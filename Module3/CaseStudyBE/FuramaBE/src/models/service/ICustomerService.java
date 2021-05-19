@@ -23,4 +23,10 @@ public interface ICustomerService extends IService<Customer> {
 
     @Override
     List<Customer> findInService(String byName);
+
+    @Override
+    int countInService();
+
+    @Override
+    List<Customer> listLimitInService(int index, int getNumber);
 }

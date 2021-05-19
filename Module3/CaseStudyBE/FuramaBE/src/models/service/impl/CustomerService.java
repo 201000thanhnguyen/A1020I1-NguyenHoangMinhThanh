@@ -17,12 +17,22 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public String addInService(Customer customer) {
-        return null;
+        return this.customerRepository.addInRepository(customer);
+    }
+
+    @Override
+    public int countInService() {
+        return this.customerRepository.countInRepository();
+    }
+
+    @Override
+    public List<Customer> listLimitInService(int index, int getNumber) {
+        return this.customerRepository.listLimitInRepository(index, getNumber);
     }
 
     @Override
     public String deleteInService(int id) {
-        return null;
+        return this.customerRepository.deleteInRepository(id);
     }
 
     @Override
@@ -32,7 +42,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer detailInService(int id) {
-        return null;
+        return this.customerRepository.detailInRepository(id);
     }
 
     @Override

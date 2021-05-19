@@ -39,4 +39,14 @@ public class CustomerTypeService implements ICustomerTypeService {
     public List<CustomerType> findInService(String byName) {
         return null;
     }
+
+    @Override
+    public int countInService() {
+        return 0;
+    }
+
+    @Override
+    public List<CustomerType> listLimitInService(int index, int getNumber) {
+        return null;
+    }
 }

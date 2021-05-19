@@ -7,6 +7,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="FuramaBE" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="jstl-1.2" />
+          <element id="library" level="application" name="mysql-connector-java-8.0.25" />
+        </element>
       </element>
     </root>
   </artifact>

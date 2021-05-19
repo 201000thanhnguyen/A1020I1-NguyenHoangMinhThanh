@@ -208,6 +208,15 @@ insert into CustomerType (customerTypeName)
 insert into Customer 
 	values
 		(null, '1', 'cus 1', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '2', 'cus 11', '1998-01-02', '0', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '3', 'cus 12', '1998-01-02', '0', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '4', 'cus 13', '1998-01-02', '0', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '5', 'cus 14', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '4', 'cus 15', '1998-01-02', '0', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '3', 'cus 16', '1998-01-02', '0', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '2', 'cus 17', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '1', 'cus 18', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
+		(null, '2', 'cus 19', '1998-01-02', '1', '123454321', '0935353535', 'cus1@gmail.com', 'Mỹ'),
 		(null, '3', 'cus 2', '2002-11-09', '0', '123454399', '0935353599', 'cus2@gmail.com', 'Canada');
 
 insert into ServiceType (serviceTypeName)
@@ -256,10 +265,27 @@ insert into ContractDetail
 
 -- test query
 
-select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId
+-- select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId
 
+DELIMITER //
 
+create procedure sp_count_customer()
+begin
+select count(*) as numberCustomer from Customer;
+end 
 
+// DELIMITER ;
+
+DELIMITER //
+
+create procedure sp_limit_customer(in _index int, in _getNumber int)
+begin
+select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId order by cu.customerId ASC limit _index,_getNumber;
+end 
+
+// DELIMITER ;
+
+call sp_limit_customer(0,10);
 
 
 

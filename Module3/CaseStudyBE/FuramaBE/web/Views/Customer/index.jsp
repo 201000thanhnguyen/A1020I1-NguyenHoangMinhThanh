@@ -1,12 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/_layout/_header.jsp" %>
-
+<%--<jsp:include page="/_layout/_header.jsp"/>--%>
 <div class="row">
+    <c:if test="${msg != null}">
+	<div class="col-md-12">
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				<span class="sr-only">Close</span>
+			</button>
+			<strong>message : </strong> <c:out value="${msg}"/>
+		</div>
+	</div>
+    </c:if>
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <button class="btn btn-outline-dark float-left">Customer</button>
-                <a href="/Customer?action=add" class="float-right btn btn-outline-primary">add</a>
+                <a href="/Customer?action=addCustomer" class="float-right btn btn-outline-primary">add</a>
             </div>
             <table class="table table-striped table-responsive w-100 d-block d-md-table">
                 <thead>
@@ -24,7 +35,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="item" items="${customerService}" varStatus="no">
+                <c:forEach var="item" items="${listCustomer}" varStatus="no">
                     <tr class="middle-by-mt">
                         <td>
                             <div class="btn-group">
@@ -34,8 +45,8 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">detail</a>
-                                    <a class="dropdown-item" href="#">edit</a>
-                                    <a class="dropdown-item" href="#">delete</a>
+                                    <a class="dropdown-item" href="/Customer?action=editCustomer&id=<c:out value="${item.customerId}"/>">edit</a>
+                                    <a class="dropdown-item" href="#" onclick="sureDelete(<c:out value="${item.customerId}"/>)">delete</a>
                                 </div>
                             </div>
                         </td>
@@ -48,9 +59,9 @@
                                 <c:when test="${item.customerGender == 0}">
                                     Female
                                 </c:when>
-								<c:when test="${item.customerGender == 1}">
-									Male
-								</c:when>
+                                <c:when test="${item.customerGender == 1}">
+                                    Male
+                                </c:when>
                                 <c:otherwise>
                                     Other
                                 </c:otherwise>
@@ -64,8 +75,25 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example" class="mr-3">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <% int numberPage = (int) request.getAttribute("numberPage");
+                        for (int i = 1; i <= numberPage; i++) {%>
+                    <li class="page-item">
+                        <a class="page-link" href="/Customer?action=paging&page=<%=i%>"><%=i%></a>
+                    </li>
+                    <% } %>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
 
+<%--<jsp:include page="/_layout/_header.jsp"/>--%>
 <%@ include file="/_layout/_footer.jsp" %>

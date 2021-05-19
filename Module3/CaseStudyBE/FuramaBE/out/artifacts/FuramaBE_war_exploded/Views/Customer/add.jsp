@@ -1,85 +1,88 @@
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/_layout/_header.jsp" %>
 
-<%
-//    String test1 = "12/10/2020";
-    String test2 = null;
-    SimpleDateFormat inSDF = new SimpleDateFormat("mm/dd/yyyy");
-    SimpleDateFormat outSDF = new SimpleDateFormat("yyyy-mm-dd");
-    Date date = new SimpleDateFormat().parse("12/10/2020");
-    test2 = outSDF.format(date);
-    System.out.println(test2);
-%>
-
 <div class="row">
     <div class="col-md-12">
-        private int customerId;
-        private int customerTypeId;
-        private String customerTypeName;
-        private String customerName;
-        private String customerBirthday;
-        private int customerGender;
-        private String customerIdCard;
-        private String customerPhone;
-        private String customerEmail;
-        private String customerAddress;
         <div class="card">
             <div class="card-header">
                 Add Customer
             </div>
             <div class="card-body py-3">
-                <form>
+                <form action="/Customer?action=addCustomer" method="post">
                   <div class="row">
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="">Customer Name</label>
-                                    <input type="text" class="form-control" id="">
+                                    <label for="customerName">Customer Name</label>
+                                    <input type="text" class="form-control" id="customerName" name="customerName">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="">Customer Type</label>
-                                    <select class="custom-select">
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="">Customer Birthday</label>
-                                    <input type="date" class="form-control" id="">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="">Customer Gender</label>
-                                    <select class="custom-select">
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <label for="customerTypeId">Customer Type</label>
+                                    <select class="custom-select" id="customerTypeId" name="customerTypeId">
+                                        <c:forEach var="item" items="${customerType}" >
+                                        <option value="<c:out value="${item.customerTypeId}"/>">
+                                        <c:out value="${item.customerTypeName}"/>
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="form-group">
+                            <label for="customerBirthday">Customer Birthday</label>
+                            <input type="date" class="form-control" name="customerBirthday" id="customerBirthday">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="customerGender">Customer Gender</label>
+                            <select class="custom-select" id="customerGender" name="customerGender">
+                              <option value="1">Male</option>
+                              <option value="0">Female</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="customerIdCard">Id Card</label>
+                        <input type="text" class="form-control" id="customerIdCard" name="customerIdCard">
                     </div>
                 </div>
-            </form>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="customerPhone">Customer Phone</label>
+                        <input type="text" class="form-control" id="customerPhone" name="customerPhone">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="customerEmail">Customer Email</label>
+                        <input type="email" class="form-control" id="customerEmail" name="customerEmail" placeholder="example@gmail.com">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="customerAddress">Customer Address</label>
+                        <input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Pennsylvania – Washington DC">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
+</form>
+</div>
+</div>
 </div>
 </div>
 

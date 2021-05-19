@@ -38,6 +38,16 @@ public class CustomerTypeRepository implements ICustomerTypeRepository {
     }
 
     @Override
+    public int countInRepository() {
+        return 0;
+    }
+
+    @Override
+    public List<CustomerType> listLimitInRepository(int index, int getNumber) {
+        return null;
+    }
+
+    @Override
     public String deleteInRepository(int id) {
         return null;
     }

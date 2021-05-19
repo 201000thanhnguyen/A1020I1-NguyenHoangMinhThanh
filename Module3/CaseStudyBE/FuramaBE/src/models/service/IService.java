@@ -14,4 +14,8 @@ public interface IService<T> {
     T detailInService (int id);
 
     List<T> findInService(String byName);
+
+    int countInService();
+
+    List<T> listLimitInService(int index, int getNumber);
 }

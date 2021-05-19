@@ -16,4 +16,8 @@ public interface IRepository<T> {
 
     List<T> findInRepository(String byName);
 
+    int countInRepository();
+
+    List<T> listLimitInRepository(int index, int getNumber);
+
 }
