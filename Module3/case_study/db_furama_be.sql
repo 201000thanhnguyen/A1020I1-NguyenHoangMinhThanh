@@ -285,7 +285,7 @@ end
 
 // DELIMITER ;
 
-call sp_limit_customer(0,10);
+-- call sp_limit_customer(0,10);
 
 
 

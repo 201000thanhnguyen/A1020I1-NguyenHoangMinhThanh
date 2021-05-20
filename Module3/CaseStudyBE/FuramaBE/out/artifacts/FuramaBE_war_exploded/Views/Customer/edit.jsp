@@ -5,10 +5,10 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                Add Customer
+                Edit Customer
             </div>
             <div class="card-body py-3">
-                <form action="/Customer?action=editCustomer" method="post">
+                <form action="/Customer?action=editCustomer?id=<c:out value="${customer.customerId}"/>" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
@@ -69,7 +69,8 @@
                                     <div class="form-group">
                                         <label for="customerIdCard">Id Card</label>
                                         <input type="text" class="form-control" id="customerIdCard"
-                                               name="customerIdCard" value="<c:out value="${customer.customerIdCard}"/>">
+                                               name="customerIdCard"
+                                               value="<c:out value="${customer.customerIdCard}"/>">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -90,7 +91,8 @@
                                     <div class="form-group">
                                         <label for="customerAddress">Customer Address</label>
                                         <input type="text" class="form-control" id="customerAddress"
-                                               name="customerAddress" value="<c:out value="${customer.customerAddress}"/>">
+                                               name="customerAddress"
+                                               value="<c:out value="${customer.customerAddress}"/>">
                                     </div>
                                 </div>
                             </div>

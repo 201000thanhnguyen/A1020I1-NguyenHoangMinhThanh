@@ -24,15 +24,17 @@ public class CustomerServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            redirectCustomer(request,response);
-            return;
-        }else {
+            redirectCustomer(request, response);
+        } else {
             switch (action) {
                 case "addCustomer":
-                    addCustomerPost(request,response);
+                    addCustomerPost(request, response);
+                    break;
+                case "editCustomer":
+                    editCustomerPost(request, response);
                     break;
                 default:
-                    redirectCustomer(request,response);
+                    redirectCustomer(request, response);
                     break;
             }
         }
@@ -42,24 +44,22 @@ public class CustomerServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-//            request.setAttribute("listCustomer", this.customerService.listInService());
             redirectCustomer(request, response);
-//            pagingCustomer(request,response);
             return;
         }
 
         switch (action) {
             case "addCustomer":
-                addCustomerGet(request,response);
+                addCustomerGet(request, response);
                 break;
             case "paging":
-                pagingCustomer(request,response);
+                pagingCustomer(request, response);
                 break;
             case "deleteCustomer":
-                deleteCustomerGet(request,response);
+                deleteCustomerGet(request, response);
                 break;
             case "editCustomer":
-                editCustomerGet(request,response);
+                editCustomerGet(request, response);
                 break;
             default:
                 redirectCustomer(request, response);
@@ -71,10 +71,10 @@ public class CustomerServlet extends HttpServlet {
         int numberPage;
         int countCustomer = this.customerService.countInService();
         double countCustomerBeta = Double.parseDouble(String.valueOf(countCustomer));
-        double numberPageBeta = countCustomerBeta/10;
+        double numberPageBeta = countCustomerBeta / 10;
         numberPage = (int) Math.ceil(numberPageBeta);
-        request.setAttribute("numberPage",numberPage);
-        request.setAttribute("listCustomer", this.customerService.listLimitInService(0,10));
+        request.setAttribute("numberPage", numberPage);
+        request.setAttribute("listCustomer", this.customerService.listLimitInService(0, 10));
         request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
     }
 
@@ -98,58 +98,81 @@ public class CustomerServlet extends HttpServlet {
             customer.setCustomerAddress(request.getParameter("customerAddress"));
 
             msg = this.customerService.addInService(customer);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             msg = e.toString();
         }
 
         request.setAttribute("msg", msg);
-        pagingCustomer(request,response);
+        pagingCustomer(request, response);
     }
 
-    private void pagingCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void pagingCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int numberPage;
             String page = request.getParameter("page");
             int countCustomer = this.customerService.countInService();
             double countCustomerBeta = Double.parseDouble(String.valueOf(countCustomer));
-            double numberPageBeta = countCustomerBeta/10;
+            double numberPageBeta = countCustomerBeta / 10;
             numberPage = (int) Math.ceil(numberPageBeta);
-            request.setAttribute("numberPage",numberPage);
-            if (page == null){
-                request.setAttribute("listCustomer", this.customerService.listLimitInService(0,10));
-                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request,response);
-            }else {
+            request.setAttribute("numberPage", numberPage);
+            if (page == null) {
+                request.setAttribute("listCustomer", this.customerService.listLimitInService(0, 10));
+                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
+            } else {
                 int numberOfPage = Integer.parseInt(page);
-                request.setAttribute("listCustomer", this.customerService.listLimitInService((numberOfPage-1)*10,10));
-                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request,response);
+                request.setAttribute("listCustomer", this.customerService.listLimitInService((numberOfPage - 1) * 10, 10));
+                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void deleteCustomerGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void deleteCustomerGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String msg;
         try {
             int customerId = Integer.parseInt(request.getParameter("id"));
             msg = this.customerService.deleteInService(customerId);
-        }catch (Exception e){
+        } catch (Exception e) {
             msg = e.toString();
         }
         request.setAttribute("msg", msg);
-        redirectCustomer(request,response);
+        redirectCustomer(request, response);
     }
 
-    private void editCustomerGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void editCustomerGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int customerId = Integer.parseInt(request.getParameter("id"));
             Customer customer = this.customerService.detailInService(customerId);
-            request.setAttribute("customer",customer);
-            request.setAttribute("customerType",this.customerTypeService.listInService());
-            request.getRequestDispatcher("/Views/Customer/edit.jsp").forward(request,response);
-        }catch (Exception e){
+            request.setAttribute("customer", customer);
+            request.setAttribute("customerType", this.customerTypeService.listInService());
+            request.getRequestDispatcher("/Views/Customer/edit.jsp").forward(request, response);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void editCustomerPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String msg = null;
+        try {
+            Customer customer = new Customer();
+            customer.setCustomerId(Integer.parseInt(request.getParameter("id")));
+            customer.setCustomerTypeId(Integer.parseInt(request.getParameter("customerTypeId")));
+            customer.setCustomerName(request.getParameter("customerName"));
+            customer.setCustomerBirthday(request.getParameter("customerBirthday"));
+            customer.setCustomerGender(Integer.parseInt(request.getParameter("customerGender")));
+            customer.setCustomerIdCard(request.getParameter("customerIdCard"));
+            customer.setCustomerPhone(request.getParameter("customerPhone"));
+            customer.setCustomerEmail(request.getParameter("customerEmail"));
+            customer.setCustomerAddress(request.getParameter("customerAddress"));
+
+            msg = this.customerService.editInService(customer);
+        }catch (Exception e){
+            e.printStackTrace();
+            msg = e.toString();
+        }
+        request.setAttribute("msg", msg);
+        redirectCustomer(request, response);
     }
 }

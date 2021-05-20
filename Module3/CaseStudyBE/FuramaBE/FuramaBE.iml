@@ -22,5 +22,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.21" level="application_server_libraries" />
     <orderEntry type="library" name="jstl-1.2" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.25" level="application" />
+    <orderEntry type="library" name="json-20210307" level="project" />
   </component>
 </module>
