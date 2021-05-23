@@ -22,7 +22,7 @@
             <table class="table table-striped table-responsive w-100 d-block d-md-table">
                 <thead>
                 <tr>
-                    <th>action</th>
+                    <th class="pl-3">action</th>
                     <th>no</th>
                     <th>name</th>
                     <th>customer type</th>
@@ -39,12 +39,12 @@
                     <tr class="middle-by-mt">
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                     Action
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">detail</a>
+                                    <a class="dropdown-item" href="/Customer?action=detailCustomer&id=<c:out value="${item.customerId}"/>">detail</a>
                                     <a class="dropdown-item" href="/Customer?action=editCustomer&id=<c:out value="${item.customerId}"/>">edit</a>
                                     <a class="dropdown-item" href="#" onclick="sureDelete(<c:out value="${item.customerId}"/>)">delete</a>
                                 </div>

@@ -287,6 +287,25 @@ end
 
 -- call sp_limit_customer(0,10);
 
+-- update Customer set 
+-- 	customerTypeId = 2,
+--     customerName = "2",
+--     customerBirthday = "2020-01-01",
+--     customerGender = 1,
+--     customerIdCard = "123123123",
+--     customerPhone = 9898999999,
+--     customerEmail = "aa@gamil.vn",
+--     customerAddress = "VN-Vn"
+--     where customerId = 1;
+
+use db_furama_be;
+
+select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId where customerName like ?;
+
+
+
+    
+
 
 
 

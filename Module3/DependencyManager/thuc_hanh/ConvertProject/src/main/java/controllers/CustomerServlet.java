@@ -58,6 +58,7 @@ public class CustomerServlet extends HttpServlet {
                 deleteCustomerGet(request, response);
                 break;
             case "editCustomer":
+            case "detailCustomer":
                 editCustomerGet(request, response);
                 break;
             default:
@@ -139,7 +140,11 @@ public class CustomerServlet extends HttpServlet {
             Customer customer = this.customerService.detailInService(customerId);
             request.setAttribute("customer", customer);
             request.setAttribute("customerType", this.customerTypeService.listInService());
-            request.getRequestDispatcher("/Views/Customer/edit.jsp").forward(request, response);
+            if (request.getParameter("action").equals("editCustomer")){
+                request.getRequestDispatcher("/Views/Customer/edit.jsp").forward(request, response);
+            }else {
+                request.getRequestDispatcher("/Views/Customer/detail.jsp").forward(request, response);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
