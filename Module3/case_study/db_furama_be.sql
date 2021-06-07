@@ -64,7 +64,7 @@ create table Employee (
     positionId int,
     educationDegreeId int,
     divisionId int,
-    userName varchar(255) unique,
+    userName varchar(255) ,
     
     constraint fk_em_po foreign key (positionId) references Position (positionId),
     constraint fk_em_ed foreign key (educationDegreeId) references EducationDegree (educationDegreeId),
@@ -195,7 +195,8 @@ insert into Employee
 		(employeeName, employeeBirthday, employeeIdCard, employeeSalary, employeePhone, employeeEmail, employeeAddress, positionId, educationDegreeId, divisionId, userName)
 	values 
 		("emp 1","1999-1-1","123456789","9000000","01201234567","emp1@gmail.com","Mỹ","5","4","4","admin"),
-		("emp 2","2000-2-2","923456789","6000000","01201234987","emp2@gmail.com","Úc","1","2","3","user");
+		("emp 2","2000-2-2","923456789","6000000","01201234987","emp2@gmail.com","Úc","1","2","3","user"),
+		("emp 3","2000-2-2","923456789","6000000","01201234987","emp2@gmail.com","Úc","1","2","3","user");
 
 insert into CustomerType (customerTypeName)
 	values
@@ -235,7 +236,7 @@ insert into RentType (rentTypeName, rentTypeCost)
 insert into Service
 		(serviceName, serviceArea, serviceCost, serviceMaxPeople, rentTypeId, serviceTypeId, standardRoom, descOtherConvenience, poolArea, numberOfFloors)
 	values
-		('Villa', '1000', '300000', '10', '2', '1', 'Vip', 'none', '50', '2'),
+		('Villa', '1000', '300000', '10', '2', '1', 'Vip', 'none', null, '2'),
 		('House', '800', '200000', '10', '2', '2', 'Vip', 'none', '30', '3');
 
 insert into Contract 
@@ -300,7 +301,58 @@ end
 
 use db_furama_be;
 
-select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId where customerName like ?;
+-- select cu.*, cuT.customerTypeName from Customer cu inner join CustomerType cuT on cu.customerTypeId = cuT.customerTypeId where customerName like ?;
+
+-- select ser.*, serT.serviceTypeName, renT.rentTypeName, renT.rentTypeCost from Service ser
+-- 	inner join ServiceType serT on ser.serviceTypeId = serT.serviceTypeId
+--     inner join RentType renT on ser.rentTypeId = renT.rentTypeId;
+    
+DELIMITER //
+
+create procedure sp_list_service()
+begin
+select ser.*, serT.serviceTypeName, renT.rentTypeName, renT.rentTypeCost from Service ser
+	inner join ServiceType serT on ser.serviceTypeId = serT.serviceTypeId
+    inner join RentType renT on ser.rentTypeId = renT.rentTypeId;
+end 
+
+// DELIMITER ;
+
+-- call sp_list_service();
+
+select * from Employee;
+
+select emp.*, pos.positionName, edu.educationDegreeName, divi.divisionName
+from Employee emp
+	inner join Position pos on emp.positionId = pos.positionId
+    inner join EducationDegree edu on emp.educationDegreeId = edu.educationDegreeId
+    inner join Division divi on emp.divisionId = divi.divisionId;
+
+DELIMITER //
+
+create procedure sp_count_employee()
+begin
+select count(*) as numberEmployee from Employee;
+end 
+
+// DELIMITER ;
+
+DELIMITER //
+
+create procedure sp_limit_employee(in _index int, in _getNumber int)
+begin
+select emp.*, pos.positionName, edu.educationDegreeName, divi.divisionName
+from Employee emp
+	inner join Position pos on emp.positionId = pos.positionId
+    inner join EducationDegree edu on emp.educationDegreeId = edu.educationDegreeId
+    inner join Division divi on emp.divisionId = divi.divisionId
+    order by emp.employeeId ASC limit _index,_getNumber;
+end 
+
+// DELIMITER ;
+
+
+
 
 
 

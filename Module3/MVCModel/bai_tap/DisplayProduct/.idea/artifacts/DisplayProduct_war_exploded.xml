@@ -2,10 +2,14 @@
   <artifact type="exploded-war" name="DisplayProduct:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/DisplayProduct_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="DisplayProduct/web/Web" />
+      <element id="javaee-facet-resources" facet="ManagerProduct/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="DisplayProduct" />
+          <element id="module-output" name="ManagerProduct" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="jstl-1.2" />
+          <element id="library" level="application" name="mysql-connector-java-8.0.25" />
         </element>
       </element>
     </root>

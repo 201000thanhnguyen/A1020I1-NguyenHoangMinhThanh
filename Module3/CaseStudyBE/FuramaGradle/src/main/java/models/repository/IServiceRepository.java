@@ -5,7 +5,7 @@ import models.service.IService;
 
 import java.util.List;
 
-public interface IServiceService extends IService<Service> {
+public interface IServiceRepository extends IService<Service> {
     @Override
     List<Service> listInService();
 

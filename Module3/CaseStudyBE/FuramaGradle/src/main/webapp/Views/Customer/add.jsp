@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/_layout/_header.jsp" %>
 
 <div class="row">
@@ -74,7 +73,7 @@
                                     <div class="form-group">
                                         <label for="customerAddress">Customer Address</label>
                                         <input type="text" class="form-control" id="customerAddress"
-                                               name="customerAddress" placeholder="Pennsylvania – Washington DC">
+                                               name="customerAddress" placeholder="Pennsylvania - Washington DC">
                                     </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ import models.bean.RentType;
 
 import java.util.List;
 
-public interface IRentType extends IRepository<RentType> {
+public interface IRentTypeRepository extends IRepository<RentType> {
     @Override
     List<RentType> listInRepository();
 

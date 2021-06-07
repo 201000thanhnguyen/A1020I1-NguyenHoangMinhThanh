@@ -36,8 +36,6 @@ public class CustomerRepository implements ICustomerRepository {
             return customerList;
         }catch (SQLException ex){
             ex.printStackTrace();
-        }catch (Exception e){
-            e.printStackTrace();
         }
         return null;
     }
@@ -97,8 +95,6 @@ public class CustomerRepository implements ICustomerRepository {
             return getListCustomer(customerList, callableStatement);
         }catch (SQLException ex){
             ex.printStackTrace();
-        }catch (Exception e){
-            e.printStackTrace();
         }
         return null;
     }
@@ -172,8 +168,6 @@ public class CustomerRepository implements ICustomerRepository {
             return customer;
         }catch (SQLException ex){
             ex.printStackTrace();
-        }catch (Exception e){
-            e.printStackTrace();
         }
         return null;
     }

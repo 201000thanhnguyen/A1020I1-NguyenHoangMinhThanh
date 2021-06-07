@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/_layout/_header.jsp" %>
 <%--<jsp:include page="/_layout/_header.jsp"/>--%>
 <div class="row">
@@ -21,9 +20,10 @@
                 <form class="form-inline float-right">
                     <div class="form-group">
                         <input type="hidden" name="action" id="action" value="searchCustomer">
-                        <input type="text" class="form-control" name="customerName" id="customerName" placeholder="Name . . .">
+                        <input type="text" class="form-control" name="customerName" id="customerName"
+                               placeholder="Name . . .">
                     </div>
-                    <button type="submit" class="btn btn-primary ml-2">Search</button>
+                    <button type="submit" class="btn btn-outline-primary ml-2">Search</button>
                 </form>
             </div>
             <table class="table table-striped table-responsive w-100 d-block d-md-table">

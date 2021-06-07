@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceRepositoryy implements IServiceRepository {
+public class ServiceRepository implements IServiceRepository {
     ConnectRepository connectRepository = new ConnectRepository();
 
     @Override

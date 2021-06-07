@@ -116,12 +116,11 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("numberPage", numberPage);
             if (page == null) {
                 request.setAttribute("listCustomer", this.customerService.listLimitInService(0, 10));
-                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
             } else {
                 int numberOfPage = Integer.parseInt(page);
                 request.setAttribute("listCustomer", this.customerService.listLimitInService((numberOfPage - 1) * 10, 10));
-                request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
             }
+            request.getRequestDispatcher("/Views/Customer/index.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

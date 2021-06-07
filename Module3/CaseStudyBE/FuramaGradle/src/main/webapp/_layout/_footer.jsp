@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
         </div>
         <!-- close col-9 -->
@@ -11,7 +10,7 @@
     <div class="footer-main">
         <div class="row">
             <div class="col-md-5">
-                <h3>Introduct</h3>
+                <h3>Introduce</h3>
                 <p style="padding-top: 5px;">
                     <b>ME : </b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
