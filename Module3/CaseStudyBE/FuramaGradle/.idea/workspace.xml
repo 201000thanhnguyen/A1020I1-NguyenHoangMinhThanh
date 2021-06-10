@@ -20,105 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a63b4ee1-518b-48ff-b003-e02fe587c91e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/EmployeeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ServiceServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/Division.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/EducationDegree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/RentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/bean/ServiceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IDivisionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IEducationDegreeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IEmployeeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IPositionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IRentTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IServiceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/IServiceTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/DivisionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/EducationDegreeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/EmployeeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/PositionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/RentTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/ServiceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/ServiceTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IDivisionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IEducationDegreeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IEmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IPositionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IRentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/IServiceTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/DivisionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/EducationDegreeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/PositionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/RentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/ServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/service/impl/ServiceTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Views/Service/add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Views/Service/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thi_module3/MatBangTComplex/src/main/java/models/bean/GroundStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.idea/CreateSpring.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TongQuanSpring/thuc_hanh/ManagerListCustomer/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controllers/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controllers/CustomerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/models/repository/impl/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/models/repository/impl/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/FuramaGradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/FuramaGradle-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/repository/impl/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/repository/impl/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Views/Customer/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Views/Customer/add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Views/Customer/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Views/Customer/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Views/Customer/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Views/Customer/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Views/Customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Views/Customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/_layout/_footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/_layout/_footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/_layout/_header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/_layout/_header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/.idea/artifacts/DisplayProduct_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/.idea/artifacts/DisplayProduct_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/DisplayProduct.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/ManagerProduct.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/Images/noAvatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/Views/Product/add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/Views/Product/detail.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/Views/Product/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/Views/Product/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Controllers/product/ListProductServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Models/bean/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Models/repository/IProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Models/repository/impl/ProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Models/service/IProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/classes/Models/service/impl/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/artifacts/DisplayProduct_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Views/Employee/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Controllers/product/ListProductServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Models/bean/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Models/repository/IProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Models/repository/impl/ProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Models/service/IProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/out/production/DisplayProduct/Models/service/impl/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/web/Views/Product/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/web/Views/Product/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../MVCModel/bai_tap/DisplayProduct/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/db_furama_be.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/db_furama_be.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/CodeGym-A1020I1_NguyenHoangMinhThanh.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/CodeGym-A1020I1_NguyenHoangMinhThanh.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/Views/Customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/WEB-INF/classes/controllers/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/WEB-INF/classes/controllers/CustomerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/WEB-INF/classes/models/repository/impl/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/WEB-INF/classes/models/repository/impl/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/_layout/_footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/_layout/_footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/_layout/_header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/_layout/_header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/apache-tomcat-9.0.21/webapps/ROOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/module3case/~$-DN Case Study for JSP&amp;Servlet - Copy.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../TaiLieuTrienKhaiLopA1020I1/module3case/~WRL2780.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +90,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Module4/TestOfMT/CreateSpring" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -353,6 +269,7 @@
       <workItem from="1622636099323" duration="89000" />
       <workItem from="1622636208980" duration="1154000" />
       <workItem from="1622773806290" duration="121000" />
+      <workItem from="1623237186248" duration="207000" />
     </task>
     <servers />
   </component>
@@ -404,10 +321,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1622031820348" />
-    <state x="579" y="170" key="FileChooserDialogImpl" timestamp="1622630231318">
+    <state x="579" y="170" key="FileChooserDialogImpl" timestamp="1623237396477">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="579" y="170" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1622630231318" />
+    <state x="579" y="170" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1623237396477" />
     <state width="1069" height="222" key="GridCell.Tab.0.bottom" timestamp="1622773933375">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
