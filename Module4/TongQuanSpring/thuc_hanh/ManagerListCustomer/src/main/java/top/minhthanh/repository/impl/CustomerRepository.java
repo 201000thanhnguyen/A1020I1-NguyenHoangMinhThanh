@@ -26,6 +26,8 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public void editCustomer(Customer customer) {
-
+        this.listCustomer().get(customer.getId()).setName(customer.getName());
+        this.listCustomer().get(customer.getId()).setEmail(customer.getEmail());
+        this.listCustomer().get(customer.getId()).setAddress(customer.getAddress());
     }
 }

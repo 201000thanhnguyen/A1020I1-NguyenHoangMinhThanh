@@ -26,6 +26,6 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void editCustomer(Customer customer) {
-
+        this.customerRepository.editCustomer(customer);
     }
 }

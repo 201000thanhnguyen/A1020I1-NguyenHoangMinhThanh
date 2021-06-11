@@ -12,5 +12,12 @@
 </head>
 <body>
     <h2>${helloProduct}</h2>
+<div>
+    <table border="1">
+        <tr>
+            <th></th>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
