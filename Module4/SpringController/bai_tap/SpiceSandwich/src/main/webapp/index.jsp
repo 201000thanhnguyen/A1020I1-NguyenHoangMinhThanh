@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <a href="/Sandwich/index">sandwich</a>
   </body>
 </html>
