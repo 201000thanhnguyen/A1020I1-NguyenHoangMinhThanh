@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${customer}" action="/Customer/edit" method="post">
+    <input type="hidden" th:field="${customer.customerId}" value="${customerId}">
+    <label>customer name</label>
+    <input type="text" th:field="${customer.customerName}"><br>
+    <label>customer language</label>
+    <input type="checkbox" th:checked="${customer.customerLanguage[0] == 'VN'}" value="VN"> VN
+    <input type="checkbox" th:checked="${customer.customerLanguage[0] == 'EN'}" value="EN"> EN
+    <br>
+    <span th:each="item,iter : ${customer.customerLanguage}">
+        <label th:text="${iter}"></label>
+        <label th:text="${iter.index}"></label>
+    </span>
+    <br>
+    <span th:each="itemLanguage,iter : ${arrLanguage}">
+            <input type="checkbox" th:checked="${customer.customerLanguage[iter.index] == 'VN'}" value="VN"> VN
+    </span>
+</form>
+</body>
+</html>

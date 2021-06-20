@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${customer}" action="/Customer/create" method="post">
+    <label>customer name</label>
+    <input type="text" th:field="*{customerName}"><br>
+    <label>customer language</label>
+    <input type="checkbox" th:field="*{customerLanguage}" value="VN"> VN
+    <input type="checkbox" th:field="*{customerLanguage}" value="EN"> EN
+    <br>
+    <label>customer birthday</label>
+    <input type="date" th:field="*{customerBirthday}"><br>
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>
