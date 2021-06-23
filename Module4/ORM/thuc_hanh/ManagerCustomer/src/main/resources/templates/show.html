@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+
+</head>
+<body>
+<div th:insert="~{/index::header}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <!--/*@thymesVar id="msg" type="aj"*/-->
+            <div th:if="${msg}" th:text="${msg}" class="alert alert-primary" role="alert">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Function</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer:${customerList}">
+                    <td th:text="${customer.id}"></td>
+                    <td th:text="${customer.name}"></td>
+                    <td th:switch="${customer.gender}">
+                        <span th:case="1">Female</span>
+                        <span th:case="2">Male</span>
+                        <span th:case="*">LGBT</span>
+                    </td>
+                    <td>
+                        <a th:href="@{/edit/__${customer.id}__ }" class="btn btn-primary float-left">Edit</a>
+                        <button type="button" class="btn btn-warning float-right" data-toggle="modal"  th:data-target="'#exampleModal'+${customer.id}">
+                            Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:id="'exampleModal'+${customer.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirm deleted</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 th:text="'Do you agree to delete '+${customer.name}+' customer ?'"></h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a th:href="@{/delete/__${customer.id}__/__${customer.name}__ }" class="btn btn-warning">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
