@@ -9,4 +9,10 @@ import java.util.List;
 public interface ICustomerService {
 
     List<Customer> listCustomer();
+
+    String addCustomer(Customer customer);
+
+    Customer detailCustomer(int id);
+
+    String deleteCustomer(int id);
 }

@@ -22,4 +22,33 @@ public class CustomerRepository implements ICustomerRepository {
         TypedQuery<Customer> typedQuery = this.entityManager.createQuery("select s from Customer as s", Customer.class);
         return typedQuery.getResultList();
     }
+
+    @Override
+    public String addEntity(Customer customer) {
+        String msg = null;
+        try {
+            this.entityManager.persist(customer);
+            msg = "add success";
+        }catch (Exception e){
+            msg = e.toString();
+        }
+        return msg;
+    }
+
+    @Override
+    public Customer detailEntity(int id) {
+        return this.entityManager.find(Customer.class, id);
+    }
+
+    @Override
+    public String deleteEntity(int id) {
+        String msg = null;
+        try {
+            this.entityManager.remove(detailEntity(id));
+            msg = "delete success" ;
+        }catch (Exception e){
+            msg = e.toString();
+        }
+        return msg;
+    }
 }

@@ -6,5 +6,9 @@ public interface IRepository<E> {
 
     List<E> listEntity();
 
+    String addEntity(E e);
 
+    E detailEntity(int id);
+
+    String deleteEntity(int id);
 }

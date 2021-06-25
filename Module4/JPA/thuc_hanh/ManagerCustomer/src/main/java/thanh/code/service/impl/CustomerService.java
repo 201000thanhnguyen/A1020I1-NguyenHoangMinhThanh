@@ -20,4 +20,19 @@ public class CustomerService implements ICustomerService {
     public List<Customer> listCustomer() {
         return this._customerRepository.listEntity();
     }
+
+    @Override
+    public String addCustomer(Customer customer) {
+        return this._customerRepository.addEntity(customer);
+    }
+
+    @Override
+    public Customer detailCustomer(int id) {
+        return this._customerRepository.detailEntity(id);
+    }
+
+    @Override
+    public String deleteCustomer(int id) {
+        return this._customerRepository.deleteEntity(id);
+    }
 }
