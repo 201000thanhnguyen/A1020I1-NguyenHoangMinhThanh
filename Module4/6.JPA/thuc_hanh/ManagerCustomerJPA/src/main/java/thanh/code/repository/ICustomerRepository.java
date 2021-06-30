@@ -1,0 +1,11 @@
+package thanh.code.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import thanh.code.models.Customer;
+
+import java.util.List;
+
+public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
+
+}
