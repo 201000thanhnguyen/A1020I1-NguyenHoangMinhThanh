@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{index::listMenu}"></div>
+<div>
+    <a href="/User/create">create user</a>
+</div>
+    <table border="1">
+        <tr>
+            <th>user id</th>
+            <th>user name</th>
+            <th>user age</th>
+        </tr>
+        <tr th:each="item:${listUser}">
+            <td th:text="${item.userId}"></td>
+            <td th:text="${item.userName}"></td>
+            <td th:text="${item.userAge}"></td>
+        </tr>
+    </table>
+</body>
+</html>

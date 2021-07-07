@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/User/create" method="post" th:object="${user}">
+    <input type="hidden" th:field="*{userId}">
+    <table border="1">
+        <tr>
+            <td>user name</td>
+            <td>
+                <input type="text" th:field="*{userName}">
+                <div style="color: red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>user age</td>
+            <td>
+                <input type="number" th:field="*{userAge}">
+                <div style="color: red" th:if="${#fields.hasErrors('userAge')}" th:errors="*{userAge}"></div>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <button type="submit">submit</button>
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{index::listPeople}"></div>
+<table border="1">
+<tr>
+    <td>people id : </td>
+    <td th:text="${people.peopleId}"></td>
+</tr>
+<tr>
+    <td>people name : </td>
+    <td th:text="${people.peopleName}"></td>
+</tr>
+<tr>
+    <td>people birthday : </td>
+    <td th:text="${people.peopleBirthday}"></td>
+</tr>
+<tr>
+    <td>people decs : </td>
+    <td th:text="${people.peopleDescription}"></td>
+</tr>
+</table>
+</body>
+</html>

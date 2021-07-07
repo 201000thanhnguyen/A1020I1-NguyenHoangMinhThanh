@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{index::listPeople}"></div>
+<div>
+    <form th:object="${people}" action="/People/create" method="post">
+        <table border="1">
+            <tr>
+                <td>people name : </td>
+                <td>
+                    <input type="text" th:field="*{peopleName}">
+                    <div style="color: red" th:if="${#fields.hasErrors('peopleName')}" th:errors="*{peopleName}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>people birthday : </td>
+                <td>
+                    <input type="date" th:field="*{peopleBirthday}">
+                </td>
+            </tr>
+            <tr>
+                <td>people desc : </td>
+                <td>
+                    <input type="text" th:field="*{peopleDescription}">
+                </td>
+            </tr>
+            <tr>
+                <td>(people) account name : </td>
+                <td>
+                    <input type="text" th:field="*{account.accountName}">
+                    <div style="color: red" th:if="${#fields.hasErrors('account.accountName')}" th:errors="*{account.accountName}"></div>
+                </td>
+            </tr>
+            <tr>
+               <th colspan="2">
+                   <button type="submit">submit</button>
+               </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

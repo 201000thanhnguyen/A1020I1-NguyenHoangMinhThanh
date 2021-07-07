@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{index::listPeople}"></div>
+<form action="/People/edit/" method="post" th:object="${people}">
+    <table border="1">
+        <input type="hidden" th:field="*{peopleId}">
+        <tr>
+            <td>people name : </td>
+            <td>
+                <input type="text" th:field="*{peopleName}">
+            </td>
+        </tr>
+        <tr>
+            <td>people birthday : </td>
+            <td>
+                <input type="date" th:field="*{peopleBirthday}">
+            </td>
+        </tr>
+        <tr>
+            <td>people decs : </td>
+            <td>
+                <input type="text" th:field="*{peopleDescription}">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <button type="submit">submit</button>
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

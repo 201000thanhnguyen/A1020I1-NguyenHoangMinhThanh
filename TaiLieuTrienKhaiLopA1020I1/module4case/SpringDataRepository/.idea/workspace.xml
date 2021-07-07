@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b91fa288-237f-4500-826e-74e16a31d8e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/controllers/PeopleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/models/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/models/People.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/repository/IPeopleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/service/ICRUDService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/service/IPeopleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/java/thanh/code/service/impl/PeopleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/resources/templates/People/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/resources/templates/People/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/resources/templates/People/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/resources/templates/People/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOne/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/controllers/PeopleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/models/BoxChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/models/People.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/repository/IPeopleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/service/IPeopleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/java/thanh/code/service/impl/PeopleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/resources/templates/People/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module4/TestOfMT/TestFullOption/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module4/7.SpringDataRepository/thuc_hanh/ManagerCustomer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module4/7.SpringDataRepository/thuc_hanh/ManagerCustomer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CodeGym-A1020I1_NguyenHoangMinhThanh.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../CodeGym-A1020I1_NguyenHoangMinhThanh.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/thanh/code/StartApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/thanh/code/config/MvcConfig.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1unS4pSwjcS6seWgX71O6ptQJ0N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b91fa288-237f-4500-826e-74e16a31d8e8" name="Default Changelist" comment="" />
+      <created>1625299671320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625299671320</updated>
+      <workItem from="1625299672576" duration="7000" />
+    </task>
+    <servers />
+  </component>
+</project>
