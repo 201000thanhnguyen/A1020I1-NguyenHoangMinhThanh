@@ -3,10 +3,7 @@ package thanh.code.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.Division;
 import thanh.code.models.EducationDegree;
@@ -53,7 +50,7 @@ public class EmployeeController {
 
     @GetMapping("/index")
     public ModelAndView index() {
-        return new ModelAndView("/Employee/index", "listEntity", this.employeeService.listEntity());
+        return new ModelAndView("/Employee/index", "listEmployee", this.employeeService.listEntity());
     }
 
     @GetMapping("/create")
@@ -65,6 +62,26 @@ public class EmployeeController {
     public ModelAndView create(@Validated @ModelAttribute Employee employee,BindingResult bindingResult){
         if (bindingResult.hasFieldErrors()){
             return new ModelAndView("/Employee/create");
+        }else {
+            this.employeeService.addOrUpdateEntity(employee);
+            return index();
+        }
+    }
+
+    @GetMapping("/detail/{id}")
+    public ModelAndView detail(@PathVariable int id){
+        return new ModelAndView("/Employee/detail", "employee", this.employeeService.findByIdInt(id));
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable int id){
+        return new ModelAndView("/Employee/edit", "employee", this.employeeService.findByIdInt(id));
+    }
+
+    @PostMapping("/edit")
+    public ModelAndView edit(@Validated @ModelAttribute Employee employee, BindingResult bindingResult){
+        if (bindingResult.hasFieldErrors()){
+            return new ModelAndView("/Employee/edit");
         }else {
             this.employeeService.addOrUpdateEntity(employee);
             return index();

@@ -16,6 +16,7 @@ public class Employee {
     private String employeeIdCard;
     private Double employeeSalary;
     private String employeePhone;
+    @Email
     private String employeeEmail;
     private String employeeAddress;
 

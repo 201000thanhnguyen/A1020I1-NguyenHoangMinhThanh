@@ -14,8 +14,6 @@
             <td>
                 <input type="text" th:field="*{employeeName}">
                 <div style="color: red" th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></div>
-
-<!--                <div th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></div>-->
             </td>
         </tr>
         <tr>
@@ -46,6 +44,7 @@
             <td>employee email</td>
             <td>
                 <input type="email" th:field="*{employeeEmail}">
+                <div style="color: red" th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></div>
             </td>
         </tr>
         <tr>
