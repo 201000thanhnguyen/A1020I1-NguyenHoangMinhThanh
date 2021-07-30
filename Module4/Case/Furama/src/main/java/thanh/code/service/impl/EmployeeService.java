@@ -11,7 +11,6 @@ import thanh.code.service.IEmployeeService;
 import java.util.List;
 
 @Service
-//@Component("EmployeeService")
 public class EmployeeService implements IEmployeeService {
 
     final IEmployeeRepository employeeRepository;
@@ -41,7 +40,7 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public Page<Employee> findLimit(Pageable pageable) {
+    public Page<Employee> listLimitEntity(Pageable pageable) {
         return this.employeeRepository.findAll(pageable);
     }
 

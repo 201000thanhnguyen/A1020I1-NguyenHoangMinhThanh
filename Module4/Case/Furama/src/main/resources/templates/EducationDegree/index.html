@@ -15,7 +15,7 @@
                 <th>education degree name</th>
                 <th colspan="2">action</th>
             </tr>
-            <tr th:each="item:${listEntity}">
+            <tr th:each="item:${listEducationDegree}">
                 <td th:text="${item.educationDegreeId}"></td>
                 <td th:text="${item.educationDegreeName}"></td>
                 <td><a th:href="@{/EducationDegree/edit/{id}(id = ${item.educationDegreeId})}">edit</a></td>

@@ -22,7 +22,7 @@ public class EducationDegreeController {
 
     @GetMapping("/index")
     public ModelAndView index(){
-        return new ModelAndView("/EducationDegree/index", "listEntity", this.educationDegreeService.listEntity());
+        return new ModelAndView("/EducationDegree/index", "listEducationDegree", this.educationDegreeService.listEntity());
     }
 
     @GetMapping("/create")

@@ -20,7 +20,7 @@ public class DivisionController {
 
     @GetMapping("/index")
     public ModelAndView index(){
-        return new ModelAndView("/Division/index", "listEntity", this.divisionService.listEntity());
+        return new ModelAndView("/Division/index", "listDivision", this.divisionService.listEntity());
     }
 
     @GetMapping("/create")

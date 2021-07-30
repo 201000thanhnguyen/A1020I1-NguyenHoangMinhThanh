@@ -1,10 +1,7 @@
 package thanh.code;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -16,13 +13,13 @@ public class log {
     private void allMethodPointCut() {
     }
 
-    @Before("allMethodPointCut()")
+    @After("allMethodPointCut()")
     public void beforeMethod(JoinPoint joinPoint){
-        System.out.println("Before method: "+joinPoint.getSignature().getName()+ " Time: "+ LocalDate.now());
+        System.out.println("method: "+joinPoint.getSignature().getName()+ " Time: "+ LocalDate.now());
     }
 
-    @AfterReturning("allMethodPointCut()")
-    public void afterReturningMethod(JoinPoint joinPoint){
-        System.out.println("After returning method: "+joinPoint.getSignature().getName()+ " Time: "+ LocalDate.now());
-    }
+//    @AfterReturning("allMethodPointCut()")
+//    public void afterReturningMethod(JoinPoint joinPoint){
+//        System.out.println("After returning method: "+joinPoint.getSignature().getName()+ " Time: "+ LocalDate.now());
+//    }
 }

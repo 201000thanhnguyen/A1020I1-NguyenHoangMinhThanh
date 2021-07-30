@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Demo JSP-Servlet Upload File</h2>
+<div>
+    <h3 th:text="${message}"></h3>
+</div>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    Select file to upload: <input type="file" accept="image/*" name="file" size="60" /><br /><br />
+    <input type="submit" value="Upload" />
+</form>
+</body>
+</html>

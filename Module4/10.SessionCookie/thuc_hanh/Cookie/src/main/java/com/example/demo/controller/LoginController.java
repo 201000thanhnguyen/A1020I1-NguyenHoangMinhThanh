@@ -11,32 +11,37 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+// khởi tạo biến session user
 @SessionAttributes("user")
 public class LoginController {
 
+    // thiết lập kiểu dữ liệu cho biến siêu toàn cục user
+    // kiểu dữ liệu được gắn cho biến siêu toàn cục user là User()
     @ModelAttribute("user")
     public User setUpUserForm() {
         return new User();
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/")
     public String Index(@CookieValue(value = "setUser", defaultValue = "") String setUser, Model model) {
         Cookie cookie = new Cookie("setUser", setUser);
         model.addAttribute("cookieValue", cookie);
-        return "login";
+        return "index";
     }
 
+    // vì thiết lập kiểu dữ liệu ở trên là User() nên tham số nhận là User user
     @PostMapping("/dologin")
     public String doLogin(@ModelAttribute("user") User user, Model model, @CookieValue(value = "setUser", defaultValue = "") String setUser,
                           HttpServletResponse response, HttpServletRequest request) {
         //implement business logic
         if (user.getEmail().equals("admin@gmail.com") && user.getPassword().equals("12345")) {
             if (user.getEmail() != null)
-                setUser = user.getEmail();
+//                setUser = user.getEmail();
+                setUser = "defaultValue";
 
             // create cookie and set it in response
             Cookie cookie = new Cookie("setUser", setUser);
-            cookie.setMaxAge(24 * 60 * 60);
+            cookie.setMaxAge(5);
             response.addCookie(cookie);
 
             //get all cookies
@@ -60,6 +65,6 @@ public class LoginController {
             model.addAttribute("cookieValue", cookie);
             model.addAttribute("message", "Login failed. Try again.");
         }
-        return "login";
+        return "index";
     }
 }

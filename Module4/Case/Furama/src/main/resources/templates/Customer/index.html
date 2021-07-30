@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{index::styleMenu}"></style>
+</head>
+<body>
+<div th:replace="~{index::listMenu}"></div>
+<div>
+    <h3><a href="/Customer/create">create customer</a></h3>
+</div>
+<div>
+    <table border="1">
+        <tr>
+            <th>customer name</th>
+            <th>customer birthday</th>
+            <th>customer gender</th>
+            <th>customer id card</th>
+            <th>customer phone</th>
+            <th>customer email</th>
+            <th>customer address</th>
+            <th>customer type</th>
+            <th colspan="3">customer action</th>
+        </tr>
+        <tr th:each="item:${listCustomer}">
+            <td th:text="${item.customerName}"></td>
+            <td th:text="${item.customerBirthday}"></td>
+            <td th:text="${item.customerGender}"></td>
+            <td th:text="${item.customerIdCard}"></td>
+            <td th:text="${item.customerPhone}"></td>
+            <td th:text="${item.customerEmail}"></td>
+            <td th:text="${item.customerAddress}"></td>
+            <td th:text="${item.customerType != null} ? ${item.customerType.customerTypeName}"></td>
+            <td>
+                <a th:href="@{/Customer/detail/{id}(id = ${item.customerId})}">detail</a>
+            </td>
+            <td>
+                <a th:href="@{/Customer/edit/{id}(id = ${item.customerId})}">edit</a>
+            </td>
+            <td>
+                <a th:href="@{/Customer/delete/{id}(id = ${item.customerId})}">delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

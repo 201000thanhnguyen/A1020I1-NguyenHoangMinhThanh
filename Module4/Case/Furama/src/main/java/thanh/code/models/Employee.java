@@ -1,8 +1,12 @@
 package thanh.code.models;
 
+import org.springframework.validation.annotation.Validated;
+
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
 @Entity
@@ -28,6 +32,18 @@ public class Employee {
 
     @ManyToOne(targetEntity = Division.class)
     private Division division;
+
+    @Valid
+    @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Division getDivision() {
         return division;

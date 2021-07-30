@@ -78,6 +78,26 @@
             </td>
         </tr>
         <tr>
+            <td>user name</td>
+            <td>
+                <input type="text" th:field="*{user.userName}">
+                <div style="color: red" th:if="${#fields.hasErrors('user.userName')}" th:errors="*{user.userName}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>user password</td>
+            <td>
+                <input type="password" th:field="*{user.password}">
+                <div style="color: red" th:if="${#fields.hasErrors('user.password')}" th:errors="*{user.password}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>role</td>
+            <td>
+                <input type="checkbox" th:field="*{user.role}" th:each="item:${roleIter}" th:text="${item.roleName}" th:value="${item.roleId}">
+            </td>
+        </tr>
+        <tr>
             <th colspan="2">
                 <button type="submit">submit</button>
             </th>

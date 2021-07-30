@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<h2>hello</h2>
+<div>
+    <h3>
+        <button id="createPhone">create</button>
+    </h3>
+</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>phone id</th>
+            <th>phone name</th>
+            <th>phone price</th>
+            <th colspan="3">action</th>
+        </tr>
+        </thead>
+        <tbody id="tbodyPhone">
+        </tbody>
+    </table>
+</div>
+
+<div id="formCreateOrUpdatePhone" style="display: none; margin-top: 5px;">
+    <input type="hidden" name="idAddOrUpdate" id="idAddOrUpdate" value="">
+    <table border="1">
+        <tr>
+            <td>name</td>
+            <td>
+                <input type="text" name="phoneName" id="phoneName">
+            </td>
+        </tr>
+        <tr>
+            <td>price</td>
+            <td>
+                <input type="number" step="any" name="phonePrice" id="phonePrice">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <button id="submitCreateOrUpdatePhone">submit</button>
+                <button id="hideFormCreateOrUpdatePhone">hide</button>
+            </th>
+        </tr>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        loadListPhone();
+
+        $('#createPhone').click(function () {
+            $('#idAddOrUpdate').val(0);
+            $('#phoneName').val('');
+            $('#phonePrice').val('');
+            $('#formCreateOrUpdatePhone').show();
+        });
+
+        $('#submitCreateOrUpdatePhone').click(function () {
+            let phoneId = $('#idAddOrUpdate').val();
+            let phoneName = $('#phoneName').val().trim();
+            let phonePriceString = $('#phonePrice').val();
+            let phonePrice = parseFloat(phonePriceString);
+            let obj = {
+                phoneId: phoneId,
+                phoneName: phoneName,
+                phonePrice: phonePrice
+            }
+            $.ajax({
+                url: window.location.origin + "/api/phone",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                success: function (data) {
+                    $('#phoneName').val('');
+                    $('#phonePrice').val('');
+                    $('#formCreateOrUpdatePhone').hide();
+                    loadListPhone();
+                }
+            });
+        });
+
+        $(document).on('click', "button[id='deletePhone']", function () {
+            let phoneId = $(this).closest('tr').attr('id');
+            $.ajax({
+                url: window.location.origin + "/api/phone/" + phoneId,
+                type: 'DELETE',
+                success: function () {
+                    loadListPhone();
+                }
+            });
+        });
+
+        $(document).on('click', "button[id='editPhone']", function () {
+            let phoneId = $(this).closest('tr').attr('id');
+            $.ajax({
+                url: window.location.origin + "/api/phone/" + phoneId,
+                type: 'GET',
+                success: function (data) {
+                    $('#idAddOrUpdate').val(data.phoneId);
+                    $('#phoneName').val(data.phoneName);
+                    $('#phonePrice').val(data.phonePrice);
+                    $('#formCreateOrUpdatePhone').show();
+                }
+            });
+        });
+
+        $('#hideFormCreateOrUpdatePhone').click(function () {
+            $('#formCreateOrUpdatePhone').hide();
+        });
+
+        $(document).on('click', "button[id='detailPhone']", function () {
+            let phoneId = $(this).closest('tr').attr('id');
+            $.ajax({
+                url: window.location.origin + "/api/phone/" + phoneId,
+                type: 'GET',
+                success: function (data) {
+                    // disables fade and can not click inside
+                    $('#phoneName').prop('disabled', true).val(data.phoneName);
+                    $('#phonePrice').prop('readonly', true).val(data.phonePrice);
+                    $('#submitCreateOrUpdatePhone').hide();
+                    $('#formCreateOrUpdatePhone').show();
+                }
+            });
+        })
+    });
+
+    function loadListPhone() {
+        $.ajax({
+            url: window.location.origin + "/api/phone",
+            type: 'GET',
+            success: function (data) {
+                $('#tbodyPhone').empty();
+                $.each(data, function (k, v) {
+                    let tr = "<tr id=" + v.phoneId + ">\n" +
+                        "            <td>" + v.phoneId + "</td>\n" +
+                        "            <td>" + v.phoneName + "</td>\n" +
+                        "            <td>" + v.phonePrice + "</td>\n" +
+                        "            <td>\n" +
+                        "                <button id=\"detailPhone\">detail</button>\n" +
+                        "            </td>\n" +
+                        "            <td>\n" +
+                        "                <button id=\"editPhone\">edit</button>\n" +
+                        "            </td>\n" +
+                        "            <td>\n" +
+                        "                <button id=\"deletePhone\">delete</button>\n" +
+                        "            </td>\n" +
+                        "        </tr>";
+                    $('#tbodyPhone').append(tr);
+                })
+            }
+        });
+    };
+</script>
+</body>
+</html>

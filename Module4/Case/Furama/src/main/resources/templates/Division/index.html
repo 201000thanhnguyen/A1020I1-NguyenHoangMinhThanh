@@ -7,21 +7,21 @@
 </head>
 <body>
 <div th:replace="~{index::listMenu}"></div>
-    <div>
-        <h3><a href="/Division/create">create division</a></h3>
-        <table border="1">
-            <tr>
-                <th>division id</th>
-                <th>division name</th>
-                <th colspan="2">action</th>
-            </tr>
-            <tr th:each="item:${listEntity}">
-                <td th:text="${item.divisionId}"></td>
-                <td th:text="${item.divisionName}"></td>
-                <td><a th:href="@{/Division/edit/{id}(id = ${item.divisionId})}">edit</a></td>
-                <td><a th:href="@{/Division/delete/{id}(id = ${item.divisionId})}">delete</a></td>
-            </tr>
-        </table>
-    </div>
+<div>
+    <h3><a href="/Division/create">create division</a></h3>
+    <table border="1">
+        <tr>
+            <th>division id</th>
+            <th>division name</th>
+            <th colspan="2">action</th>
+        </tr>
+        <tr th:each="item:${listDivision}">
+            <td th:text="${item.divisionId}"></td>
+            <td th:text="${item.divisionName}"></td>
+            <td><a th:href="@{/Division/edit/{id}(id = ${item.divisionId})}">edit</a></td>
+            <td><a th:href="@{/Division/delete/{id}(id = ${item.divisionId})}">delete</a></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
