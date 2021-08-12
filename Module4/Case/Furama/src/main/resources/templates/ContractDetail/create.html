@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+<div>
+    <form action="/ContractDetail/create" method="post" th:object="${contractDetail}">
+        <input type="hidden" th:field="*{contract}" th:value="${contractDetail.contract}">
+        <table border="1">
+            <tr>
+                <td>attach service</td>
+                <td>
+                    <select th:field="*{attachService}">
+                        <option th:each="item:${attachServiceIter}" th:text="${item.attachServiceName} + ' : '
+                        + ${item.attachServiceCost} + ' / ' + ${item.attachServiceUnit}" th:value="${item.attachServiceId}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>quantity</td>
+                <td>
+                    <input type="number" step="any" th:field="*{contractDetailQuantity}">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit">submit</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>

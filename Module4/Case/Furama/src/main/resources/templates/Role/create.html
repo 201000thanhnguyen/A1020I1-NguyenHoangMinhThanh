@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:replace="~{index::styleMenu}"></style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div th:replace="~{index::listMenu}"></div>
+
 <div>
     <form action="/Role/create" method="post" th:object="${role}">
         <table border="1">
@@ -25,5 +26,6 @@
         </table>
     </form>
 </div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

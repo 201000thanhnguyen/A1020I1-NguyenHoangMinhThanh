@@ -34,4 +34,14 @@ public class ServiceService implements IServiceService {
     public thanh.code.models.Service findByIdInt(int id) {
         return this.serviceRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Iterable<thanh.code.models.Service> serviceIterable() {
+        return this.serviceRepository.findAll();
+    }
+
+    @Override
+    public List<thanh.code.models.Service> findServiceByServiceTypeName(String serviceTypeName) {
+        return this.serviceRepository.findServiceByServiceTypeServiceTypeName(serviceTypeName);
+    }
 }

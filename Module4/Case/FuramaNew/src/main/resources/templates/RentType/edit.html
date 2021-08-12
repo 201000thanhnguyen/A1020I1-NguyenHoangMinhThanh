@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{index::styleMenu}"></style>
+</head>
+<body>
+<div th:replace="~{index::listMenu}"></div>
+<div>
+    <form action="/RentType/create" method="post" th:object="${rentType}">
+        <input type="hidden" th:field="*{rentTypeId}">
+        <table border="1">
+            <tr>
+                <td>rentType name</td>
+                <td>
+                    <input type="text" th:field="*{rentTypeName}">
+                    <div style="color: red" th:if="${#fields.hasErrors('rentTypeName')}" th:errors="*{rentTypeName}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>rentType cost</td>
+                <td>
+                    <input type="number" step="any" th:field="*{rentTypeCost}">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit">submit</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

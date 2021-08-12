@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:replace="~{index::styleMenu}"></style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div th:replace="~{index::listMenu}"></div>
+
     <div>
         <h3><a href="/RentType/create">create serviceType</a></h3>
         <table border="1">
@@ -25,5 +26,6 @@
             </tr>
         </table>
     </div>
+    <script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

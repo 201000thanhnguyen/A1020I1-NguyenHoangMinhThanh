@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:replace="~{index::styleMenu}"></style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div th:replace="~{index::listMenu}"></div>
-<form action="/Employee/create" method="post" th:object="${employee}">
+
+<form action="/Employee/edit" method="post" th:object="${employee}">
     <input type="hidden" th:field="*{employeeId}">
     <table border="1">
         <tr>
@@ -105,5 +106,6 @@
         </tr>
     </table>
 </form>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

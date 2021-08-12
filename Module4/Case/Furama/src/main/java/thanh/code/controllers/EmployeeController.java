@@ -1,5 +1,6 @@
 package thanh.code.controllers;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -19,6 +20,13 @@ public class EmployeeController {
     final IPositionService positionService;
     final IEducationDegreeService educationDegreeService;
     final IRoleService roleService;
+    private final IServiceTypeService serviceTypeService;
+
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
+    }
+
     @ModelAttribute("divisionIter")
     public Iterable<Division> divisionIterable(){
         return divisionService.divisionIterable();
@@ -41,15 +49,16 @@ public class EmployeeController {
 
     public EmployeeController(IEmployeeService employeeService, IDivisionService divisionService,
                               IPositionService positionService, IEducationDegreeService educationDegreeService,
-                              IRoleService roleService) {
+                              IRoleService roleService, IServiceTypeService serviceTypeService) {
         this.employeeService = employeeService;
         this.divisionService = divisionService;
         this.positionService = positionService;
         this.educationDegreeService = educationDegreeService;
         this.roleService = roleService;
+        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index() {
         return new ModelAndView("/Employee/index", "listEmployee", this.employeeService.listEntity());
     }
@@ -64,6 +73,7 @@ public class EmployeeController {
         if (bindingResult.hasFieldErrors()){
             return new ModelAndView("/Employee/create");
         }else {
+            employee.getUser().setPassword(new BCryptPasswordEncoder().encode(employee.getUser().getPassword()));
             this.employeeService.addOrUpdateEntity(employee);
             return index();
         }
@@ -77,7 +87,7 @@ public class EmployeeController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable int id) throws Exception{
         Employee employee = this.employeeService.findByIdInt(id);
-        if (employee.getEmployeeName() == null){
+        if (employee == null){
             throw new EmployeeException();
         }
         return new ModelAndView("/Employee/edit", "employee", this.employeeService.findByIdInt(id));
@@ -88,6 +98,7 @@ public class EmployeeController {
         if (bindingResult.hasFieldErrors()){
             return new ModelAndView("/Employee/edit");
         }else {
+            employee.getUser().setPassword(new BCryptPasswordEncoder().encode(employee.getUser().getPassword()));
             this.employeeService.addOrUpdateEntity(employee);
             return index();
         }
@@ -97,6 +108,11 @@ public class EmployeeController {
     public ModelAndView delete(@PathVariable int id){
         this.employeeService.removeEntity(this.employeeService.findByIdInt(id));
         return index();
+    }
+
+    @ExceptionHandler(EmployeeException.class)
+    public ModelAndView error(){
+        return new ModelAndView("/error");
     }
 
 }

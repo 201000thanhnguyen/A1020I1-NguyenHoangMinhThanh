@@ -6,19 +6,28 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.RentType;
+import thanh.code.models.ServiceType;
 import thanh.code.service.IRentTypeService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/RentType")
 public class RentTypeController {
 
     final IRentTypeService rentTypeService;
+    private final IServiceTypeService serviceTypeService;
 
-    public RentTypeController(IRentTypeService rentTypeService) {
-        this.rentTypeService = rentTypeService;
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
     }
 
-    @GetMapping("/index")
+    public RentTypeController(IRentTypeService rentTypeService, IServiceTypeService serviceTypeService) {
+        this.rentTypeService = rentTypeService;
+        this.serviceTypeService = serviceTypeService;
+    }
+
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/RentType/index", "listRentType", this.rentTypeService.listEntity());
     }

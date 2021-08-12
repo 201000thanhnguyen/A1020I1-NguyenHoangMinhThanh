@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{index::styleMenu}"></style>
+</head>
+<body>
+<div th:replace="~{index::listMenu}"></div>
+    <div>
+        <h3><a href="/Role/create">create role</a></h3>
+        <table border="1">
+            <tr>
+                <th>role id</th>
+                <th>role name</th>
+                <th colspan="2">action</th>
+            </tr>
+            <tr th:each="item:${listRole}">
+                <td th:text="${item.roleId}"></td>
+                <td th:text="${item.roleName}"></td>
+                <td><a th:href="@{/Role/edit/{id}(id = ${item.roleId})}">edit</a></td>
+                <td><a th:href="@{/Role/delete/{id}(id = ${item.roleId})}">delete</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

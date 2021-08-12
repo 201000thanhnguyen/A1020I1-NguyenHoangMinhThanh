@@ -14,11 +14,16 @@ public class ServiceTypeController {
 
     final IServiceTypeService serviceTypeService;
 
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
+    }
+
     public ServiceTypeController(IServiceTypeService serviceTypeService) {
         this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/ServiceType/index", "listServiceType", this.serviceTypeService.listEntity());
     }

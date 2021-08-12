@@ -1,29 +1,405 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:fragment="styleMenu">
-        div#menu-top ul li {
-            display: inline;
-        }
-    </style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div id="menu-top" th:fragment="listMenu">
-    <ul>
-        <li><a href="/">Home</a></li> ||
-        <li><a href="/Position/index">Position</a></li> ||
-        <li><a href="/EducationDegree/index">Education Degree</a></li> ||
-        <li><a href="/Division/index">Division</a></li> ||
-        <li><a href="/Role/index">Role</a></li> ||
-        <li><a href="/Employee/index">Employee</a></li> ||
-        <li><a href="/CustomerType/index">Customer Type</a></li> ||
-        <li><a href="/Customer/index">Customer</a></li> ||
-        <li><a href="/ServiceType/index">Service Type</a></li> ||
-        <li><a href="/RentType/index">Rent Type</a></li> ||
-        <li><a href="/Service/index">Service</a></li>
-    </ul>
-</div>
+<div th:replace="~{/layout::layoutNav}"></div>
+
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image:url(/images/bg_1.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-12 ftco-animate text-center">
+                    <div class="text mb-5 pb-3">
+                        <h1 class="mb-3">Welcome To Furama</h1>
+                        <h2>Villas &amp; Resorts</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-item" style="background-image:url(/images/bg_2.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-12 ftco-animate text-center">
+                    <div class="text mb-5 pb-3">
+                        <h1 class="mb-3">Enjoy A Luxury Experience</h1>
+                        <h2>Join With Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftc-no-pb ftc-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(/images/bg_2.jpg);">
+                <a href="https://vimeo.com/45830194"
+                   class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                </a>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section heading-section-wo-line pt-md-5 pl-md-5 mb-5">
+                    <div class="ml-md-0">
+                        <span class="subheading">Welcome to Furama Service</span>
+                        <h2 class="mb-4">Welcome To Our Service</h2>
+                    </div>
+                </div>
+                <div class="pb-md-5">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto facilis id numquam
+                        rem tempore voluptates. Alias beatae consequatur consequuntur illo illum. Deserunt ea error
+                        est qui quis saepe voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Consequatur nihil officiis quod. Accusamus adipisci consequuntur et eum facilis porro quaerat
+                        quo rem ut voluptatibus. Aliquam ducimus facere impedit inventore ipsam!
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur consequatur
+                        debitis dolorum, ea eveniet explicabo illo incidunt ipsam iure minima neque nesciunt officia
+                        pariatur, reiciendis repellat rerum voluptas voluptates.</p>
+                    <ul class="ftco-social d-flex">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services py-4 d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-reception-bell"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-2">
+                        <h3 class="heading mb-3">24/7 Front Desk</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services py-4 d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-serving-dish"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-2">
+                        <h3 class="heading mb-3">Eating and Drink</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-sel Searchf-stretch ftco-animate">
+                <div class="media block-6 services py-4 d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-car"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-2">
+                        <h3 class="heading mb-3">Sightseeing Service</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services py-4 d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-spa"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-2">
+                        <h3 class="heading mb-3">Spa Suites</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <!--Villas-->
+    <div class="container mt-2">
+        <div class="row justify-content-center mb-5 pb-3 mt-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Villas</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-1.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Suite Room</a></h3>
+                        <p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-2.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Family Room</a></h3>
+                        <p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-3.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Deluxe Room</a></h3>
+                        <p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Houses-->
+    <div class="container mt-2">
+        <div class="row justify-content-center mb-5 pb-3 mt-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Houses</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-1.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Suite Room</a></h3>
+                        <p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-2.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Family Room</a></h3>
+                        <p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-3.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Deluxe Room</a></h3>
+                        <p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Rooms-->
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Rooms</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-4.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Classic Room</a></h3>
+                        <p><span class="price mr-2">$130.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-5.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Superior Room</a></h3>
+                        <p><span class="price mr-2">$300.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                <div class="room">
+                    <a href="#" class="img d-flex justify-content-center align-items-center"
+                       style="background-image: url(/images/room-6.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3 text-center">
+                        <h3 class="mb-3"><a href="#">Luxury Room</a></h3>
+                        <p><span class="price mr-2">$500.00</span> <span class="per">per night</span></p>
+                        <hr>
+                        <p class="pt-1"><a href="#" class="btn-custom">View Room Details <span
+                                class="icon-long-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2>Recent Blog</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-3 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="#" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    </a>
+                    <div class="text mt-3 d-block">
+                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
+                            blind texts</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">Dec 6, 2018</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="#" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    </a>
+                    <div class="text mt-3">
+                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
+                            blind texts</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">Dec 6, 2018</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="#" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    </a>
+                    <div class="text mt-3">
+                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
+                            blind texts</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">Dec 6, 2018</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="#" class="block-20" style="background-image: url('images/image_4.jpg');">
+                    </a>
+                    <div class="text mt-3">
+                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the
+                            blind texts</a></h3>
+                        <div class="meta mb-3">
+                            <div><a href="#">Dec 6, 2018</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{/layout::imageInstagram}"></div>
+<div th:replace="~{/layout::layoutFooter}"></div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

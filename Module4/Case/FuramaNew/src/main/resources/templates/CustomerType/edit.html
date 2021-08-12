@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{index::styleMenu}"></style>
+</head>
+<body>
+<div th:replace="~{index::listMenu}"></div>
+<div>
+    <form action="/CustomerType/create" method="post" th:object="${customerType}">
+        <input type="hidden" th:field="*{customerTypeId}">
+        <table border="1">
+            <tr>
+                <td>customerType name</td>
+                <td>
+                    <input type="text" th:field="*{customerTypeName}">
+                    <div style="color: red" th:if="${#fields.hasErrors('customerTypeName')}" th:errors="*{customerTypeName}"></div>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button type="submit">submit</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

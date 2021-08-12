@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+<div th:replace="~{/layout::layoutNav}"></div>
+<div th:replace="~{/layout::layoutSupporSmallPage}"></div>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="w-100">
+            <div class="card">
+                <div class="card-header">
+                    Contract
+                </div>
+                <div class="card-body col-md-12">
+                    <form class="row" action="/Contract/create" method="post" th:object="${contract}">
+                        <input type="hidden" th:field="*{contractId}">
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <input type="datetime-local" class="form-control" th:field="*{contractStartDate}">
+                            <div style="color: red" th:if="${#fields.hasErrors('contractStartDate')}"
+                                 th:errors="*{contractStartDate}"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <input type="datetime-local" class="form-control" th:field="*{contractEndDate}">
+                            <div style="color: red" th:if="${#fields.hasErrors('contractEndDate')}"
+                                 th:errors="*{contractEndDate}"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <input type="number" class="form-control" step="any" th:field="*{contractDeposit}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <input type="number" class="form-control" step="any" th:field="*{contractTotalMoney}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <select th:field="*{employee}" class="form-control">
+                                <option th:each="item:${employeeIter}" th:text="${item.employeeName}"
+                                        th:value="${item.employeeId}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <select th:field="*{customer}" class="form-control">
+                                <option th:each="item:${customerIter}" th:text="${item.customerName}"
+                                        th:value="${item.customerId}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Start Date</label>
+                            <select th:field="*{service}" class="form-control">
+                                <option th:each="item:${serviceIter}" th:text="${item.serviceName}"
+                                        th:value="${item.serviceId}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12 text-center">
+                            <button type="submit" class="btn btn-success rounded">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{/layout::layoutFooter}"></div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>

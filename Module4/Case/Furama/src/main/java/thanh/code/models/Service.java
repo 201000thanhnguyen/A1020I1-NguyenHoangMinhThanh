@@ -18,12 +18,24 @@ public class Service {
     private String serviceDescriptionOtherConvenience;
     private double servicePoolArea;
     private int serviceNumberOfFloor;
+    private String urlImage;
 
     @ManyToOne(targetEntity = ServiceType.class)
     private ServiceType serviceType;
 
     @ManyToOne(targetEntity = RentType.class)
     private RentType rentType;
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    private Set<Contract> contract;
+
+    public Set<Contract> getContract() {
+        return contract;
+    }
+
+    public void setContract(Set<Contract> contract) {
+        this.contract = contract;
+    }
 
     public RentType getRentType() {
         return rentType;
@@ -111,6 +123,14 @@ public class Service {
 
     public void setServiceNumberOfFloor(int serviceNumberOfFloor) {
         this.serviceNumberOfFloor = serviceNumberOfFloor;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
     public Service() {

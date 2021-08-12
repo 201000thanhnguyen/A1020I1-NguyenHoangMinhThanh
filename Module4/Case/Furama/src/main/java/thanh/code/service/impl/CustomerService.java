@@ -42,4 +42,9 @@ public class CustomerService implements ICustomerService {
     public Customer findByIdInt(int id) {
         return this.customerRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Iterable<Customer> customerIterable() {
+        return this.customerRepository.findAll();
+    }
 }

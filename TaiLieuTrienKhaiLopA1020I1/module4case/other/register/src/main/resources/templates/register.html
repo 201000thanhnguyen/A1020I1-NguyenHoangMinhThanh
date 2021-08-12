@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dang ky nguoi dung</title>
+</head>
+<body>
+<form action="/saveregister" method="post" th:object="${user}">
+    <label>Email</label>
+    <input type="text" th:field="*{email}">
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+    <label>Password</label>
+    <input type="text" th:field="*{password1}">
+
+    <label>Comfirm Password</label>
+    <input type="text" th:field="*{password2}">
+    <p th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.Customer;
 import thanh.code.models.CustomerType;
+import thanh.code.models.ServiceType;
 import thanh.code.service.ICustomerService;
 import thanh.code.service.ICustomerTypeService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/Customer")
@@ -16,18 +18,25 @@ public class CustomerController {
 
     final ICustomerService customerService;
     final ICustomerTypeService customerTypeService;
+    private final IServiceTypeService serviceTypeService;
 
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
+    }
+    
     @ModelAttribute("customerTypeIter")
     public Iterable<CustomerType> customerTypeIterable(){
         return this.customerTypeService.customerTypeIterable();
     }
 
-    public CustomerController(ICustomerService customerService, ICustomerTypeService customerTypeService) {
+    public CustomerController(ICustomerService customerService, ICustomerTypeService customerTypeService, IServiceTypeService serviceTypeService) {
         this.customerService = customerService;
         this.customerTypeService = customerTypeService;
+        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/Customer/index", "listCustomer", this.customerService.listEntity());
     }

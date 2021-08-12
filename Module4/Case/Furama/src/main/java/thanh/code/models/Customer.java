@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -22,6 +23,17 @@ public class Customer {
 
     @ManyToOne(targetEntity = CustomerType.class)
     private CustomerType customerType;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<Contract> contract;
+
+    public Set<Contract> getContract() {
+        return contract;
+    }
+
+    public void setContract(Set<Contract> contract) {
+        this.contract = contract;
+    }
 
     public int getCustomerId() {
         return customerId;

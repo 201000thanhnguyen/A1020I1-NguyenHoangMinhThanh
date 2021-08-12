@@ -1,25 +1,33 @@
 package thanh.code.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.Role;
+import thanh.code.models.ServiceType;
 import thanh.code.service.IRoleService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/Role")
 public class RoleController {
 
     final IRoleService roleService;
+    private final IServiceTypeService serviceTypeService;
 
-    public RoleController(IRoleService roleService) {
-        this.roleService = roleService;
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
     }
 
-    @GetMapping("/index")
+    public RoleController(IRoleService roleService, IServiceTypeService serviceTypeService) {
+        this.roleService = roleService;
+        this.serviceTypeService = serviceTypeService;
+    }
+
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/Role/index", "listRole", this.roleService.listEntity());
     }

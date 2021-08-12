@@ -1,26 +1,33 @@
 package thanh.code.controllers;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.Position;
-import thanh.code.service.ICRUDService;
+import thanh.code.models.ServiceType;
 import thanh.code.service.IPositionService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/Position")
 public class PositionController {
 
     final IPositionService positionService;
+    private final IServiceTypeService serviceTypeService;
 
-    public PositionController(IPositionService positionService){
-        this.positionService = positionService;
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
     }
 
-    @GetMapping("/index")
+    public PositionController(IPositionService positionService, IServiceTypeService serviceTypeService){
+        this.positionService = positionService;
+        this.serviceTypeService = serviceTypeService;
+    }
+
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/Position/index", "listPosition", this.positionService.listEntity());
     }

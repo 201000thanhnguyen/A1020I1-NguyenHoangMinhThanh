@@ -44,4 +44,8 @@ public class EmployeeService implements IEmployeeService {
         return this.employeeRepository.findAll(pageable);
     }
 
+    @Override
+    public Iterable<Employee> employeeIterable() {
+        return this.employeeRepository.findAll();
+    }
 }

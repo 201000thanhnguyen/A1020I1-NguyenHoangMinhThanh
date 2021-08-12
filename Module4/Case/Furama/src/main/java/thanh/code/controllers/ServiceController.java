@@ -37,7 +37,7 @@ public class ServiceController {
         this.rentTypeService = rentTypeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index() {
         return new ModelAndView("/Service/index", "listService", this.serviceService.listEntity());
     }
@@ -86,5 +86,10 @@ public class ServiceController {
     public ModelAndView delete(@PathVariable int id){
         this.serviceService.removeEntity(this.serviceService.findByIdInt(id));
         return index();
+    }
+
+    @GetMapping("/list/{serviceTypeName}")
+    public ModelAndView list(@PathVariable String serviceTypeName){
+        return new ModelAndView("/Service/list", "listService", this.serviceService.findServiceByServiceTypeName(serviceTypeName));
     }
 }

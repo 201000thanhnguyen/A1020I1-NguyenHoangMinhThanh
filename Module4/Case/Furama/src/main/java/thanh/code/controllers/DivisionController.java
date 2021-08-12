@@ -6,19 +6,28 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.Division;
+import thanh.code.models.ServiceType;
 import thanh.code.service.IDivisionService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/Division")
 public class DivisionController {
 
     final IDivisionService divisionService;
+    private final IServiceTypeService serviceTypeService;
 
-    public DivisionController(IDivisionService divisionService) {
-        this.divisionService = divisionService;
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
     }
 
-    @GetMapping("/index")
+    public DivisionController(IDivisionService divisionService, IServiceTypeService serviceTypeService) {
+        this.divisionService = divisionService;
+        this.serviceTypeService = serviceTypeService;
+    }
+
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/Division/index", "listDivision", this.divisionService.listEntity());
     }

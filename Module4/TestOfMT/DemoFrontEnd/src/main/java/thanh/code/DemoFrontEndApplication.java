@@ -9,21 +9,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class DemoFrontEndApplication implements WebMvcConfigurer {
+public class DemoFrontEndApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoFrontEndApplication.class, args);
-    }
-
-    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/public/"
-    };
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
     }
 
 }

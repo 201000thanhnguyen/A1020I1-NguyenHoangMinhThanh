@@ -6,19 +6,28 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.CustomerType;
+import thanh.code.models.ServiceType;
 import thanh.code.service.ICustomerTypeService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/CustomerType")
 public class CustomerTypeController {
 
     final ICustomerTypeService customerTypeService;
+    private final IServiceTypeService serviceTypeService;
 
-    public CustomerTypeController(ICustomerTypeService customerTypeService) {
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
+    }
+    
+    public CustomerTypeController(ICustomerTypeService customerTypeService, IServiceTypeService serviceTypeService) {
         this.customerTypeService = customerTypeService;
+        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index() {
         return new ModelAndView("/CustomerType/index", "listCustomerType", this.customerTypeService.listEntity());
     }

@@ -1,54 +1,180 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:replace="~{index::styleMenu}"></style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div th:replace="~{index::listMenu}"></div>
-<div>
-    <h3><a href="/Service/create">create service</a></h3>
+
+<div th:replace="~{/layout::layoutNav}"></div>
+<div class="hero-wrap" style="background-image: url('/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="#">Home</a></span> <span>About</span></p>
+                    <h1 class="mb-4 bread">Rooms</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <table border="1">
-        <tr>
-            <th>name</th>
-            <th>area</th>
-            <th>cost</th>
-            <th>max people</th>
-            <th>standard room</th>
-            <th>description</th>
-            <th>pool area</th>
-            <th>number floors</th>
-            <th>rent type</th>
-            <th>rentType cost</th>
-            <th>service type</th>
-            <th colspan="3">action</th>
-        </tr>
-        <tr th:each="item:${listService}">
-            <td th:text="${item.serviceName}"></td>
-            <td th:text="${item.serviceArea}"></td>
-            <td th:text="${item.serviceCost}"></td>
-            <td th:text="${item.serviceMaxPeople}"></td>
-            <td th:text="${item.serviceStandardRoom}"></td>
-            <td th:text="${item.serviceDescriptionOtherConvenience}"></td>
-            <td th:text="${item.servicePoolArea}"></td>
-            <td th:text="${item.serviceNumberOfFloor}"></td>
-            <td th:text="${item.rentType != null} ? ${item.rentType.rentTypeName}"></td>
-            <td th:text="${item.rentType != null} ? ${item.rentType.rentTypeCost}"></td>
-            <td th:text="${item.serviceType != null} ? ${item.serviceType.serviceTypeName}"></td>
-            <td>
-                <a th:href="@{/Service/detail/{id}(id = ${item.serviceId})}">detail</a>
-            </td>
-            <td>
-                <a th:href="@{/Service/edit/{id}(id = ${item.serviceId})}">edit</a>
-            </td>
-            <td>
-                <a th:href="@{/Service/delete/{id}(id = ${item.serviceId})}">delete</a>
-            </td>
-        </tr>
-    </table>
-</div>
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <div th:each="item:${listService}" class="col-sm col-md-6 col-lg-4 ftco-animate">
+                        <div class="room">
+                            <a href="#" class="img d-flex justify-content-center align-items-center"
+                               style="background-image: url(/images/room-1.jpg);">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="icon-search2"></span>
+                                </div>
+                            </a>
+                            <div class="text p-3 text-center">
+                                <h3 class="mb-3"><a href="#" th:text="${item.serviceName}">Suite Room</a></h3>
+                                <p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+                                <ul class="list">
+                                    <li><span>Max:</span> 3 Persons</li>
+                                    <li><span>Size:</span> 45 m2</li>
+                                    <li><span>View:</span> Sea View</li>
+                                    <li><span>Bed:</span> 1</li>
+                                </ul>
+                                <hr>
+                                <p class="pt-1"><a href="#" class="btn-custom">Book Now <span
+                                        class="icon-long-arrow-right"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 sidebar">
+                <div class="sidebar-wrap bg-light ftco-animate">
+                    <h3 class="heading mb-4">Advanced Search</h3>
+                    <form action="#">
+                        <div class="fields">
+                            <div class="form-group">
+                                <input type="text" id="checkin_date1" class="form-control checkin_date"
+                                       placeholder="Check In Date">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="checkin_date2" class="form-control checkout_date"
+                                       placeholder="Check Out Date">
+                            </div>
+                            <div class="form-group">
+                                <div class="select-wrap one-third">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select class="form-control">
+                                        <option value="">Room Type</option>
+                                        <option value="">Suite</option>
+                                        <option value="">Family Room</option>
+                                        <option value="">Deluxe Room</option>
+                                        <option value="">Classic Room</option>
+                                        <option value="">Superior Room</option>
+                                        <option value="">Luxury Room</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="select-wrap one-third">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select class="form-control">
+                                        <option value="">0 Adult</option>
+                                        <option value="">1 Adult</option>
+                                        <option value="">2 Adult</option>
+                                        <option value="">3 Adult</option>
+                                        <option value="">4 Adult</option>
+                                        <option value="">5 Adult</option>
+                                        <option value="">6 Adult</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="select-wrap one-third">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select class="form-control">
+                                        <option value="">0 Children</option>
+                                        <option value="">1 Children</option>
+                                        <option value="">2 Children</option>
+                                        <option value="">3 Children</option>
+                                        <option value="">4 Children</option>
+                                        <option value="">5 Children</option>
+                                        <option value="">6 Children</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range-slider">
+		              		<span>
+										    <input type="number" value="25000" min="0" max="120000"/>	-
+										    <input type="number" value="50000" min="0" max="120000"/>
+										  </span>
+                                    <input value="1000" min="0" max="120000" step="500" type="range"/>
+                                    <input value="50000" min="0" max="120000" step="500" type="range"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-wrap bg-light ftco-animate">
+                    <h3 class="heading mb-4">Star Rating</h3>
+                    <form method="post" class="star-rating">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                                        class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>
+                                </p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                            <label class="form-check-label" for="exampleCheck2">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                                        class="icon-star"></i><i class="icon-star"></i><i
+                                        class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                            <label class="form-check-label" for="exampleCheck3">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                                        class="icon-star"></i><i class="icon-star-o"></i><i
+                                        class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                            <label class="form-check-label" for="exampleCheck4">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                                        class="icon-star-o"></i><i class="icon-star-o"></i><i
+                                        class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck5">
+                            <label class="form-check-label" for="exampleCheck5">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i
+                                        class="icon-star-o"></i><i class="icon-star-o"></i><i
+                                        class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="~{/layout::imageInstagram}"></div>
+<div th:replace="~{/layout::layoutFooter}"></div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

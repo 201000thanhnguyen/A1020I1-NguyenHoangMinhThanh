@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style th:replace="~{index::styleMenu}"></style>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-<div th:replace="~{index::listMenu}"></div>
+
 <div>
-    <form action="/RentType/create" method="post" th:object="${rentType}">
+    <form action="/RentType/edit" method="post" th:object="${rentType}">
         <input type="hidden" th:field="*{rentTypeId}">
         <table border="1">
             <tr>
@@ -32,5 +33,6 @@
         </table>
     </form>
 </div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

@@ -1,26 +1,33 @@
 package thanh.code.controllers;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import thanh.code.models.EducationDegree;
-import thanh.code.service.ICRUDService;
+import thanh.code.models.ServiceType;
 import thanh.code.service.IEducationDegreeService;
+import thanh.code.service.IServiceTypeService;
 
 @Controller
 @RequestMapping("/EducationDegree")
 public class EducationDegreeController {
 
     final IEducationDegreeService educationDegreeService;
-
-    public EducationDegreeController(IEducationDegreeService educationDegreeService) {
-        this.educationDegreeService = educationDegreeService;
+    private final IServiceTypeService serviceTypeService;
+    
+    @ModelAttribute("serviceTypeIter")
+    public Iterable<ServiceType> serviceTypeIterable(){
+        return this.serviceTypeService.serviceTypeIterable();
     }
 
-    @GetMapping("/index")
+    public EducationDegreeController(IEducationDegreeService educationDegreeService, IServiceTypeService serviceTypeService) {
+        this.educationDegreeService = educationDegreeService;
+        this.serviceTypeService = serviceTypeService;
+    }
+
+    @GetMapping({"/index", "/", ""})
     public ModelAndView index(){
         return new ModelAndView("/EducationDegree/index", "listEducationDegree", this.educationDegreeService.listEntity());
     }

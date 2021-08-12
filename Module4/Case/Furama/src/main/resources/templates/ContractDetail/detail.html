@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>contract start date</th>
+            <th>contract end date</th>
+            <th>deposit</th>
+            <th>total money</th>
+            <th>employee</th>
+            <th>customer</th>
+            <th>service</th>
+            <th>attach service name</th>
+            <th>attach service cost / unit</th>
+            <th>quantity</th>
+            <th colspan="2">action</th>
+        </tr>
+        <tr th:each="item:${listContractDetailOfOnePeople}">
+            <td th:text="${item.contract.contractStartDate}"></td>
+            <td th:text="${item.contract.contractEndDate}"></td>
+            <td th:text="${item.contract.contractDeposit}"></td>
+            <td th:text="${item.contract.contractTotalMoney}"></td>
+            <td th:text="${item.contract.employee != null} ? ${item.contract.employee.employeeName}"></td>
+            <td th:text="${item.contract.customer != null} ? ${item.contract.customer.customerName}"></td>
+            <td th:text="${item.contract.service != null} ? ${item.contract.service.serviceName}"></td>
+            <td th:text="${item.attachService != null} ? ${item.attachService.attachServiceName}"></td>
+            <td th:text="${item.attachService != null} ? ${item.attachService.attachServiceCost} + ' / ' + ${item.attachService.attachServiceUnit} "></td>
+            <td th:text="${item.contractDetailQuantity}"></td>
+            <td>
+                <a th:href="@{/ContractDetail/edit/{id}(id = ${item.contract.contractId})}">edit</a>
+            </td>
+            <td>
+                <a th:href="@{/ContractDetail/delete/{contractDetailId}/{contractId}(contractDetailId = ${item.contractDetailId},
+                 contractId = ${item.contract.contractId})}">delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>

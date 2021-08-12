@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 public class Employee {
@@ -36,6 +37,17 @@ public class Employee {
     @Valid
     @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
     private User user;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<Contract> contract;
+
+    public Set<Contract> getContract() {
+        return contract;
+    }
+
+    public void setContract(Set<Contract> contract) {
+        this.contract = contract;
+    }
 
     public User getUser() {
         return user;
