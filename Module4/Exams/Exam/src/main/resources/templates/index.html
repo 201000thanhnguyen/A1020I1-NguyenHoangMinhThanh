@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
 </head>
 <body>
-$END$
+
+<h2><a href="/Promotion/index">Promotion</a></h2>
+
+<script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

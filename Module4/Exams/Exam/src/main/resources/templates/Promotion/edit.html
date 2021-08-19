@@ -8,59 +8,45 @@
 </head>
 <body>
 
-<div th:replace="~{/layout::layoutNav}"></div>
-<div th:replace="~{/layout::layoutSupporSmallPage}"></div>
-
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="w-100">
             <div class="card">
                 <div class="card-header">
-                    Contract
+                    <a href="/Promotion/index">Promotion</a>
                 </div>
                 <div class="card-body col-md-12">
-                    <form class="row" action="/Contract/create" method="post" th:object="${contract}">
-                        <input type="hidden" th:field="*{contractId}">
-                        <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <input type="datetime-local" class="form-control" th:field="*{contractStartDate}">
-                            <div style="color: red" th:if="${#fields.hasErrors('contractStartDate')}"
-                                 th:errors="*{contractStartDate}"></div>
+                    <form class="row" action="/Promotion/create" method="post" th:object="${promotion}">
+                        <input type="hidden" th:field="*{promotionId}">
+                        <div class="form-group col-md-12">
+                            <label>Title</label>
+                            <input type="text" class="form-control rounded" th:field="*{promotionTitle}">
+                            <div style="color: red" th:if="${#fields.hasErrors('promotionTitle')}"
+                                 th:errors="*{promotionTitle}"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Start Date</label>
-                            <input type="datetime-local" class="form-control" th:field="*{contractEndDate}">
-                            <div style="color: red" th:if="${#fields.hasErrors('contractEndDate')}"
-                                 th:errors="*{contractEndDate}"></div>
+                            <input type="datetime-local" class="form-control rounded" th:field="*{promotionStartDate}">
+                            <div style="color: red" th:if="${#fields.hasErrors('promotionStartDate')}"
+                                 th:errors="*{promotionStartDate}"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <input type="number" class="form-control" step="any" th:field="*{contractDeposit}">
+                            <label>End Date</label>
+                            <input type="datetime-local" class="form-control rounded" th:field="*{promotionEndDate}">
+                            <div style="color: red" th:if="${#fields.hasErrors('promotionEndDate')}"
+                                 th:errors="*{promotionEndDate}"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <input type="number" class="form-control" step="any" th:field="*{contractTotalMoney}">
+                            <label>Discount</label>
+                            <input type="number" step="any" min="0" class="form-control rounded" th:field="*{promotionDiscount}">
+                            <div style="color: red" th:if="${#fields.hasErrors('promotionDiscount')}"
+                                 th:errors="*{promotionDiscount}"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <select th:field="*{employee}" class="form-control">
-                                <option th:each="item:${employeeIter}" th:text="${item.employeeName}"
-                                        th:value="${item.employeeId}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <select th:field="*{customer}" class="form-control">
-                                <option th:each="item:${customerIter}" th:text="${item.customerName}"
-                                        th:value="${item.customerId}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Start Date</label>
-                            <select th:field="*{service}" class="form-control">
-                                <option th:each="item:${serviceIter}" th:text="${item.serviceName}"
-                                        th:value="${item.serviceId}"></option>
-                            </select>
+                            <label>Detail</label>
+                            <input type="text" class="form-control rounded" th:field="*{promotionDetail}">
+                            <div style="color: red" th:if="${#fields.hasErrors('promotionDetail')}"
+                                 th:errors="*{promotionDetail}"></div>
                         </div>
                         <div class="form-group col-md-12 text-center">
                             <button type="submit" class="btn btn-success rounded">Submit</button>
@@ -72,7 +58,6 @@
     </div>
 </section>
 
-<div th:replace="~{/layout::layoutFooter}"></div>
 <script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

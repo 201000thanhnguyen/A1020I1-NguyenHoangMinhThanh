@@ -3,11 +3,13 @@ package thanh.code.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import thanh.code.models.ContractDetail;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Repository
 public interface IContractDetailRepository extends JpaRepository<ContractDetail, Integer> {
 
     @Query("select x from ContractDetail as x WHERE x.contract.contractId = ?1")

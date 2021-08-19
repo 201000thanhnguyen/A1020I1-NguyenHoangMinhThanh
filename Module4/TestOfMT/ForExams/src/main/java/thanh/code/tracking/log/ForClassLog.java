@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 public class ForClassLog {
 
     @Pointcut("execution(* thanh.code.controllers.ForClassController.*(..))")
-    private void allMethodEmployeeController(){}
+    private void allMethodForClassController(){}
 
-    @AfterThrowing("allMethodEmployeeController()")
+    @AfterThrowing("allMethodForClassController()")
     private void afterThrowing(JoinPoint joinPoint){
         System.err.println("error method : " + joinPoint.getSignature().getName() + " ,time : " + LocalDateTime.now());
         String stringNameClass = joinPoint.getSignature().getDeclaringTypeName();

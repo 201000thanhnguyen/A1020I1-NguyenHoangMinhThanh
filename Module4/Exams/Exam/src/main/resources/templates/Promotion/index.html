@@ -8,80 +8,40 @@
 </head>
 <body>
 
-<div th:replace="~{/layout::layoutNav}"></div>
-<div th:replace="~{/layout::layoutSupporSmallPage}"></div>
-
-<!--<div>-->
-<!--    <h3><a href="/Contract/create">create contract</a></h3>-->
-<!--</div>-->
-<!--<div>-->
-<!--    <form action="/ContractDetail/create" method="get">-->
-<!--        <label>add detail for service : </label>-->
-<!--        <select name="id">-->
-<!--            <option th:each="item:${listContract}"-->
-<!--                    th:text="${item.contractId} + ' - service : ' + ${item.service.serviceName}"-->
-<!--                    th:value="${item.contractId}"></option>-->
-<!--        </select>-->
-<!--        <button type="submit">forward</button>-->
-<!--    </form>-->
-<!--</div>-->
-
 <section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
             <div class="w-100">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/Contract/create" class="btn btn-outline-dark btn-sm rounded d-inline float-md-left float-sm-left"
-                           style="margin-top: 5px;">Create Contract <i class="fas fa-plus-square"></i></a>
-                        <form action="/ContractDetail/create" style="margin-top: 5px;"
-                              class="d-inline float-md-right float-sm-left" method="get">
-                            <label>
-                                <select name="id" class="form-control-sm">
-                                    <option th:each="item:${listContract}"
-                                            th:text="${item.contractId} + ' - service : ' + ${item.service.serviceName}"
-                                            th:value="${item.contractId}"></option>
-                                </select>
-                            </label>
-                            <button type="submit" class="btn btn-outline-dark btn-sm rounded">forward</button>
-                        </form>
+                        <a href="/Promotion/create" class="btn btn-outline-dark btn-sm rounded d-inline float-md-left float-sm-left"
+                           style="margin-top: 5px;">Create Promotion <i class="fas fa-plus-square"></i></a>
                     </div>
                     <div class="card-body col-md-12">
                         <table class="table table-striped table-responsive w-100 d-block d-md-table data-table"
                                style="width:100%">
                             <thead>
                             <tr>
-                                <th>id</th>
-                                <th>start date</th>
-                                <th>end date</th>
-                                <th>deposit</th>
-                                <th>total money</th>
-                                <th>employee</th>
-                                <th>customer</th>
-                                <th>service</th>
-                                <th>action</th>
+                                <th>Title</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Discount</th>
+                                <th>Detail</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="item:${listContract}" th:id="${item.contractId}" th:name="null">
-                                <td th:text="${item.contractId}"></td>
-                                <td th:text="${item.contractStartDate}"></td>
-                                <td th:text="${item.contractEndDate}"></td>
-                                <td th:text="${item.contractDeposit}"></td>
-                                <td th:text="${item.contractTotalMoney}"></td>
-                                <td th:text="${item.employee != null} ? ${item.employee.employeeName}"></td>
-                                <td th:text="${item.customer != null} ? ${item.customer.customerName}"></td>
-                                <td th:text="${item.service != null} ? ${item.service.serviceName}"></td>
+                            <tr th:each="item:${listPromotion}" th:id="${item.promotionId}" th:name="${item.promotionTitle}">
+                                <td th:text="${item.promotionTitle}"></td>
+                                <td th:text="${item.promotionStartDate}"></td>
+                                <td th:text="${item.promotionEndDate}"></td>
+                                <td th:text="${item.promotionDiscount}"></td>
+                                <td th:text="${item.promotionDetail}"></td>
                                 <td>
-                                    <a class="btn btn-info btn-sm rounded"
-                                       th:href="@{/ContractDetail/detail/{id}(id = ${item.contractId})}"><i
-                                            class="fas fa-info-circle"></i></a>
                                     <a class="btn btn-success btn-sm rounded"
-                                       th:href="@{/Contract/edit/{id}(id = ${item.contractId})}"><i
+                                       th:href="@{/Promotion/edit/{id}(id = ${item.promotionId})}"><i
                                             class="fas fa-pen-square"></i></a>
-                                    <a class="btn btn-danger btn-sm rounded"
-                                       th:href="@{/Contract/delete/{id}(id = ${item.contractId})}"><i
-                                            class="far fa-trash-alt"></i></a>
+                                    <button class="btn btn-danger btn-sm rounded" name="showModalDelete"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                             </tbody>
@@ -93,7 +53,27 @@
     </div>
 </section>
 
-<div th:replace="~{/layout::layoutFooter}"></div>
+<!-- Modal -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Promotion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalContent">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success rounded" name="submitDelete">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script th:replace="~{/layout::layoutLibFooter}"></script>
 </body>
 </html>

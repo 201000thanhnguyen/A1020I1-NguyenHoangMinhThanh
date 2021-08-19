@@ -1,4 +1,9 @@
 package thanh.code.service;
 
-public class IPromotionService {
+import thanh.code.models.Promotion;
+
+public interface IPromotionService extends ICRUDService<Promotion> {
+
+    Promotion findByIdInt(int id);
+
 }

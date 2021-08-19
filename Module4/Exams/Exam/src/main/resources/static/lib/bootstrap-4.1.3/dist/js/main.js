@@ -350,8 +350,24 @@ AOS.init({
     $('#DataTables_Table_0_length').children().css('margin-top', '8px');
     $("select[name='DataTables_Table_0_length']").css({'max-height': '40px'});
     $("#DataTables_Table_0_filter").find('label').css('margin-top', '8px').end().find('input').css('max-height', '40px');
-    $('#showModalDelete').click(function () {
+    $(document).on('click',"button[name='showModalDelete']", function () {
+      let id = $(this).closest('tr').attr('id');
+      let content = $(this).closest('tr').attr('name');
+      $('#modalContent').html('<h3>are you sure delete : <br>'+content+'</h3>')
       $('#modalDelete').modal();
+
+      $(document).on('click',"button[name='submitDelete']", function () {
+          $.ajax({
+            url: window.location.origin + "/Promotion/delete/" + id,
+            type: 'GET',
+            success: function () {
+              $('#modalContent').html('<h4>Delete Success</h4>');
+              $("button[name='showModalDelete']").modal('hide');
+              $("button[name='submitDelete']").hide();
+              window.location.href = window.location.origin +'/Promotion/index';
+            }
+          })
+      })
     });
   })
 
