@@ -1,0 +1,15 @@
+<h2>customer list</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>first name</th>
+    <th>last name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.firstName}}</td>
+    <td>{{customer.lastName}}</td>
+  </tr>
+  </tbody>
+</table>

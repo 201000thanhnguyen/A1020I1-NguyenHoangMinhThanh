@@ -1,4 +1,4 @@
-public class Lamp implements Switch{
+public class Lamp implements Switch, ITest{
 
     @Override
     public void turnOn() {
@@ -8,5 +8,10 @@ public class Lamp implements Switch{
     @Override
     public void turnOff() {
         System.out.println("đã tắt");
+    }
+
+    @Override
+    public void A() {
+        System.out.println("A");
     }
 }
