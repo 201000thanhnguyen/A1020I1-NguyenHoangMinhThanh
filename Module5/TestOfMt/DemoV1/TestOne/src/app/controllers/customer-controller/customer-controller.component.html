@@ -1,0 +1,19 @@
+<div class="container">
+<h2 class="my-3">Customer</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>first name</th>
+      <th>last name</th>
+      <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers">
+      <td> {{customer.firstName}} </td>
+      <td> {{customer.lastName}} </td>
+      <td> action </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

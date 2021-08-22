@@ -9,8 +9,8 @@ import thanh.code.service.ICustomerService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping("/api")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@RequestMapping("/RestFurama/api")
 public class CustomerController {
 
     final ICustomerService customerService;
