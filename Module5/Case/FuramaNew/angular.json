@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "006abfa8-f31d-4e21-84fb-774f9a41e5b4"
+    "analytics": "11fd5557-7584-4a6a-84f8-aff54fc450a6"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Furama": {
+    "FuramaNew": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Furama",
+            "outputPath": "dist/FuramaNew",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -100,10 +100,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Furama:build:production"
+              "browserTarget": "FuramaNew:build:production"
             },
             "development": {
-              "browserTarget": "Furama:build:development"
+              "browserTarget": "FuramaNew:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -111,7 +111,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Furama:build"
+            "browserTarget": "FuramaNew:build"
           }
         },
         "test": {
@@ -134,5 +134,5 @@
       }
     }
   },
-  "defaultProject": "Furama"
+  "defaultProject": "FuramaNew"
 }

@@ -16,6 +16,13 @@ export class StudentComponent implements OnInit {
     0
   );
 
+  studentList: Student[] = [
+    new Student(1, "aloha 100", 20, '', 0),
+    new Student(2, "aloha 101", 20, '', 1),
+    new Student(3, "aloha 102", 20, '', 2),
+    new Student(4, "aloha 103", 20, '', 3)
+  ];
+
   fontSize = 14;
   idStudent: number = this.student.id;
   avatarStudent: string = this.student.avatar;
