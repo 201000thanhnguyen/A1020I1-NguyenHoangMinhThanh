@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,61 +12,50 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.IEducationDegreeService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/EducationDegree")
 public class EducationDegreeController {
 
-    final IEducationDegreeService educationDegreeService;
-    private final IServiceTypeService serviceTypeService;
-    
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
+    private final IEducationDegreeService educationDegreeService;
 
-    public EducationDegreeController(IEducationDegreeService educationDegreeService, IServiceTypeService serviceTypeService) {
+    public EducationDegreeController(IEducationDegreeService educationDegreeService) {
         this.educationDegreeService = educationDegreeService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/EducationDegree/index", "listEducationDegree", this.educationDegreeService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/EducationDegree/create", "educationDegree", new EducationDegree());
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute EducationDegree educationDegree, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/EducationDegree/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<EducationDegree>> get() {
+        List<EducationDegree> educationDegreeList = this.educationDegreeService.listEntity();
+        if (educationDegreeList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.educationDegreeService.addOrUpdateEntity(educationDegree);
-            return index();
+            return new ResponseEntity<>(educationDegreeList, HttpStatus.OK);
         }
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
-        return new ModelAndView("/EducationDegree/edit", "educationDegree", this.educationDegreeService.findByIdInt(id));
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute EducationDegree educationDegree, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/EducationDegree/edit");
-        }else {
-            this.educationDegreeService.addOrUpdateEntity(educationDegree);
-            return index();
-        }
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.educationDegreeService.removeEntity(this.educationDegreeService.findByIdInt(id));
-        return index();
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

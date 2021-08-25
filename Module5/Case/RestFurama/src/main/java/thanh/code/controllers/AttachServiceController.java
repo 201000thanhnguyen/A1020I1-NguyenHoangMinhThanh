@@ -64,7 +64,6 @@ public class AttachServiceController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<AttachService> delete(@PathVariable int id) {
         if (this.attachServiceService.findByIdInt(id) == null){
            return new ResponseEntity<>(HttpStatus.NOT_FOUND);

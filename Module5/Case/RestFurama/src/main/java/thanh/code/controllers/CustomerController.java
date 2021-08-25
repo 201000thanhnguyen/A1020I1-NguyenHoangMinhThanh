@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -12,73 +14,63 @@ import thanh.code.service.ICustomerService;
 import thanh.code.service.ICustomerTypeService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/Customer")
 public class CustomerController {
 
-    final ICustomerService customerService;
-    final ICustomerTypeService customerTypeService;
-    private final IServiceTypeService serviceTypeService;
+    private final ICustomerService customerService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-    
-    @ModelAttribute("customerTypeIter")
-    public Iterable<CustomerType> customerTypeIterable(){
-        return this.customerTypeService.customerTypeIterable();
-    }
-
-    public CustomerController(ICustomerService customerService, ICustomerTypeService customerTypeService, IServiceTypeService serviceTypeService) {
+    public CustomerController(ICustomerService customerService) {
         this.customerService = customerService;
-        this.customerTypeService = customerTypeService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/Customer/index", "listCustomer", this.customerService.listEntity());
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Customer>> get() {
+        List<Customer> customerList = this.customerService.listEntity();
+        if (customerList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(customerList, HttpStatus.OK);
+        }
     }
 
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/Customer/create", "customer", new Customer());
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<Customer> post(@RequestBody Customer customer) {
+        this.customerService.addOrUpdateEntity(customer);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<Customer> detail(@PathVariable int id) {
         Customer customer = this.customerService.findByIdInt(id);
         if (customer == null){
-            return index();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            return new ModelAndView("/Customer/edit", "customer", customer);
+            return new ResponseEntity<>(customer, HttpStatus.OK);
         }
     }
 
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute Customer customer, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Customer/create");
-        }else {
-            this.customerService.addOrUpdateEntity(customer);
-            return index();
-        }
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<Customer> update(Customer customer) {
+        this.customerService.addOrUpdateEntity(customer);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute Customer customer, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Customer/edit");
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<Customer> delete(@PathVariable int id) {
+        Customer customer = this.customerService.findByIdInt(id);
+        if (customer == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.customerService.addOrUpdateEntity(customer);
-            return index();
+            this.customerService.removeEntity(customer);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-    }
-
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.customerService.removeEntity(this.customerService.findByIdInt(id));
-        return index();
     }
 }

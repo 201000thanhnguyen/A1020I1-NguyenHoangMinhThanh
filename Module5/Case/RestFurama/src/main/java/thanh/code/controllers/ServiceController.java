@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -12,84 +14,50 @@ import thanh.code.service.IRentTypeService;
 import thanh.code.service.IServiceService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/Service")
 public class ServiceController {
 
-    final IServiceService serviceService;
-    final IServiceTypeService serviceTypeService;
-    final IRentTypeService rentTypeService;
+    private final IServiceService serviceService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-
-    @ModelAttribute("rentTypeIter")
-    public Iterable<RentType> rentTypeIterable(){
-        return this.rentTypeService.rentTypeIterable();
-    }
-
-    public ServiceController(IServiceService serviceService, IServiceTypeService serviceTypeService,
-                             IRentTypeService rentTypeService) {
+    public ServiceController(IServiceService serviceService) {
         this.serviceService = serviceService;
-        this.serviceTypeService = serviceTypeService;
-        this.rentTypeService = rentTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index() {
-        return new ModelAndView("/Service/index", "listService", this.serviceService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/Service/create", "service", new Service());
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute Service service, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Service/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Service>> get() {
+        List<Service> serviceList = this.serviceService.listEntity();
+        if (serviceList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.serviceService.addOrUpdateEntity(service);
-            return index();
+            return new ResponseEntity<>(serviceList, HttpStatus.OK);
         }
     }
 
-    @GetMapping("/detail/{id}")
-    public ModelAndView detail(@PathVariable int id){
-        return new ModelAndView("/Service/detail", "service", this.serviceService.findByIdInt(id));
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id) {
-        Service service = this.serviceService.findByIdInt(id);
-        if (service == null){
-            return index();
-        }else {
-            return new ModelAndView("/Service/edit", "service", service);
-        }
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute Service service, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Service/edit");
-        }else {
-            this.serviceService.addOrUpdateEntity(service);
-            return index();
-        }
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.serviceService.removeEntity(this.serviceService.findByIdInt(id));
-        return index();
-    }
-
-    @GetMapping("/list/{serviceTypeName}")
-    public ModelAndView list(@PathVariable String serviceTypeName){
-        return new ModelAndView("/Service/list", "listService", this.serviceService.findServiceByServiceTypeName(serviceTypeName));
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

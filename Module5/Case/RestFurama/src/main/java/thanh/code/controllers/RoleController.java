@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,61 +12,50 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.IRoleService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/Role")
 public class RoleController {
 
-    final IRoleService roleService;
-    private final IServiceTypeService serviceTypeService;
+    private final IRoleService roleService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-
-    public RoleController(IRoleService roleService, IServiceTypeService serviceTypeService) {
+    public RoleController(IRoleService roleService) {
         this.roleService = roleService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/Role/index", "listRole", this.roleService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/Role/create", "role", new Role());
-    }
-
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
-        return new ModelAndView("/Role/edit", "role", this.roleService.findByIdInt(id));
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute Role role, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Role/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Role>> get() {
+        List<Role> roleList = this.roleService.listEntity();
+        if (roleList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.roleService.addOrUpdateEntity(role);
-            return index();
+            return new ResponseEntity<>(roleList, HttpStatus.OK);
         }
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute Role role, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Role/edit");
-        }else {
-            this.roleService.addOrUpdateEntity(role);
-            return index();
-        }
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.roleService.removeEntity(this.roleService.findByIdInt(id));
-        return index();
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
+    }
+
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

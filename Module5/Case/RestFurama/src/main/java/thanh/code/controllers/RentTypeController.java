@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,61 +12,50 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.IRentTypeService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/RentType")
 public class RentTypeController {
 
-    final IRentTypeService rentTypeService;
-    private final IServiceTypeService serviceTypeService;
+    private final IRentTypeService rentTypeService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-
-    public RentTypeController(IRentTypeService rentTypeService, IServiceTypeService serviceTypeService) {
+    public RentTypeController(IRentTypeService rentTypeService) {
         this.rentTypeService = rentTypeService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/RentType/index", "listRentType", this.rentTypeService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/RentType/create", "rentType", new RentType());
-    }
-
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
-        return new ModelAndView("/RentType/edit", "rentType", this.rentTypeService.findByIdInt(id));
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute RentType rentType, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/RentType/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<RentType>> get() {
+        List<RentType> rentTypeList = this.rentTypeService.listEntity();
+        if (rentTypeList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.rentTypeService.addOrUpdateEntity(rentType);
-            return index();
+            return new ResponseEntity<>(rentTypeList, HttpStatus.OK);
         }
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute RentType rentType, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/RentType/edit");
-        }else {
-            this.rentTypeService.addOrUpdateEntity(rentType);
-            return index();
-        }
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.rentTypeService.removeEntity(this.rentTypeService.findByIdInt(id));
-        return index();
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
+    }
+
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

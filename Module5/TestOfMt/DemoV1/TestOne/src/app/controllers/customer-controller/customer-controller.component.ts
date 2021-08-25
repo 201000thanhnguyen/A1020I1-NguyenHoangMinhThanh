@@ -10,11 +10,15 @@ import {Customer} from "../../model/customer";
 export class CustomerControllerComponent implements OnInit {
 
   customers: Customer[] | undefined;
-
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.getCustomerList();
+    console.log("aloha");
+    $(document).on('click','button[name="buttonCustomer"]', function () {
+      alert("aloha");
+    });
+
   }
 
   private getCustomerList(){

@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,61 +12,50 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.IPositionService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/Position")
 public class PositionController {
 
-    final IPositionService positionService;
-    private final IServiceTypeService serviceTypeService;
+    private final IPositionService positionService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-
-    public PositionController(IPositionService positionService, IServiceTypeService serviceTypeService){
+    public PositionController(IPositionService positionService) {
         this.positionService = positionService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/Position/index", "listPosition", this.positionService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/Position/create", "position", new Position());
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute Position position, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Position/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Position>> get() {
+        List<Position> positionList = this.positionService.listEntity();
+        if (positionList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.positionService.addOrUpdateEntity(position);
-            return index();
+            return new ResponseEntity<>(positionList, HttpStatus.OK);
         }
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
-        return new ModelAndView("/Position/edit", "position", this.positionService.findByIdInt(id));
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute Position position, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Position/edit");
-        }else {
-            this.positionService.addOrUpdateEntity(position);
-            return index();
-        }
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.positionService.removeEntity(this.positionService.findByIdInt(id));
-        return index();
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

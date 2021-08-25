@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,61 +12,50 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.IDivisionService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/Division")
 public class DivisionController {
 
-    final IDivisionService divisionService;
-    private final IServiceTypeService serviceTypeService;
+    private final IDivisionService divisionService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-
-    public DivisionController(IDivisionService divisionService, IServiceTypeService serviceTypeService) {
+    public DivisionController(IDivisionService divisionService) {
         this.divisionService = divisionService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index(){
-        return new ModelAndView("/Division/index", "listDivision", this.divisionService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create(){
-        return new ModelAndView("/Division/create", "division", new Division());
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute Division division, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Division/create");
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<Division>> get() {
+        List<Division> divisionList = this.divisionService.listEntity();
+        if (divisionList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
-            this.divisionService.addOrUpdateEntity(division);
-            return index();
+            return new ResponseEntity<>(divisionList, HttpStatus.OK);
         }
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id){
-        return new ModelAndView("/Division/edit", "division", this.divisionService.findByIdInt(id));
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<String> post() {
+        return null;
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute Division division, BindingResult bindingResult){
-        if (bindingResult.hasFieldErrors()){
-            return new ModelAndView("/Division/edit");
-        }else {
-            this.divisionService.addOrUpdateEntity(division);
-            return index();
-        }
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<String> detail(@PathVariable int id) {
+        return null;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id){
-        this.divisionService.removeEntity(this.divisionService.findByIdInt(id));
-        return index();
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<String> update(String string) {
+        return null;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public ResponseEntity<String> delete(int id) {
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package thanh.code.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -10,66 +12,63 @@ import thanh.code.models.ServiceType;
 import thanh.code.service.ICustomerTypeService;
 import thanh.code.service.IServiceTypeService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/CustomerType")
 public class CustomerTypeController {
 
-    final ICustomerTypeService customerTypeService;
-    private final IServiceTypeService serviceTypeService;
+    private final ICustomerTypeService customerTypeService;
 
-    @ModelAttribute("serviceTypeIter")
-    public Iterable<ServiceType> serviceTypeIterable(){
-        return this.serviceTypeService.serviceTypeIterable();
-    }
-    
-    public CustomerTypeController(ICustomerTypeService customerTypeService, IServiceTypeService serviceTypeService) {
+    public CustomerTypeController(ICustomerTypeService customerTypeService) {
         this.customerTypeService = customerTypeService;
-        this.serviceTypeService = serviceTypeService;
     }
 
-    @GetMapping({"/index", "/", ""})
-    public ModelAndView index() {
-        return new ModelAndView("/CustomerType/index", "listCustomerType", this.customerTypeService.listEntity());
-    }
-
-    @GetMapping("/create")
-    public ModelAndView create() {
-        return new ModelAndView("/CustomerType/create", "customerType", new CustomerType());
-    }
-
-    @PostMapping("/create")
-    public ModelAndView create(@Validated @ModelAttribute CustomerType customerType, BindingResult bindingResult) {
-        if (bindingResult.hasFieldErrors()) {
-            return new ModelAndView("/CustomerType/create");
-        } else {
-            this.customerTypeService.addOrUpdateEntity(customerType);
-            return index();
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<List<CustomerType>> get() {
+        List<CustomerType> customerTypeList = this.customerTypeService.listEntity();
+        if (customerTypeList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(customerTypeList, HttpStatus.OK);
         }
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable int id) {
+    @PostMapping
+    @ResponseBody
+    public ResponseEntity<CustomerType> post(@RequestBody CustomerType customerType) {
+        this.customerTypeService.addOrUpdateEntity(customerType);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<CustomerType> detail(@PathVariable int id) {
         CustomerType customerType = this.customerTypeService.findByIdInt(id);
-        if (customerType == null) {
-            return index();
-        } else {
-            return new ModelAndView("/CustomerType/edit", "customerType", customerType);
+        if (customerType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(customerType, HttpStatus.OK);
         }
     }
 
-    @PostMapping("/edit")
-    public ModelAndView edit(@Validated @ModelAttribute CustomerType customerType, BindingResult bindingResult) {
-        if (bindingResult.hasFieldErrors()) {
-            return new ModelAndView("/CustomerType/edit");
-        } else {
-            this.customerTypeService.addOrUpdateEntity(customerType);
-            return index();
-        }
+    @PutMapping
+    @ResponseBody
+    public ResponseEntity<CustomerType> update(CustomerType customerType) {
+        this.customerTypeService.addOrUpdateEntity(customerType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id) {
-        this.customerTypeService.removeEntity(this.customerTypeService.findByIdInt(id));
-        return index();
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    public ResponseEntity<CustomerType> delete(@PathVariable int id) {
+        CustomerType customerType = this.customerTypeService.findByIdInt(id);
+        if (customerType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.customerTypeService.removeEntity(customerType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

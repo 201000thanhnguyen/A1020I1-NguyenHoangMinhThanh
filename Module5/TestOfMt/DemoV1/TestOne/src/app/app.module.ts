@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CustomerControllerComponent } from './controllers/customer-controller/customer-controller.component';
+import {DataTablesModule} from "angular-datatables";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { CustomerControllerComponent } from './controllers/customer-controller/c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
