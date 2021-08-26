@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Student} from "../../models/student";
 import {IStudent} from "../../models/istudent";
 
@@ -9,8 +9,12 @@ import {IStudent} from "../../models/istudent";
 })
 export class StudentComponent implements OnInit {
 
-  @Input() messageChild: string | undefined;
-  @Input() studentDetailChild: IStudent | any;
+  @Input() messageChild: string | any;
+  @Input() studentDetailChild!: IStudent | any;
+
+  @Output() sendObjIStudent = new EventEmitter();
+
+  newObjIStudent: IStudent = {age: 0, avatar: "", id: 0, name: "", scores: 0};
 
   student: Student = new Student(
     1,
@@ -40,18 +44,19 @@ export class StudentComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.messageChild == undefined){
-      this.messageChild = 'aloha';
+      this.messageChild = 'child';
     }
 
     if (this.studentDetailChild == undefined){
       this.studentDetailChild = {
-        id:  this.student.id,
+        id: this.student.id,
         name: this.student.name,
         age: this.student.age,
         avatar: this.student.avatar,
         scores: this.student.scores
       };
     }
+
   }
 
   changeScores(value: any){
@@ -99,6 +104,26 @@ export class StudentComponent implements OnInit {
 
   updateImagePet(value: any) {
     this.petImage = value;
+  }
+
+  btnAddStudent(){
+    this.sendObjIStudent.emit(this.newObjIStudent);
+  };
+
+  getIdStudentFromForm(value: number){
+    this.newObjIStudent.id = value;
+  }
+  getNameStudentFromForm(value: string){
+    this.newObjIStudent.name = value;
+  }
+  getAgeStudentFromForm(value: number){
+    this.newObjIStudent.age = value;
+  }
+  getAvatarStudentFromForm(value: string){
+    this.newObjIStudent.avatar = value;
+  }
+  getScoreStudentFromForm(value: number){
+    this.newObjIStudent.scores = value;
   }
 
 }

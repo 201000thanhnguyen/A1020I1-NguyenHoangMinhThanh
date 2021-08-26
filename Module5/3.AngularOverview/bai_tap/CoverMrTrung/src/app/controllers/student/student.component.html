@@ -1,5 +1,5 @@
 <div class="col-md-12 mt-5">
-  <h1>say {{messageChild}}</h1>
+  <h1>call {{messageChild}}</h1>
   <table class="table table-striped">
     <tr [id]="idStudent">
       <th>id : </th>
@@ -25,10 +25,55 @@
     </tr>
   </table>
 </div>
+<!--<div class="col-md-12">-->
+<!--  <label class="mr-1">name</label>-->
+<!--  <input type="text" (change)="changeScores($any($event).target.value)">-->
+<!--  &lt;!&ndash;            <input type="text" [(ngModel)]="student.name">&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="col-md-12">-->
+<!--  <button class="btn btn-link" (click)="sendObjIStudent.emit('alo')">Notify</button>-->
+<!--</div>-->
 <div class="col-md-12">
-  <label class="mr-1">name</label>
-  <input type="text" (change)="changeScores($any($event).target.value)">
-  <!--            <input type="text" [(ngModel)]="student.name">-->
+  <form>
+    <table class="table table-bordered">
+      <tr>
+        <th>id</th>
+        <td>
+          <input type="number" (change)="getIdStudentFromForm($any($event).target.value)">
+        </td>
+      </tr>
+      <tr>
+        <th>name</th>
+        <td>
+          <input type="text" (change)="getNameStudentFromForm($any($event).target.value)">
+        </td>
+      </tr>
+      <tr>
+        <th>age</th>
+        <td>
+          <input type="number" (change)="getAgeStudentFromForm($any($event).target.value)">
+        </td>
+      </tr>
+      <tr>
+        <th>avatar</th>
+        <td>
+          <input type="text" (change)="getAvatarStudentFromForm($any($event).target.value)">
+        </td>
+      </tr>
+      <tr>
+        <th>scores</th>
+        <td>
+          <input type="number" (change)="getScoreStudentFromForm($any($event).target.value)">
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center" colspan="2">
+          <button class="btn btn-success" (click)="btnAddStudent()">Submit</button>
+          <button class="btn btn-dark ml-2" type="reset">Reset</button>
+        </th>
+      </tr>
+    </table>
+  </form>
 </div>
 
 <div class="col-md-12 mt-4">
