@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Student} from "../../models/student";
+import {IStudent} from "../../models/istudent";
 
 @Component({
   selector: 'app-student',
@@ -8,6 +9,9 @@ import {Student} from "../../models/student";
 })
 export class StudentComponent implements OnInit {
 
+  @Input() messageChild: string | undefined;
+  @Input() studentDetailChild: IStudent | any;
+
   student: Student = new Student(
     1,
     "aloha",
@@ -15,13 +19,6 @@ export class StudentComponent implements OnInit {
     'https://www.pinpng.com/pngs/m/341-3415688_no-avatar-png-transparent-png.png',
     0
   );
-
-  studentList: Student[] = [
-    new Student(1, "aloha 100", 20, '', 0),
-    new Student(2, "aloha 101", 20, '', 1),
-    new Student(3, "aloha 102", 20, '', 2),
-    new Student(4, "aloha 103", 20, '', 3)
-  ];
 
   fontSize = 14;
   idStudent: number = this.student.id;
@@ -40,7 +37,21 @@ export class StudentComponent implements OnInit {
   constructor() {
   }
 
+
   ngOnInit(): void {
+    if (this.messageChild == undefined){
+      this.messageChild = 'aloha';
+    }
+
+    if (this.studentDetailChild == undefined){
+      this.studentDetailChild = {
+        id:  this.student.id,
+        name: this.student.name,
+        age: this.student.age,
+        avatar: this.student.avatar,
+        scores: this.student.scores
+      };
+    }
   }
 
   changeScores(value: any){
@@ -89,4 +100,5 @@ export class StudentComponent implements OnInit {
   updateImagePet(value: any) {
     this.petImage = value;
   }
+
 }
