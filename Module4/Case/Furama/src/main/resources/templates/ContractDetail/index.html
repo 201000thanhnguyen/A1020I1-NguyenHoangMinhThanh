@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>contract number</th>
+            <th>employee name</th>
+            <th>customer name</th>
+            <th>service name</th>
+            <th colspan="2">action</th>
+        </tr>
+        <tr th:each="item:${listContractDetailNotDuplicate}">
+            <td th:text="${item.value.contract != null} ? ${item.value.contract.contractId}"></td>
+            <td th:text="${item.value.contract != null} ? ${item.value.contract.employee.employeeName}"></td>
+            <td th:text="${item.value.contract != null} ? ${item.value.contract.customer.customerName}"></td>
+            <td th:text="${item.value.contract != null} ? ${item.value.contract.service.serviceName}"></td>
+            <td>
+                <a th:href="@{/ContractDetail/detail/{id}(id = ${item.key})}">detail</a>
+            </td>
+            <td>
+                <a th:href="@{/ContractDetail/create/{id}(id = ${item.key})}">add details</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>

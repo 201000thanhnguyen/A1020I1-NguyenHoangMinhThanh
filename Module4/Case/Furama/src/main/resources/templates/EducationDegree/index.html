@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+    <div>
+        <h3><a href="/EducationDegree/create">create education degree</a></h3>
+        <table border="1">
+            <tr>
+                <th>education degree id</th>
+                <th>education degree name</th>
+                <th colspan="2">action</th>
+            </tr>
+            <tr th:each="item:${listEducationDegree}">
+                <td th:text="${item.educationDegreeId}"></td>
+                <td th:text="${item.educationDegreeName}"></td>
+                <td><a th:href="@{/EducationDegree/edit/{id}(id = ${item.educationDegreeId})}">edit</a></td>
+                <td><a th:href="@{/EducationDegree/delete/{id}(id = ${item.educationDegreeId})}">delete</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</html>

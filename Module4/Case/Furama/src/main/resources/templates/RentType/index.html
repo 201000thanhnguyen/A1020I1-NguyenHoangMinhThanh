@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+    <div>
+        <h3><a href="/RentType/create">create serviceType</a></h3>
+        <table border="1">
+            <tr>
+                <th>rentType id</th>
+                <th>rentType name</th>
+                <th>rentType cost</th>
+                <th colspan="2">action</th>
+            </tr>
+            <tr th:each="item:${listRentType}">
+                <td th:text="${item.rentTypeId}"></td>
+                <td th:text="${item.rentTypeName}"></td>
+                <td th:text="${item.rentTypeCost}"></td>
+                <td><a th:href="@{/RentType/edit/{id}(id = ${item.rentTypeId})}">edit</a></td>
+                <td><a th:href="@{/RentType/delete/{id}(id = ${item.rentTypeId})}">delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>

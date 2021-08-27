@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="~{/layout::layoutLibHeader}"></style>
+</head>
+<body>
+
+<form action="/Service/edit" method="post" th:object="${service}">
+    <input type="hidden" th:field="*{serviceId}">
+    <table border="1">
+        <tr>
+            <td>service name</td>
+            <td>
+                <input type="text" th:field="*{serviceName}">
+                <div style="color: red" th:if="${#fields.hasErrors('serviceName')}" th:errors="*{serviceName}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>service area</td>
+            <td>
+                <input type="number" min="1" th:field="*{serviceArea}">
+            </td>
+        </tr>
+        <tr>
+            <td>service cost</td>
+            <td>
+                <input type="number" min="1" step="any" th:field="*{serviceCost}">
+            </td>
+        </tr>
+        <tr>
+            <td>max people</td>
+            <td>
+                <input type="number" min="1" th:field="*{serviceMaxPeople}">
+            </td>
+        </tr>
+        <tr>
+            <td>standard room</td>
+            <td>
+                <input type="text" th:field="*{serviceStandardRoom}">
+            </td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>
+                <input type="text" th:field="*{serviceDescriptionOtherConvenience}">
+            </td>
+        </tr>
+        <tr>
+            <td>pool area</td>
+            <td>
+                <input type="number" min="1" th:field="*{servicePoolArea}">
+            </td>
+        </tr>
+        <tr>
+            <td>number floors</td>
+            <td>
+                <input type="number" min="0" th:field="*{serviceNumberOfFloor}">
+            </td>
+        </tr>
+        <tr>
+            <td>rent type</td>
+            <td>
+                <ol>
+                    <li th:each="item:${rentTypeIter}">
+                        <input type="radio" th:field="*{rentType}" th:text="' ' + ${item.rentTypeName}  + ' : ' + ${item.rentTypeCost}" th:value="${item.rentTypeId}">
+                    </li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>service type</td>
+            <td>
+                <select th:field="*{serviceType}">
+                    <option th:each="item:${serviceTypeIter}" th:text="${item.serviceTypeName}" th:value="${item.serviceTypeId}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <button type="submit">submit</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script th:replace="~{/layout::layoutLibFooter}"></script>
+</body>
+</html>
