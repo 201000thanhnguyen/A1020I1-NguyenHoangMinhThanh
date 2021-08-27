@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>age</th>
+          <th>avatar</th>
+          <th>scores</th>
+          <th>exam</th>
+          <th>action</th>
+        </tr>
+        <tr *ngFor="let item of studentList">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.avatar}}</td>
+          <td>{{item.scores}}</td>
+          <td [ngStyle]="{color: item.scores >= 5 ? 'blue' : 'red'}">{{item.scores < 5 ? 'Fail' : 'Pass'}}</td>
+          <td>
+            <button (click)="clickDetailStudent(item.id)" class="btn btn-success">detail</button>
+            <button (click)="clickDeleteStudent(item.id)" class="btn btn-warning ml-2">delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <app-student
+      [messageChild]="messageParent"
+      [studentDetailChild]="studentDetailParent"
+      (sendObjIStudent)="receiveObjIStudent($event)"
+    ></app-student>
+  </div>
+</div>
