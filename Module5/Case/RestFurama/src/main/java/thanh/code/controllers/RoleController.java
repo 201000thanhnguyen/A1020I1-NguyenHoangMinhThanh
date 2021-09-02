@@ -15,7 +15,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Role")
+@RequestMapping("/api/Role")
 public class RoleController {
 
     private final IRoleService roleService;
@@ -37,25 +37,38 @@ public class RoleController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<Role> post(@RequestBody Role role) {
+        this.roleService.addOrUpdateEntity(role);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<Role> detail(@PathVariable int id) {
+        Role role = this.roleService.findByIdInt(id);
+        if (role == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(role, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<Role> update(@RequestBody Role role) {
+        this.roleService.addOrUpdateEntity(role);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<Role> delete(@PathVariable int id) {
+        Role role = this.roleService.findByIdInt(id);
+        if (role == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.roleService.removeEntity(role);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

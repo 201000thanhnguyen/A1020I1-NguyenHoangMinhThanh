@@ -1,5 +1,6 @@
 package thanh.code.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Division {
     private String divisionName;
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "division")
+    @JsonBackReference(value = "employee")
     private Set<Employee> employee;
 
     public Set<Employee> getEmployee() {

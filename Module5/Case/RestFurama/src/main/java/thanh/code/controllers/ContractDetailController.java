@@ -10,7 +10,7 @@ import thanh.code.service.IContractDetailService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ContractDetail")
+@RequestMapping("/api/ContractDetail")
 public class ContractDetailController {
 
     private final IContractDetailService contractDetailService;

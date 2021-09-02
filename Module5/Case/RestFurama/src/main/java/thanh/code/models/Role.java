@@ -18,6 +18,7 @@ public class Role {
     private String roleName;
 
     @ManyToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonBackReference(value = "userSet")
     @JsonIdentityInfo(
             generator = ObjectIdGenerators.PropertyGenerator.class,
             property = "userName")

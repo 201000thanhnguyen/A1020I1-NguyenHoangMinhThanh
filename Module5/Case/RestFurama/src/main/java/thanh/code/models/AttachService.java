@@ -1,5 +1,6 @@
 package thanh.code.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -21,7 +22,7 @@ public class AttachService {
     private String attachServiceStatus;
 
     @OneToMany(mappedBy = "attachService", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "attachService")
+    @JsonBackReference(value = "contractDetail")
     private Set<ContractDetail> contractDetail;
 
     public Set<ContractDetail> getContractDetail() {

@@ -1,5 +1,6 @@
 package thanh.code.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class EducationDegree {
     private String educationDegreeName;
 
     @OneToMany(mappedBy = "educationDegree", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "educationDegree")
+    @JsonBackReference(value = "employee")
     private Set<Employee> employee;
 
     public Set<Employee> getEmployee() {

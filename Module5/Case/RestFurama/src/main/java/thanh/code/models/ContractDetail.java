@@ -16,12 +16,12 @@ public class ContractDetail {
 
     @ManyToOne(targetEntity = AttachService.class, cascade = CascadeType.PERSIST)
     @Resource
-    @JsonBackReference(value = "attachService")
+    @JsonManagedReference(value = "attachService")
     private AttachService attachService;
 
     @ManyToOne(targetEntity = Contract.class, cascade = CascadeType.PERSIST)
     @Resource
-    @JsonBackReference(value = "contract")
+    @JsonManagedReference(value = "contract")
     private Contract contract;
 
     public int getContractDetailId() {

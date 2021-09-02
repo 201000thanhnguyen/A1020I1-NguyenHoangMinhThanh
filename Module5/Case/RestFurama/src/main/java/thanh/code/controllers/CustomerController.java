@@ -17,7 +17,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Customer")
+@RequestMapping("/api/Customer")
 public class CustomerController {
 
     private final ICustomerService customerService;

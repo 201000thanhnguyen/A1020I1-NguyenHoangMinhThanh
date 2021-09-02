@@ -1,16 +1,18 @@
-export class Student{
-  id: number;
-  name: string;
-  age: number;
-  avatar: string;
-  scores: number;
+import {IStudent} from "./istudent";
+
+export class Student implements IStudent{
+  studentId: number;
+  studentName: string;
+  studentAge: number;
+  studentAvatar: string;
+  studentScores: number;
 
   constructor(id: number, name: string, age: number, avatar: string, scores: number) {
-    this.id = id;
-    this.name = name;
-    this.age = age;
-    this.avatar = avatar;
-    this.scores = scores;
+    this.studentId = id;
+    this.studentName = name;
+    this.studentAge = age;
+    this.studentAvatar = avatar;
+    this.studentScores = scores;
   }
 
 }

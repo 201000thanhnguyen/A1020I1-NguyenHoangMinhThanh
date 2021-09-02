@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping("/RestFurama/api")
+@RequestMapping("/api")
 public class CustomerController {
 
     final ICustomerService customerService;

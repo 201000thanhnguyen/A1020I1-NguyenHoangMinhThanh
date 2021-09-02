@@ -13,7 +13,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ServiceType")
+@RequestMapping("/api/ServiceType")
 public class ServiceTypeController {
 
     private final IServiceTypeService serviceTypeService;
@@ -35,25 +35,38 @@ public class ServiceTypeController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<ServiceType> post(@RequestBody ServiceType serviceType) {
+        this.serviceTypeService.addOrUpdateEntity(serviceType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<ServiceType> detail(@PathVariable int id) {
+        ServiceType serviceType = this.serviceTypeService.findByIdInt(id);
+        if (serviceType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(serviceType, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<ServiceType> update(@RequestBody ServiceType serviceType) {
+        this.serviceTypeService.addOrUpdateEntity(serviceType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<ServiceType> delete(@PathVariable int id) {
+        ServiceType serviceType = this.serviceTypeService.findByIdInt(id);
+        if (serviceType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.serviceTypeService.removeEntity(serviceType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

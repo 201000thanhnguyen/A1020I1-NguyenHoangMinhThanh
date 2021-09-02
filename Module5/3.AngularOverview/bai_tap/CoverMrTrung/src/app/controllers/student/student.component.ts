@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Student} from "../../models/student";
 import {IStudent} from "../../models/istudent";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-student',
@@ -9,12 +10,30 @@ import {IStudent} from "../../models/istudent";
 })
 export class StudentComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder) {
+  }
+
   @Input() messageChild: string | any;
   @Input() studentDetailChild!: IStudent | any;
 
-  @Output() sendObjIStudent = new EventEmitter();
+  @Output() eventEmitter = new EventEmitter();
 
-  newObjIStudent: IStudent = {age: 0, avatar: "", id: 0, name: "", scores: 0};
+  @Input() objStudentForForm: IStudent | any;
+  objGetDataFromForm = this.formBuilder.group({
+    studentId: '',
+    studentName: '',
+    studentAge: '',
+    studentAvatar: '',
+    studentScores: ''
+  });
+  onAddStudentFrom() : void{
+    this.objStudentForForm = this.objGetDataFromForm.value;
+    console.log(this.objGetDataFromForm.value);
+    console.log(this.objStudentForForm.studentName);
+    this.eventEmitter.emit(this.objStudentForForm);
+  }
+
+  newObjIStudent: IStudent = {studentAge: 0, studentAvatar: "", studentId: 0, studentName: "", studentScores: 0};
 
   student: Student = new Student(
     1,
@@ -25,8 +44,8 @@ export class StudentComponent implements OnInit {
   );
 
   fontSize = 14;
-  idStudent: number = this.student.id;
-  avatarStudent: string = this.student.avatar;
+  idStudent: number = this.student.studentId;
+  avatarStudent: string = this.student.studentAvatar;
 
   output: number = 0;
   first: number = 0;
@@ -38,9 +57,6 @@ export class StudentComponent implements OnInit {
   petName = 'puppie';
   petImage = 'http://yourdost-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2016/01/03165939/Dogs.jpg';
 
-  constructor() {
-  }
-
 
   ngOnInit(): void {
     if (this.messageChild == undefined){
@@ -49,18 +65,17 @@ export class StudentComponent implements OnInit {
 
     if (this.studentDetailChild == undefined){
       this.studentDetailChild = {
-        id: this.student.id,
-        name: this.student.name,
-        age: this.student.age,
-        avatar: this.student.avatar,
-        scores: this.student.scores
+        studentId: this.student.studentId,
+        studentName: this.student.studentName,
+        studentAge: this.student.studentAge,
+        studentAvatar: this.student.studentAvatar,
+        studentScores: this.student.studentScores
       };
     }
-
   }
 
   changeScores(value: any){
-    this.student.name = value;
+    this.student.studentName = value;
   }
 
   changeFontSize(value: any) {
@@ -107,23 +122,24 @@ export class StudentComponent implements OnInit {
   }
 
   btnAddStudent(){
-    this.sendObjIStudent.emit(this.newObjIStudent);
+    // this.sendObjIStudent.emit(this.newObjIStudent);
+    this.eventEmitter.emit(this.objStudentForForm);
   };
 
   getIdStudentFromForm(value: number){
-    this.newObjIStudent.id = value;
+    this.newObjIStudent.studentId = value;
   }
   getNameStudentFromForm(value: string){
-    this.newObjIStudent.name = value;
+    this.newObjIStudent.studentName = value;
   }
   getAgeStudentFromForm(value: number){
-    this.newObjIStudent.age = value;
+    this.newObjIStudent.studentAge = value;
   }
   getAvatarStudentFromForm(value: string){
-    this.newObjIStudent.avatar = value;
+    this.newObjIStudent.studentAvatar = value;
   }
   getScoreStudentFromForm(value: number){
-    this.newObjIStudent.scores = value;
+    this.newObjIStudent.studentScores = value;
   }
 
 }

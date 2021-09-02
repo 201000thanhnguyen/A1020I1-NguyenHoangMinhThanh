@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "./customer";
+import {FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,24 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCustomerList(): Observable<Customer[]>{
-    return this.httpClient.get<Customer[]>(`${this.apiCustomer}`);
+  addOrUpdateCustomerService(formGroup: FormGroup) {
+    const customerId = formGroup.controls.id.value;
+    if (!customerId){
+      return this.httpClient.post(this.apiCustomer, formGroup.value);
+    }else {
+      return this.httpClient.put(this.apiCustomer + `/${customerId}`, formGroup.value);
+    }
+  }
+
+  deleteCustomerService(id: number){
+    return this.httpClient.delete(this.apiCustomer + `/${id}`);
+  }
+
+  getCustomerService(id: number): Observable<any> {
+    return this.httpClient.get<any>(this.apiCustomer + `/${id}`);
+  }
+
+  getCustomerListService(): Observable<any[]>{
+    return this.httpClient.get<any[]>(`${this.apiCustomer}`);
   }
 }

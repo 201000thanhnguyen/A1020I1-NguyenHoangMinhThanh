@@ -15,7 +15,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/EducationDegree")
+@RequestMapping("/api/EducationDegree")
 public class EducationDegreeController {
 
     private final IEducationDegreeService educationDegreeService;
@@ -37,25 +37,38 @@ public class EducationDegreeController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<EducationDegree> post(@RequestBody EducationDegree educationDegree) {
+        this.educationDegreeService.addOrUpdateEntity(educationDegree);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<EducationDegree> detail(@PathVariable int id) {
+        EducationDegree educationDegree = this.educationDegreeService.findByIdInt(id);
+        if (educationDegree == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(educationDegree, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<EducationDegree> update(@RequestBody EducationDegree educationDegree) {
+        this.educationDegreeService.addOrUpdateEntity(educationDegree);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<EducationDegree> delete(@PathVariable int id) {
+        EducationDegree educationDegree = this.educationDegreeService.findByIdInt(id);
+        if (educationDegree == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.educationDegreeService.removeEntity(educationDegree);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

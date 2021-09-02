@@ -1,0 +1,37 @@
+<div *ngIf="infoCardChild">
+  <table>
+    <tr>
+      <th rowspan="3">
+        <img src="https://comdy.vn/content/images/2021/03/angular-1.jpg" style="max-width: 100px;" alt="no" class="name-card__avatar">
+      </th>
+      <td>
+        <table>
+          <tr>
+            <td>card name : </td>
+            <td>{{ infoCardChild.cardName }}</td>
+          </tr>
+          <tr>
+            <td>email : </td>
+            <td>{{ infoCardChild.email }}</td>
+          </tr>
+          <tr>
+            <td>phone : </td>
+            <td>{{ infoCardChild.phone }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <h2>Progress Bar</h2>
+
+  <div class="progress-bar-container" [style.backgroundColor]="backgroundColor">
+    <div class="progress" [ngStyle]="{
+    backgroundColor: progressColor,
+    width: width + '%',
+    height: height + 'px'
+  }"></div>
+  </div>
+</div>

@@ -27,11 +27,11 @@ public class Customer {
 
     @ManyToOne(targetEntity = CustomerType.class)
     @Resource
-    @JsonBackReference(value = "customerType")
+    @JsonManagedReference(value = "customerType")
     private CustomerType customerType;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "customer")
+    @JsonBackReference(value = "contract")
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

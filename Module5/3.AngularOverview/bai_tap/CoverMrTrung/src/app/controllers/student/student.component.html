@@ -34,41 +34,42 @@
 <!--  <button class="btn btn-link" (click)="sendObjIStudent.emit('alo')">Notify</button>-->
 <!--</div>-->
 <div class="col-md-12">
-  <form>
+  <form [formGroup]="objGetDataFromForm" (ngSubmit)="onAddStudentFrom()">
     <table class="table table-bordered">
       <tr>
         <th>id</th>
         <td>
-          <input type="number" (change)="getIdStudentFromForm($any($event).target.value)">
+          <input type="number" name="studentId" formControlName="studentId" (change)="getIdStudentFromForm($any($event).target.value)">
         </td>
       </tr>
       <tr>
         <th>name</th>
         <td>
-          <input type="text" (change)="getNameStudentFromForm($any($event).target.value)">
+          <input type="text" name="studentName" formControlName="studentName" (change)="getNameStudentFromForm($any($event).target.value)">
         </td>
       </tr>
       <tr>
         <th>age</th>
         <td>
-          <input type="number" (change)="getAgeStudentFromForm($any($event).target.value)">
+          <input type="number" name="studentAge" formControlName="studentAge" (change)="getAgeStudentFromForm($any($event).target.value)">
         </td>
       </tr>
       <tr>
         <th>avatar</th>
         <td>
-          <input type="text" (change)="getAvatarStudentFromForm($any($event).target.value)">
+          <input type="text" name="studentAvatar" formControlName="studentAvatar" (change)="getAvatarStudentFromForm($any($event).target.value)">
         </td>
       </tr>
       <tr>
         <th>scores</th>
         <td>
-          <input type="number" (change)="getScoreStudentFromForm($any($event).target.value)">
+          <input type="number" name="studentScores" formControlName="studentScores" (change)="getScoreStudentFromForm($any($event).target.value)">
         </td>
       </tr>
       <tr>
         <th class="text-center" colspan="2">
-          <button class="btn btn-success" (click)="btnAddStudent()">Submit</button>
+<!--          <button class="btn btn-success" (click)="btnAddStudent()">Submit</button>-->
+          <button class="btn btn-success" type="submit">Submit</button>
           <button class="btn btn-dark ml-2" type="reset">Reset</button>
         </th>
       </tr>

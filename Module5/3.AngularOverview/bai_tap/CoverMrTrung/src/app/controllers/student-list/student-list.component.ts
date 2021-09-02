@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Student} from "../../models/student";
-import {IStudent} from "../../models/istudent";
+import {IStudent, iStudentList} from "../../models/istudent";
 
 @Component({
   selector: 'app-student-list',
@@ -9,19 +9,14 @@ import {IStudent} from "../../models/istudent";
 })
 export class StudentListComponent implements OnInit {
 
-  studentList: IStudent[] = [
-    new Student(1, "aloha 100", 20, '', 0),
-    new Student(2, "aloha 101", 20, '', 10),
-    new Student(3, "aloha 102", 20, '', 2),
-    new Student(4, "aloha 103", 20, '', 3)
-  ];
+   studentList = iStudentList;
 
-  messageParent: string | undefined = undefined;
+  messageParent: string | undefined;
   studentDetailParent: IStudent | undefined;
 
   receiveObjIStudent(value: Student){
     console.log(value);
-    this.studentList.push(new Student(value.id, value.name, value.age, value.avatar, value.scores));
+    this.studentList.push(new Student(value.studentId, value.studentName, value.studentAge, value.studentAvatar, value.studentScores));
   }
 
   constructor() {
@@ -31,12 +26,14 @@ export class StudentListComponent implements OnInit {
   }
 
   clickDetailStudent(value: number){
-    for (let i = 0; i < this.studentList.length; i++) {
-      if (this.studentList[i].id == value){
-        this.studentDetailParent = this.studentList[i];
-        this.messageParent = "parent";
-      }
-    }
+    // for (let i = 0; i < this.studentList.length; i++) {
+    //   if (this.studentList[i].id == value){
+    //     this.studentDetailParent = this.studentList[i];
+    //     this.messageParent = "parent";
+    //   }
+    // }
+
+    this.studentDetailParent = this.studentList.find(x => x.studentId == value);
     console.log(this.studentDetailParent);
   }
 

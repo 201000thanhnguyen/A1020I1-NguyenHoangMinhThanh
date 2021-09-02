@@ -22,21 +22,21 @@ public class Contract implements Validator {
 
     @ManyToOne(targetEntity = Employee.class)
     @Resource
-    @JsonBackReference(value = "employee")
+    @JsonManagedReference(value = "employee")
     private Employee employee;
 
     @ManyToOne(targetEntity = Customer.class)
     @Resource
-    @JsonBackReference(value = "customer")
+    @JsonManagedReference(value = "customer")
     private Customer customer;
 
     @ManyToOne(targetEntity = Service.class)
     @Resource
-    @JsonBackReference(value = "service")
+    @JsonManagedReference(value = "service")
     private Service service;
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "contract")
+    @JsonBackReference(value = "contractDetail")
     private Set<ContractDetail> contractDetail;
 
     public Set<ContractDetail> getContractDetail() {

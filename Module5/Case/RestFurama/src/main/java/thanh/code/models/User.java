@@ -15,6 +15,7 @@ public class User {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JsonManagedReference(value = "role")
     @JsonIdentityInfo(
             generator = ObjectIdGenerators.PropertyGenerator.class,
             property = "roleId")

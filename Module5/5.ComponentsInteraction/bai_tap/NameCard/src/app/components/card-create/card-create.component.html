@@ -1,0 +1,37 @@
+<h2>Create Cart</h2>
+<div>
+  <table border="1">
+    <tr>
+      <td>card name :</td>
+      <td>
+        <input type="text" (change)="getCardNameFromFormParent($any($event).target.value)">
+      </td>
+    </tr>
+    <tr>
+      <td>email :</td>
+      <td>
+        <input type="text" (change)="getEmailFromFormParent($any($event).target.value)">
+      </td>
+    </tr>
+    <tr>
+      <td>phone :</td>
+      <td>
+        <input type="text" (change)="getPhoneFromFormParent($any($event).target.value)">
+      </td>
+    </tr>
+    <tr>
+      <th class="text-center" colspan="2">
+        <button (click)="submitAddCard()">Add</button>
+      </th>
+    </tr>
+  </table>
+</div>
+<div class="mt-3">
+  Progress Bar : <input type="number" min="0" max="100" [(ngModel)]="width">
+</div>
+<div>
+  <app-card
+    [infoCardChild]="infoCardParent"
+    [width]="width"
+  ></app-card>
+</div>

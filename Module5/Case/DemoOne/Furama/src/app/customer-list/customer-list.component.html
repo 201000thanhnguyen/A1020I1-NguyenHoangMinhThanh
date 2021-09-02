@@ -1,15 +1,70 @@
-<h2>customer list</h2>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>first name</th>
-    <th>last name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let customer of customers">
-    <td>{{customer.firstName}}</td>
-    <td>{{customer.lastName}}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="row">
+
+  <div class="col-md-5">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">List</div>
+      <div class="panel-body">
+
+        <table style="width:100%">
+          <tr>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>
+              <button (click)="getCustomer(customer.id)" data-toggle="modal" data-target="#modalCustomer" class="btn btn-sm btn-warning">
+                <span>Edit</span>
+              </button>
+              <button (click)="buttonDeleteCustomer(customer.id)" data-toggle="modal" data-target="#modalCustomer" class="btn btn-sm btn-danger">
+                <span>Delete</span>
+              </button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" (click)="buttonAddCustomer()" class="btn btn-success" data-toggle="modal" data-target="#modalCustomer">
+  add customer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" [formGroup]="formGroup">
+          <div class="form-group">
+            <label for="firstName">firstName:</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName" [readOnly]="attributeReadonly">
+            <label for="lastName">lastName:</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" [readOnly]="attributeReadonly">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-success float-right" data-dismiss="modal" (click)="addOrUpdateCustomer()" [hidden]="attributeHidden">
+              {{ !formGroup.get('id')?.value ? 'Create' : 'Update' }}
+            </button>
+            <button type="button" class="btn btn-danger float-right mr-2" data-dismiss="modal" (click)="reset()" [hidden]="attributeHidden">Reset</button>
+            <button type="button" class="btn btn-danger float-right mr-2" data-dismiss="modal" (click)="deleteCustomer(formGroup.get('id')?.value)" [hidden]="!attributeHidden">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

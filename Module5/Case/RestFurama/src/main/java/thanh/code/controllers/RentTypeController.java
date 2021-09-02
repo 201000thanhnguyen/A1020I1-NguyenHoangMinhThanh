@@ -15,7 +15,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/RentType")
+@RequestMapping("/api/RentType")
 public class RentTypeController {
 
     private final IRentTypeService rentTypeService;
@@ -37,25 +37,38 @@ public class RentTypeController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<RentType> post(@RequestBody RentType rentType) {
+        this.rentTypeService.addOrUpdateEntity(rentType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<RentType> detail(@PathVariable int id) {
+        RentType rentType = this.rentTypeService.findByIdInt(id);
+        if (rentType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(rentType, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<RentType> update(@RequestBody RentType rentType) {
+        this.rentTypeService.addOrUpdateEntity(rentType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<RentType> delete(@PathVariable int id) {
+        RentType rentType = this.rentTypeService.findByIdInt(id);
+        if (rentType == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.rentTypeService.removeEntity(rentType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

@@ -12,15 +12,16 @@
           <th>action</th>
         </tr>
         <tr *ngFor="let item of studentList">
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.age}}</td>
-          <td>{{item.avatar}}</td>
-          <td>{{item.scores}}</td>
-          <td [ngStyle]="{color: item.scores >= 5 ? 'blue' : 'red'}">{{item.scores < 5 ? 'Fail' : 'Pass'}}</td>
+          <td>{{item.studentId}}</td>
+          <td>{{item.studentName}}</td>
+          <td>{{item.studentAge}}</td>
+          <td>{{item.studentAvatar}}</td>
+          <td>{{item.studentScores}}</td>
+          <td [ngStyle]="{color: item.studentScores >= 5 ? 'blue' : 'red'}">{{item.studentScores < 5 ? 'Fail' : 'Pass'}}</td>
           <td>
-            <button (click)="clickDetailStudent(item.id)" class="btn btn-success">detail</button>
-            <button (click)="clickDeleteStudent(item.id)" class="btn btn-warning ml-2">delete</button>
+            <button (click)="clickDetailStudent(item.studentId)" class="btn btn-success">detail</button>
+            <a class="btn btn-link ml-2" [routerLink]="['/students', item.studentId]">{{item.studentName}}</a>
+            <button (click)="clickDeleteStudent(item.studentId)" class="btn btn-warning ml-2">delete</button>
           </td>
         </tr>
       </table>
@@ -28,7 +29,8 @@
     <app-student
       [messageChild]="messageParent"
       [studentDetailChild]="studentDetailParent"
-      (sendObjIStudent)="receiveObjIStudent($event)"
+      [objStudentForForm]="studentDetailParent"
+      (eventEmitter)="receiveObjIStudent($event)"
     ></app-student>
   </div>
 </div>

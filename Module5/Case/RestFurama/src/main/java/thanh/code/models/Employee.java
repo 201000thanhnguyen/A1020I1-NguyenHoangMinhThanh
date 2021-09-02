@@ -28,27 +28,27 @@ public class Employee {
 
     @ManyToOne(targetEntity = Position.class)
     @Resource
-    @JsonBackReference(value = "position")
+    @JsonManagedReference(value = "position")
     private Position position;
 
     @ManyToOne(targetEntity = EducationDegree.class)
     @Resource
-    @JsonBackReference(value = "educationDegree")
+    @JsonManagedReference(value = "educationDegree")
     private EducationDegree educationDegree;
 
     @ManyToOne(targetEntity = Division.class)
     @Resource
-    @JsonBackReference(value = "division")
+    @JsonManagedReference(value = "division")
     private Division division;
 
     @Valid
     @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
     @Resource
-    @JsonBackReference(value = "user")
+    @JsonManagedReference(value = "user")
     private User user;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "employee")
+    @JsonBackReference(value = "employee")
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

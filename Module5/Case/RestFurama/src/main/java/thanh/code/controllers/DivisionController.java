@@ -15,7 +15,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Division")
+@RequestMapping("/api/Division")
 public class DivisionController {
 
     private final IDivisionService divisionService;
@@ -37,25 +37,38 @@ public class DivisionController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<Division> post(@RequestBody Division division) {
+        this.divisionService.addOrUpdateEntity(division);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<Division> detail(@PathVariable int id) {
+        Division division = this.divisionService.findByIdInt(id);
+        if (division == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(division, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<Division> update(@RequestBody Division division) {
+        this.divisionService.addOrUpdateEntity(division);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<Division> delete(@PathVariable int id) {
+        Division division = this.divisionService.findByIdInt(id);
+        if (division == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.divisionService.removeEntity(division);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }

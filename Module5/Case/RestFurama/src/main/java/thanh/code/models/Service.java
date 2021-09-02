@@ -26,16 +26,16 @@ public class Service {
 
     @ManyToOne(targetEntity = ServiceType.class)
     @Resource
-    @JsonBackReference(value = "serviceType")
+    @JsonManagedReference(value = "serviceType")
     private ServiceType serviceType;
 
     @ManyToOne(targetEntity = RentType.class)
     @Resource
-    @JsonBackReference(value = "rentType")
+    @JsonManagedReference(value = "rentType")
     private RentType rentType;
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "service")
+    @JsonBackReference(value = "contract")
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

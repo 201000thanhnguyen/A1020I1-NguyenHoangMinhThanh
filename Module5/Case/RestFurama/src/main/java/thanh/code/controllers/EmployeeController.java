@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/Employee")
+@RequestMapping("/api/Employee")
 public class EmployeeController {
 
     private final IEmployeeService employeeService;
@@ -36,25 +36,38 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> post() {
-        return null;
+    public ResponseEntity<Employee> post(@RequestBody Employee employee) {
+        this.employeeService.addOrUpdateEntity(employee);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> detail(@PathVariable int id) {
-        return null;
+    public ResponseEntity<Employee> detail(@PathVariable int id) {
+        Employee employee = this.employeeService.findByIdInt(id);
+        if (employee == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(employee, HttpStatus.OK);
+        }
     }
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<String> update(String string) {
-        return null;
+    public ResponseEntity<Employee> update(@RequestBody Employee employee) {
+        this.employeeService.addOrUpdateEntity(employee);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<String> delete(int id) {
-        return null;
+    public ResponseEntity<Employee> delete(@PathVariable int id) {
+        Employee employee = this.employeeService.findByIdInt(id);
+        if (employee == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.employeeService.removeEntity(employee);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 }
