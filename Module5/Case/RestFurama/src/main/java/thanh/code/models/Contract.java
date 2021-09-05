@@ -1,7 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -21,22 +20,23 @@ public class Contract implements Validator {
     private double contractTotalMoney;
 
     @ManyToOne(targetEntity = Employee.class)
-    @Resource
-    @JsonManagedReference(value = "employee")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "employeeId", scope = Integer.class)
+//    @JsonManagedReference(value = "employee")
     private Employee employee;
 
     @ManyToOne(targetEntity = Customer.class)
-    @Resource
-    @JsonManagedReference(value = "customer")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerId", scope = Integer.class)
+//    @JsonManagedReference(value = "customer")
     private Customer customer;
 
     @ManyToOne(targetEntity = Service.class)
-    @Resource
-    @JsonManagedReference(value = "service")
+//    @JsonManagedReference(value = "service")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "serviceId", scope = Integer.class)
     private Service service;
 
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "contractDetail")
+//    @JsonBackReference(value = "contractDetail")
+    @JsonIgnore
     private Set<ContractDetail> contractDetail;
 
     public Set<ContractDetail> getContractDetail() {

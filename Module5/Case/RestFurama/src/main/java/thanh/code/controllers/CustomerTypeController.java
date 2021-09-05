@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/CustomerType")
 public class CustomerTypeController {
 
@@ -25,48 +25,47 @@ public class CustomerTypeController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<CustomerType>> get() {
         List<CustomerType> customerTypeList = this.customerTypeService.listEntity();
-        if (customerTypeList.isEmpty()){
+        if (customerTypeList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(customerTypeList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<CustomerType> post(@RequestBody CustomerType customerType) {
         this.customerTypeService.addOrUpdateEntity(customerType);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<CustomerType> detail(@PathVariable int id) {
         CustomerType customerType = this.customerTypeService.findByIdInt(id);
-        if (customerType == null){
+        if (customerType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(customerType, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<CustomerType> update(CustomerType customerType) {
-        this.customerTypeService.addOrUpdateEntity(customerType);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<CustomerType> update(@PathVariable int id, @RequestBody CustomerType customerType) {
+        if (this.customerTypeService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.customerTypeService.addOrUpdateEntity(customerType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<CustomerType> delete(@PathVariable int id) {
         CustomerType customerType = this.customerTypeService.findByIdInt(id);
-        if (customerType == null){
+        if (customerType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.customerTypeService.removeEntity(customerType);
             return new ResponseEntity<>(HttpStatus.OK);
         }

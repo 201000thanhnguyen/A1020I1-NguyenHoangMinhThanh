@@ -1,7 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
@@ -27,28 +26,28 @@ public class Employee {
     private String employeeAddress;
 
     @ManyToOne(targetEntity = Position.class)
-    @Resource
-    @JsonManagedReference(value = "position")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "positionId", scope = Integer.class)
     private Position position;
 
     @ManyToOne(targetEntity = EducationDegree.class)
-    @Resource
-    @JsonManagedReference(value = "educationDegree")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "educationDegreeId", scope = Integer.class)
+//    @JsonManagedReference(value = "educationDegree")
     private EducationDegree educationDegree;
 
     @ManyToOne(targetEntity = Division.class)
-    @Resource
-    @JsonManagedReference(value = "division")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "divisionId", scope = Integer.class)
+//    @JsonManagedReference(value = "division")
     private Division division;
 
     @Valid
     @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    @Resource
-    @JsonManagedReference(value = "user")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userName", scope = Integer.class)
+//    @JsonManagedReference(value = "user")
     private User user;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "employee")
+    @JsonIgnore
+//    @JsonBackReference(value = "employee")
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

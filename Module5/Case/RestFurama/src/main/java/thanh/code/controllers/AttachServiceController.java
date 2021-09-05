@@ -15,7 +15,7 @@ import thanh.code.service.IServiceTypeService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/AttachService")
+@RequestMapping
 public class AttachServiceController {
 
     private final IAttachServiceService attachServiceService;
@@ -25,7 +25,6 @@ public class AttachServiceController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<AttachService>> get() {
         List<AttachService> attachServiceList = this.attachServiceService.listEntity();
         if (attachServiceList.isEmpty()) {
@@ -42,7 +41,6 @@ public class AttachServiceController {
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<AttachService> detail(@PathVariable int id) {
         AttachService attachService = this.attachServiceService.findByIdInt(id);
         if (attachService == null){
@@ -52,10 +50,9 @@ public class AttachServiceController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<AttachService> update(@RequestBody AttachService attachService){
-        if (attachService == null
-                || this.attachServiceService.findByIdInt(attachService.getAttachServiceId()) == null){
+    @PutMapping("/{id}")
+    public ResponseEntity<AttachService> update(@PathVariable int id, @RequestBody AttachService attachService){
+        if (this.attachServiceService.findByIdInt(id) == null){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
             this.attachServiceService.addOrUpdateEntity(attachService);

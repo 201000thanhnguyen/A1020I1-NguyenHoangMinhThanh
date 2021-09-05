@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "11fd5557-7584-4a6a-84f8-aff54fc450a6"
+    "analytics": "26ba9f07-de05-4321-bde5-5b9270a06e24"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -30,38 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/open-iconic/font/css/open-iconic-bootstrap.min.css",
-              "node_modules/animate.css/animate.css",
-              "node_modules/owl.carousel/dist/assets/owl.carousel.css",
-              "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-              "node_modules/magnific-popup/dist/magnific-popup.css",
-              "src/assets/lib_of_mt/aos.css",
-              "node_modules/ionicons/dist/css/ionicons.css",
-              "node_modules/jquery-datetimepicker/jquery.datetimepicker.css",
-              "node_modules/icomoon/style.css",
-              "src/assets/lib_of_mt/dataTables.bootstrap4.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "src/assets/lib_of_mt/style.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "src/assets/lib_of_mt/jquery-migrate-3.0.1.min.js",
-              "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/jquery.easing/jquery.easing.js",
-              "node_modules/waypoints/lib/jquery.waypoints.js",
-              "node_modules/jquery.stellar/jquery.stellar.js",
-              "node_modules/owl.carousel/dist/owl.carousel.js",
-              "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
-              "src/assets/lib_of_mt/aos.js",
-              "node_modules/jquery.animate-number/jquery.animateNumber.js",
-              "node_modules/jquery-datetimepicker/jquery.datetimepicker.js",
-              "src/assets/lib_of_mt/scrollax.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
-              "src/assets/lib_of_mt/dataTables.bootstrap4.min.js",
-              "src/assets/lib_of_mt/main.js"
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"
             ]
           },
           "configurations": {

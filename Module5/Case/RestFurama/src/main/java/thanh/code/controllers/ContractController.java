@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Contract")
-public class ContractController{
+public class ContractController {
 
     private final IContractService contractService;
 
@@ -23,48 +23,47 @@ public class ContractController{
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Contract>> get() {
         List<Contract> contractList = this.contractService.listEntity();
-        if (contractList.isEmpty()){
+        if (contractList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(contractList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Contract> post(@RequestBody Contract contract) {
         this.contractService.addOrUpdateEntity(contract);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Contract> detail(@PathVariable int id) {
         Contract contract = this.contractService.findByIdInt(id);
-        if (contract == null){
+        if (contract == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(contract, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Contract> update(Contract contract) {
-        this.contractService.addOrUpdateEntity(contract);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Contract> update(@PathVariable int id, @RequestBody Contract contract) {
+        if (this.contractService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.contractService.addOrUpdateEntity(contract);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Contract> delete(@PathVariable int id) {
         Contract contract = this.contractService.findByIdInt(id);
-        if (contract == null){
+        if (contract == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.contractService.removeEntity(contract);
             return new ResponseEntity<>(HttpStatus.OK);
         }

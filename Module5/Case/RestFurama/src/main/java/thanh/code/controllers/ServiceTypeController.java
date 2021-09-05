@@ -12,7 +12,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/ServiceType")
 public class ServiceTypeController {
 
@@ -23,48 +23,47 @@ public class ServiceTypeController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<ServiceType>> get() {
         List<ServiceType> serviceTypeList = this.serviceTypeService.listEntity();
-        if (serviceTypeList.isEmpty()){
+        if (serviceTypeList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(serviceTypeList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<ServiceType> post(@RequestBody ServiceType serviceType) {
         this.serviceTypeService.addOrUpdateEntity(serviceType);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<ServiceType> detail(@PathVariable int id) {
         ServiceType serviceType = this.serviceTypeService.findByIdInt(id);
-        if (serviceType == null){
+        if (serviceType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(serviceType, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<ServiceType> update(@RequestBody ServiceType serviceType) {
-        this.serviceTypeService.addOrUpdateEntity(serviceType);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<ServiceType> update(@PathVariable int id, @RequestBody ServiceType serviceType) {
+        if (this.serviceTypeService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.serviceTypeService.addOrUpdateEntity(serviceType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<ServiceType> delete(@PathVariable int id) {
         ServiceType serviceType = this.serviceTypeService.findByIdInt(id);
-        if (serviceType == null){
+        if (serviceType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.serviceTypeService.removeEntity(serviceType);
             return new ResponseEntity<>(HttpStatus.OK);
         }

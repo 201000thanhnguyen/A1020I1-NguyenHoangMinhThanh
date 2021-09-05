@@ -22,7 +22,7 @@ public class AttachService {
     private String attachServiceStatus;
 
     @OneToMany(mappedBy = "attachService", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "contractDetail")
+    @JsonIgnore
     private Set<ContractDetail> contractDetail;
 
     public Set<ContractDetail> getContractDetail() {

@@ -1,7 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
@@ -26,12 +25,13 @@ public class Customer {
     private String customerAddress;
 
     @ManyToOne(targetEntity = CustomerType.class)
-    @Resource
-    @JsonManagedReference(value = "customerType")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerTypeId")
+//    @JsonManagedReference(value = "customerTypeId")
     private CustomerType customerType;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonBackReference(value = "contract")
+//    @JsonIgnore
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

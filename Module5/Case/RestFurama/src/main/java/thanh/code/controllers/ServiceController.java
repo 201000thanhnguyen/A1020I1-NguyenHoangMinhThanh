@@ -16,7 +16,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/Service")
 public class ServiceController {
 
@@ -27,48 +27,47 @@ public class ServiceController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Service>> get() {
         List<Service> serviceList = this.serviceService.listEntity();
-        if (serviceList.isEmpty()){
+        if (serviceList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(serviceList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Service> post(@RequestBody Service service) {
         this.serviceService.addOrUpdateEntity(service);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Service> detail(@PathVariable int id) {
         Service service = this.serviceService.findByIdInt(id);
-        if (service == null){
+        if (service == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(service, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Service> update(@RequestBody Service service) {
-        this.serviceService.addOrUpdateEntity(service);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Service> update(@PathVariable int id, @RequestBody Service service) {
+        if (this.serviceService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.serviceService.addOrUpdateEntity(service);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Service> delete(@PathVariable int id) {
         Service service = this.serviceService.findByIdInt(id);
-        if (service == null){
+        if (service == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.serviceService.removeEntity(service);
             return new ResponseEntity<>(HttpStatus.OK);
         }

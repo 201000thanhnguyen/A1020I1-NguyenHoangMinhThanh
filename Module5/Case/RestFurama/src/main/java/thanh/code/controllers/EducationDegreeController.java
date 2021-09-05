@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/EducationDegree")
 public class EducationDegreeController {
 
@@ -25,48 +25,47 @@ public class EducationDegreeController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<EducationDegree>> get() {
         List<EducationDegree> educationDegreeList = this.educationDegreeService.listEntity();
-        if (educationDegreeList.isEmpty()){
+        if (educationDegreeList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(educationDegreeList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<EducationDegree> post(@RequestBody EducationDegree educationDegree) {
         this.educationDegreeService.addOrUpdateEntity(educationDegree);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<EducationDegree> detail(@PathVariable int id) {
         EducationDegree educationDegree = this.educationDegreeService.findByIdInt(id);
-        if (educationDegree == null){
+        if (educationDegree == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(educationDegree, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<EducationDegree> update(@RequestBody EducationDegree educationDegree) {
-        this.educationDegreeService.addOrUpdateEntity(educationDegree);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<EducationDegree> update(@PathVariable int id, @RequestBody EducationDegree educationDegree) {
+        if (this.educationDegreeService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.educationDegreeService.addOrUpdateEntity(educationDegree);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<EducationDegree> delete(@PathVariable int id) {
         EducationDegree educationDegree = this.educationDegreeService.findByIdInt(id);
-        if (educationDegree == null){
+        if (educationDegree == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.educationDegreeService.removeEntity(educationDegree);
             return new ResponseEntity<>(HttpStatus.OK);
         }

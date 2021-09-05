@@ -1,6 +1,8 @@
 package thanh.code.models;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -16,7 +18,8 @@ public class CustomerType {
     private String customerTypeName;
 
     @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "customer")
+    @JsonIgnore
+//    @JsonBackReference(value = "customer")
     private Set<Customer> customer;
 
     public Set<Customer> getCustomer() {

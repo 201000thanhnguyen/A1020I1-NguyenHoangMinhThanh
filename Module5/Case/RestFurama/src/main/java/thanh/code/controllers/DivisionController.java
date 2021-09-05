@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/Division")
 public class DivisionController {
 
@@ -25,48 +25,47 @@ public class DivisionController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Division>> get() {
         List<Division> divisionList = this.divisionService.listEntity();
-        if (divisionList.isEmpty()){
+        if (divisionList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(divisionList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Division> post(@RequestBody Division division) {
         this.divisionService.addOrUpdateEntity(division);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Division> detail(@PathVariable int id) {
         Division division = this.divisionService.findByIdInt(id);
-        if (division == null){
+        if (division == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(division, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Division> update(@RequestBody Division division) {
-        this.divisionService.addOrUpdateEntity(division);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Division> update(@PathVariable int id, @RequestBody Division division) {
+        if (this.divisionService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.divisionService.addOrUpdateEntity(division);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Division> delete(@PathVariable int id) {
         Division division = this.divisionService.findByIdInt(id);
-        if (division == null){
+        if (division == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.divisionService.removeEntity(division);
             return new ResponseEntity<>(HttpStatus.OK);
         }

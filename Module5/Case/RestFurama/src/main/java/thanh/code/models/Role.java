@@ -1,9 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,10 +15,8 @@ public class Role {
     private String roleName;
 
     @ManyToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "userSet")
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "userName")
+    @JsonIgnore
+//    @JsonBackReference(value = "userSet")
     private Set<User> userSet;
 
     public Role() {

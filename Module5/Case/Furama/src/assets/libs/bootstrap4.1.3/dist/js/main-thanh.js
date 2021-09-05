@@ -347,11 +347,7 @@ function mainJs(){
       });
       $('.datetime-picker').datetimepicker();
 
-      $('.data-table').DataTable();
-      $('.dataTables_wrapper').find('select, input').css('max-height', '40px');
-      $('.mh-40').css({'max-height':'40px'});
-
     })(jQuery);
   });
-};
+}
 

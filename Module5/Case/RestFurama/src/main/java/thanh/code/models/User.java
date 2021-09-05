@@ -15,14 +15,13 @@ public class User {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JsonManagedReference(value = "role")
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "roleId")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "roleId", scope = Integer.class)
+//    @JsonManagedReference(value = "role")
     private Set<Role> role;
 
     @OneToOne(mappedBy = "user")
-    @JsonBackReference(value = "employee")
+    @JsonIgnore
+//    @JsonBackReference(value = "employee")
     private Employee employee;
 
     public User() {

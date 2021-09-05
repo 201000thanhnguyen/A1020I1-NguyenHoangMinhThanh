@@ -13,7 +13,7 @@ import thanh.code.service.*;
 import java.util.List;
 
 
-@Controller
+@RestController
 @RequestMapping("/api/Employee")
 public class EmployeeController {
 
@@ -24,48 +24,47 @@ public class EmployeeController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Employee>> get() {
         List<Employee> employeeList = this.employeeService.listEntity();
-        if (employeeList.isEmpty()){
+        if (employeeList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(employeeList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Employee> post(@RequestBody Employee employee) {
         this.employeeService.addOrUpdateEntity(employee);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Employee> detail(@PathVariable int id) {
         Employee employee = this.employeeService.findByIdInt(id);
-        if (employee == null){
+        if (employee == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(employee, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Employee> update(@RequestBody Employee employee) {
-        this.employeeService.addOrUpdateEntity(employee);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> update(@PathVariable int id, @RequestBody Employee employee) {
+        if (this.employeeService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.employeeService.addOrUpdateEntity(employee);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Employee> delete(@PathVariable int id) {
         Employee employee = this.employeeService.findByIdInt(id);
-        if (employee == null){
+        if (employee == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.employeeService.removeEntity(employee);
             return new ResponseEntity<>(HttpStatus.OK);
         }

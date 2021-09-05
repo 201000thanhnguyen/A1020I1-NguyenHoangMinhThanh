@@ -1,6 +1,7 @@
 package thanh.code.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -12,11 +13,10 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int positionId;
-    @NotBlank
     private String positionName;
 
     @OneToMany(mappedBy = "position", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "employee")
+    @JsonIgnore
     private Set<Employee> employee;
 
     public Set<Employee> getEmployee() {

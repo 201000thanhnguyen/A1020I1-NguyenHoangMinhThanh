@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/Position")
 public class PositionController {
 
@@ -25,7 +25,6 @@ public class PositionController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Position>> get() {
         List<Position> positionList = this.positionService.listEntity();
         if (positionList.isEmpty()){
@@ -36,14 +35,12 @@ public class PositionController {
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Position> post(@RequestBody Position position) {
         this.positionService.addOrUpdateEntity(position);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Position> detail(@PathVariable int id) {
         Position position = this.positionService.findByIdInt(id);
         if (position == null){
@@ -53,15 +50,18 @@ public class PositionController {
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Position> update(@RequestBody Position position) {
-        this.positionService.addOrUpdateEntity(position);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Position> update(@PathVariable int id, @RequestBody Position position) {
+        Position position1 = this.positionService.findByIdInt(id);
+        if (position1 == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            this.positionService.addOrUpdateEntity(position);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Position> delete(@PathVariable int id) {
         Position position = this.positionService.findByIdInt(id);
         if (position == null){

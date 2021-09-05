@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/RentType")
 public class RentTypeController {
 
@@ -25,48 +25,47 @@ public class RentTypeController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<RentType>> get() {
         List<RentType> rentTypeList = this.rentTypeService.listEntity();
-        if (rentTypeList.isEmpty()){
+        if (rentTypeList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(rentTypeList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<RentType> post(@RequestBody RentType rentType) {
         this.rentTypeService.addOrUpdateEntity(rentType);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<RentType> detail(@PathVariable int id) {
         RentType rentType = this.rentTypeService.findByIdInt(id);
-        if (rentType == null){
+        if (rentType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(rentType, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<RentType> update(@RequestBody RentType rentType) {
-        this.rentTypeService.addOrUpdateEntity(rentType);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<RentType> update(@PathVariable int id, @RequestBody RentType rentType) {
+        if (this.rentTypeService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.rentTypeService.addOrUpdateEntity(rentType);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<RentType> delete(@PathVariable int id) {
         RentType rentType = this.rentTypeService.findByIdInt(id);
-        if (rentType == null){
+        if (rentType == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.rentTypeService.removeEntity(rentType);
             return new ResponseEntity<>(HttpStatus.OK);
         }

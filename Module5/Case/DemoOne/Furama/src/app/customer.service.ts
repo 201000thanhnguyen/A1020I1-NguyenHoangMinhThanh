@@ -26,7 +26,7 @@ export class CustomerService {
     return this.httpClient.delete(this.apiCustomer + `/${id}`);
   }
 
-  getCustomerService(id: number): Observable<any> {
+  getCustomerService(id: any): Observable<any> {
     return this.httpClient.get<any>(this.apiCustomer + `/${id}`);
   }
 

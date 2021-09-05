@@ -1,8 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
@@ -15,13 +13,13 @@ public class ContractDetail {
     private int contractDetailQuantity;
 
     @ManyToOne(targetEntity = AttachService.class, cascade = CascadeType.PERSIST)
-    @Resource
-    @JsonManagedReference(value = "attachService")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "attachServiceId", scope = Integer.class)
+//    @JsonManagedReference(value = "attachService")
     private AttachService attachService;
 
     @ManyToOne(targetEntity = Contract.class, cascade = CascadeType.PERSIST)
-    @Resource
-    @JsonManagedReference(value = "contract")
+//    @JsonManagedReference(value = "contract")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "contractId", scope = Integer.class)
     private Contract contract;
 
     public int getContractDetailId() {

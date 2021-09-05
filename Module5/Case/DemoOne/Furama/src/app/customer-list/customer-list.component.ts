@@ -81,8 +81,4 @@ export class CustomerListComponent implements OnInit {
     }
   }
 
-  closeModal(idModal: any){
-    // @ts-ignore
-    window.$('#'+idModal).modal('hide');
-  }
 }

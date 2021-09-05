@@ -14,7 +14,7 @@ import thanh.code.service.IServiceTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/Role")
 public class RoleController {
 
@@ -25,48 +25,47 @@ public class RoleController {
     }
 
     @GetMapping
-    @ResponseBody
     public ResponseEntity<List<Role>> get() {
         List<Role> roleList = this.roleService.listEntity();
-        if (roleList.isEmpty()){
+        if (roleList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(roleList, HttpStatus.OK);
         }
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Role> post(@RequestBody Role role) {
         this.roleService.addOrUpdateEntity(role);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Role> detail(@PathVariable int id) {
         Role role = this.roleService.findByIdInt(id);
-        if (role == null){
+        if (role == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             return new ResponseEntity<>(role, HttpStatus.OK);
         }
     }
 
-    @PutMapping
-    @ResponseBody
-    public ResponseEntity<Role> update(@RequestBody Role role) {
-        this.roleService.addOrUpdateEntity(role);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Role> update(@PathVariable int id, @RequestBody Role role) {
+        if (this.roleService.findByIdInt(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            this.roleService.addOrUpdateEntity(role);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public ResponseEntity<Role> delete(@PathVariable int id) {
         Role role = this.roleService.findByIdInt(id);
-        if (role == null){
+        if (role == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
+        } else {
             this.roleService.removeEntity(role);
             return new ResponseEntity<>(HttpStatus.OK);
         }

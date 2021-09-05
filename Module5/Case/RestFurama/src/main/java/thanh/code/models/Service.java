@@ -1,7 +1,6 @@
 package thanh.code.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
@@ -25,17 +24,18 @@ public class Service {
     private String urlImage;
 
     @ManyToOne(targetEntity = ServiceType.class)
-    @Resource
-    @JsonManagedReference(value = "serviceType")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "serviceTypeId", scope = Integer.class)
+//    @JsonManagedReference(value = "serviceType")
     private ServiceType serviceType;
 
     @ManyToOne(targetEntity = RentType.class)
-    @Resource
-    @JsonManagedReference(value = "rentType")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "rentTypeId", scope = Integer.class)
+//    @JsonManagedReference(value = "rentType")
     private RentType rentType;
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "contract")
+    @JsonIgnore
+//    @JsonBackReference(value = "contract")
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {
