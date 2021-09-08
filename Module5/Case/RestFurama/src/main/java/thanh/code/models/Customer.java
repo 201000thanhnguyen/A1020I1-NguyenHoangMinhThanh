@@ -14,24 +14,22 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int customerId;
-    @NotBlank
     private String customerName;
     private Date customerBirthday;
     private int customerGender;
     private String customerIdCard;
     private String customerPhone;
-    @Email
     private String customerEmail;
     private String customerAddress;
 
     @ManyToOne(targetEntity = CustomerType.class)
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerTypeId")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerTypeId", scope = Integer.class)
 //    @JsonManagedReference(value = "customerTypeId")
     private CustomerType customerType;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonBackReference(value = "contract")
-//    @JsonIgnore
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+//    @JsonBackReference(value = "contract")
+    @JsonIgnore
     private Set<Contract> contract;
 
     public Set<Contract> getContract() {

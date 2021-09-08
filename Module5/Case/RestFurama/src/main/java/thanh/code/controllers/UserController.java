@@ -2,11 +2,8 @@ package thanh.code.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import thanh.code.models.Role;
 import thanh.code.models.User;
-import thanh.code.service.IRoleService;
 import thanh.code.service.IUserService;
 
 import java.util.List;

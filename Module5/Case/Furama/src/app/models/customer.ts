@@ -1,4 +1,6 @@
-import {ICustomerType} from "./customer-type";
+import {CustomerType, ICustomerType} from "./customer-type";
+import {FormGroup, Validators} from "@angular/forms";
+import {formBuilderService} from "../services/i-service-base";
 
 export class Customer implements ICustomer{
   customerAddress: string;
@@ -38,3 +40,17 @@ export interface ICustomer {
 
   customerType: ICustomerType;
 }
+
+export var formGroupCustomer: FormGroup = formBuilderService.group(
+  {
+    customerId: [''],
+    customerName: ['', [Validators.required]],
+    customerBirthday: [''],
+    customerGender: [''],
+    customerIdCard: [''],
+    customerPhone: [''],
+    customerEmail: ['',[Validators.required, Validators.email]],
+    customerAddress: [''],
+    customerType: ['']
+  }
+);

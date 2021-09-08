@@ -2,6 +2,7 @@ package thanh.code.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -25,7 +26,7 @@ public class CustomerController {
     public CustomerController(ICustomerService customerService) {
         this.customerService = customerService;
     }
-
+    
     @GetMapping
     public ResponseEntity<List<Customer>> get() {
         List<Customer> customerList = this.customerService.listEntity();

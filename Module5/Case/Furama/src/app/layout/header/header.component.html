@@ -25,8 +25,8 @@
             <li class="nav-item"><a href="#" class="nav-link">Division</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Role</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Employee</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Customer Type</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Customer</a></li>
+            <li class="nav-item"><a [routerLink]="['CustomerType']" (click)="navigateUrl($event)" class="nav-link">Customer Type</a></li>
+            <li class="nav-item"><a [routerLink]="['Customer']" (click)="navigateUrl($event)" class="nav-link">Customer</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Service Type</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Rent Type</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Contract</a></li>

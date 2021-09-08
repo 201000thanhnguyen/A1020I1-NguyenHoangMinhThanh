@@ -17,7 +17,7 @@ public class CustomerType {
     @NotBlank
     private String customerTypeName;
 
-    @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL)
     @JsonIgnore
 //    @JsonBackReference(value = "customer")
     private Set<Customer> customer;

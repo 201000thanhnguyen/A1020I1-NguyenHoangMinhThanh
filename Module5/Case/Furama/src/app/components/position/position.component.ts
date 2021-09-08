@@ -13,12 +13,14 @@ declare function mainJs(): any;
 })
 export class PositionComponent implements OnInit, OnDestroy {
 
-  dataTable: any;
   formGroup!: FormGroup;
   positionArr: Position[] = [];
 
   // for dataTable
-  dtOptions: DataTables.Settings = {};
+  dataTable: any;
+  dtOptions: DataTables.Settings = {
+
+  };
   dtTrigger: Subject<any> = new Subject<any>();
 
   // for modal
@@ -45,7 +47,7 @@ export class PositionComponent implements OnInit, OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
-  getPositionList(){
+  getPositionList(): void{
     this.positionService.getAll().subscribe(
       (data) => {
         this.positionArr = data;

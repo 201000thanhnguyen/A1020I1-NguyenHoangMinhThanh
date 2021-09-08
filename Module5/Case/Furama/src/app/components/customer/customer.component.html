@@ -1,1 +1,164 @@
-<p>customer works!</p>
+<app-sub-header></app-sub-header>
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="card w-100 ftco-animate">
+        <div class="card-header">
+          <button class="btn btn-outline-dark rounded" data-toggle="modal" data-target="#idModalCustomer" (click)="btnAdd()">
+            Create Customer <i class="fas fa-plus-square"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-responsive w-100 d-block d-md-table data-table"
+                 datatable
+                 [dtOptions]="dtOptions"
+                 [dtTrigger]="dtTrigger">
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Birthday</th>
+              <th>Gender</th>
+              <th>ID Card</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Type</th>
+              <th>action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customerArr">
+              <td>{{customer.customerId}}</td>
+              <td>{{customer.customerName}}</td>
+              <td>{{customer.customerBirthday}}</td>
+              <td>
+                {{customer.customerGender == 0 ? 'female' : customer.customerGender == 1 ? 'male' : 'other'}}
+              </td>
+              <td>{{customer.customerIdCard}}</td>
+              <td>{{customer.customerPhone}}</td>
+              <td>{{customer.customerEmail}}</td>
+              <td>{{customer.customerAddress}}</td>
+              <td>{{customer.customerType.customerTypeName}}</td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-primary btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    action
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button type="button" class="dropdown-item"  data-toggle="modal" data-target="#idModalCustomer">
+                      <i class="fas fa-info-circle"></i> detail
+                    </button>
+                    <button class="dropdown-item" data-toggle="modal" data-target="#idModalCustomer"
+                            (click)="btnEdit(customer.customerId)">
+                      <i class="fas fa-pen-square"></i> edit
+                    </button>
+                    <button class="dropdown-item" data-toggle="modal" data-target="#idModalCustomer"
+                            (click)="btnDelete(customer.customerId)">
+                      <i class="far fa-trash-alt"></i> delete
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="idModalCustomer" tabindex="-1" role="dialog" aria-label="al-modalCustomer" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable mw-75" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="al-modalCustomer">Customer</h5>
+        <button type="button" data-dismiss="modal" class="close" aria-label="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" [formGroup]="formGroup">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="customerName">Name</label>
+              <input type="text" class="form-control" id="customerName" formControlName="customerName"
+                     [readOnly]="attributeReadonly" >
+              <small class="text-danger"
+                     *ngIf="formGroup.get('customerName')?.invalid && formGroup.get('customerName')?.touched">
+                name invalid !
+              </small>
+            </div>
+            <div class="col-md-6">
+              <label for="customerBirthday">Birthday</label>
+              <input type="date" class="form-control" id="customerBirthday" formControlName="customerBirthday"
+                     [readOnly]="attributeReadonly">
+            </div>
+            <div class="col-md-6">
+              <label>Gender</label>
+              <div class="row">
+                <label class="col-md-6 text-center">
+                  <input type="radio" class="form-control" value="1"
+                         formControlName="customerGender">
+                  Male
+                </label>
+                <label class="col-md-6 text-center">
+                  <input type="radio" class="form-control" value="0"
+                         formControlName="customerGender">
+                  Female
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="customerIdCard">Id Card</label>
+              <input type="text" class="form-control" id="customerIdCard" formControlName="customerIdCard"
+                     [readOnly]="attributeReadonly">
+            </div>
+            <div class="col-md-6">
+              <label for="customerPhone">Phone</label>
+              <input type="text" class="form-control" id="customerPhone" formControlName="customerPhone"
+                     [readOnly]="attributeReadonly">
+            </div>
+            <div class="col-md-6">
+              <label for="customerEmail">Email</label>
+              <input type="email" class="form-control" id="customerEmail" formControlName="customerEmail"
+                     [readOnly]="attributeReadonly">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('customerEmail')?.invalid && formGroup.get('customerEmail')?.touched">
+                email invalid !
+              </small>
+            </div>
+            <div class="col-md-6">
+              <label for="customerAddress">Address</label>
+              <input type="text" class="form-control" id="customerAddress" formControlName="customerAddress"
+                     [readOnly]="attributeReadonly">
+            </div>
+            <div class="col-md-6">
+              <label>Type</label>
+              <select formControlName="customerType" class="form-control h-40px">
+                <option *ngFor="let customerType of customerTypeArr" [ngValue]=customerType [disabled]="attributeReadonly">{{customerType.customerTypeName}}</option>
+              </select>
+            </div>
+            <div class="col-md-12 mt-3">
+              <button class="btn btn-success float-right rounded" data-dismiss="modal"
+                      [hidden]="attributeHidden"
+                      (click)="submitAddOrUpdate()">
+                {{ !formGroup.get('customerTypeId')?.value ? 'Create' : 'Update' }}
+              </button>
+              <button type="reset" class="btn btn-secondary rounded float-right mr-2"
+                      [hidden]="attributeHidden">
+                Reset
+              </button>
+              <button type="button" class="btn btn-danger rounded float-right mr-2" data-dismiss="modal"
+                      [hidden]="!attributeHidden"
+                      (click)="submitDelete(formGroup.get('customerId')?.value)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

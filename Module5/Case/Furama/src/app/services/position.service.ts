@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Position} from "../models/position";
 import {FormGroup} from "@angular/forms";
-import {baseApiUrl, IServiceBase} from "./i-service-base";
+import {apiBaseUrl, IServiceBase} from "./i-service-base";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import {baseApiUrl, IServiceBase} from "./i-service-base";
 
 export class PositionService implements IServiceBase<Position>{
 
-  private apiUrlPosition = baseApiUrl + "/Position";
+  private apiUrlPosition = apiBaseUrl + "/Position";
 
   constructor(private httpClient: HttpClient) { }
 
