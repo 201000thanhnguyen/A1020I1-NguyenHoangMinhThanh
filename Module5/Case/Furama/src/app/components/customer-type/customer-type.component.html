@@ -69,6 +69,7 @@
             <div class="col-md-12 mt-3">
               <button class="btn btn-success float-right rounded" data-dismiss="modal"
                       [hidden]="attributeHidden"
+                      [disabled]="!formGroup.valid"
                       (click)="submitAddOrUpdate()">
                 {{ !formGroup.get('customerTypeId')?.value ? 'Create' : 'Update' }}
               </button>

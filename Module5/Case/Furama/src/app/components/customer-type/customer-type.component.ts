@@ -73,18 +73,18 @@ export class CustomerTypeComponent implements OnInit, OnDestroy {
     this.getCustomerType(id);
   }
 
-  btnDelete(id: number) {
-    this.getCustomerType(id);
-    this.attributeHidden = true;
-    this.attributeReadonly = true;
-  }
-
   submitAddOrUpdate() {
     this.customerTypeService.addOrUpdate(this.formGroup).subscribe(
       () => {
         this.resetForm();
       }
     )
+  }
+
+  btnDelete(id: number) {
+    this.getCustomerType(id);
+    this.attributeHidden = true;
+    this.attributeReadonly = true;
   }
 
   submitDelete(id: any) {

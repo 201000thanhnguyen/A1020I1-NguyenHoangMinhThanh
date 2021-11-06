@@ -1,0 +1,28 @@
+
+<section class="bg-white my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Detail Customer Type
+          </div>
+          <div class="card-body">
+            <form autocomplete="off" [formGroup]="formGroup">
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="name">Customer Type Name</label>
+                  <input type="text" id="name" class="form-control" formControlName="name">
+                </div>
+                <div class="col-md-12 text-center form-group mb-0">
+                  <button type="reset" class="btn btn-secondary">reset</button>
+                  <button type="button" class="btn btn-success ml-2" (click)="submitAdd()">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+{
+  "Service" : [
+    {
+      "id": 1,
+      "serviceId": "SV0001",
+      "serviceName": "Pool",
+      "image": "none",
+      "unit": "cái",
+      "quantity": 2,
+      "prices": 100000
+    }
+  ]
+}

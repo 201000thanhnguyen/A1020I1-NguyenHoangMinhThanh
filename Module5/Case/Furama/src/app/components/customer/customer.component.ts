@@ -58,7 +58,9 @@ export class CustomerComponent implements OnInit, OnDestroy {
           }
         );
         this.dtTrigger.next();
-      }
+      },
+      () => {},
+      () => {}
     )
   }
 

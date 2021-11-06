@@ -25,6 +25,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {DataTablesModule} from 'angular-datatables';
+import { ExamCustomerComponent } from './components/exam-customer/exam-customer.component';
+import { ExSavingComponent } from './components/ex-saving/ex-saving.component';
+import { ExCustomerComponent } from './components/ex-customer/ex-customer.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import {DataTablesModule} from 'angular-datatables';
     FooterComponent,
     SubHeaderComponent,
     ContentComponent,
-    RoomsComponent
+    RoomsComponent,
+    ExamCustomerComponent,
+    ExSavingComponent,
+    ExCustomerComponent
   ],
   imports: [
     BrowserModule,

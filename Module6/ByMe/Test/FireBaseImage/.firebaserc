@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-image-ae5c6": {
+      "hosting": {
+        "FireBaseImage": [
+          "fir-image-ae5c6"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+<app-sub-header></app-sub-header>
+<section class="bg-light py-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#idModalCustomer" (click)="btnAdd()">
+              Add Saving <i class="fa fa-plus"></i>
+            </button>
+            <button type="button" class="btn btn-warning float-right" data-toggle="modal" data-target="#idModalCustomer"
+                    (click)="btnSearch()">
+              Search <i class="fa fa-search"></i>
+            </button>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-responsive w-100 d-block d-md-table data-table">
+              <thead>
+              <tr>
+                <th>id</th>
+                <th>exCustomer id</th>
+                <th>exCustomer name</th>
+                <th>dateOpenSaving</th>
+                <th>timeSaving</th>
+                <th>term</th>
+                <th>money</th>
+                <th>interest</th>
+                <th>incentives</th>
+                <th>action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of savingArr">
+                <td>{{item.id}}</td>
+                <td>{{item.exCustomer.id}}</td>
+                <td>{{item.exCustomer.name}}</td>
+                <td>{{item.dateOpenSaving}}</td>
+                <td>{{item.timeSaving}}</td>
+                <td>{{item.term}} month</td>
+                <td>{{item.money}} VND</td>
+                <td>{{item.interest}}%/year</td>
+                <td>{{item.incentives}}</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownAction"
+                            data-toggle="dropdown" data-haspopup="true" aria-expanded="false">
+                      action
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownAction">
+                      <a type="button" class="dropdown-item" data-toggle="modal" data-target="#idModalCustomer"
+                         (click)="btnDetail(item.id)">
+                        detail
+                      </a>
+                      <a type="button" class="dropdown-item" data-toggle="modal" data-target="#idModalCustomer"
+                         (click)="btnEdit(item.id)">
+                        edit
+                      </a>
+                      <a type="button" class="dropdown-item" data-toggle="modal" data-target="#idModalCustomer"
+                         (click)="btnDelete(item.id)">
+                        delete
+                      </a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="idModalCustomer" tabindex="-1" role="dialog" aria-labelledby="al_idModalCustomer" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable mw-75" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="al_idModalCustomer">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" [formGroup]="formGroup">
+          <div class="row">
+            <div *ngIf="attrHiddenBtnSearch" class="col-md-6 form-group">
+              <label for="exCustomer">exCustomer</label>
+              <select id="exCustomer" class="form-control mh-40" formControlName="exCustomer" [compareWith]="compareWith">
+                <option *ngFor="let exCustomer of customerArr" [ngValue]=exCustomer>
+                  {{exCustomer.name}}
+                </option>
+              </select>
+              <small class="text-danger"
+                     *ngIf="formGroup.get('exCustomer')?.invalid && formGroup.get('exCustomer')?.touched">
+                invalid !
+              </small>
+            </div>
+            <div *ngIf="!attrHiddenBtnSearch" class="col-md-6 form-group">
+              <label for="id">id</label>
+              <input type="number" id="id" class="form-control" formControlName="id">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('id')?.invalid && formGroup.get('id')?.touched">
+                invalid !
+              </small>
+            </div>
+            <div *ngIf="!attrHiddenBtnSearch" class="col-md-6 form-group">
+              <label for="customer">Customer</label>
+              <input type="text" id="customer" class="form-control" formControlName="exCustomer">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('exCustomer')?.invalid && formGroup.get('exCustomer')?.touched">
+                invalid !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="dateOpenSaving">dateOpenSaving</label>
+              <input type="date" id="dateOpenSaving" class="form-control" formControlName="dateOpenSaving">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('dateOpenSaving')?.invalid && formGroup.get('dateOpenSaving')?.touched">
+                error !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="timeSaving">timeSaving</label>
+              <input type="date" id="timeSaving" class="form-control" formControlName="timeSaving">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('timeSaving')?.invalid && formGroup.get('timeSaving')?.touched">
+                error !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="term">term</label>
+              <input type="text" id="term" class="form-control" formControlName="term">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('term')?.invalid && formGroup.get('term')?.touched">
+                error !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="money">money</label>
+              <input type="number" id="money" class="form-control" formControlName="money">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('money')?.invalid && formGroup.get('money')?.touched">
+                error !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="interest">interest</label>
+              <input type="number" id="interest" class="form-control" formControlName="interest">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('interest')?.invalid && formGroup.get('interest')?.touched">
+                error !
+              </small>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="incentives">incentives</label>
+              <input type="text" id="incentives" class="form-control" formControlName="incentives">
+              <small class="text-danger"
+                     *ngIf="formGroup.get('incentives')?.invalid && formGroup.get('incentives')?.touched">
+                error !
+              </small>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                (click)="submitAddOrUpdate()"
+                [hidden]="attrHiddenBtnAdd && attrHiddenBtnEdit"
+                [disabled]="!formGroup.valid">
+          {{!formGroup.controls.id.value ? 'Create' : 'Update'}}
+        </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"
+                [hidden]="attrHiddenBtnDelete"
+                (click)="submitDelete(formGroup.get('id')?.value)">
+          Delete
+        </button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal"
+                [hidden]="attrHiddenBtnSearch"
+                (click)="submitSearch()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

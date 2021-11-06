@@ -1,0 +1,66 @@
+{
+  "CustomerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    },
+    {
+      "id": 7,
+      "name": "a1x"
+    }
+  ],
+  "Customer": [
+    {
+      "id": 1,
+      "name": "11x",
+      "birthday": "2021-09-15",
+      "gender": "0",
+      "email": "11x@gmail.com",
+      "address": "11x",
+      "customerType": {
+        "customerTypeId": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 2,
+      "name": "22x",
+      "birthday": "2021-09-10",
+      "gender": "1",
+      "email": "12x@gmail.com",
+      "address": "22x",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 3,
+      "name": "13x",
+      "birthday": "2021-09-10",
+      "gender": "1",
+      "email": "13x@gmail.com",
+      "address": "13x",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    }
+  ]
+}

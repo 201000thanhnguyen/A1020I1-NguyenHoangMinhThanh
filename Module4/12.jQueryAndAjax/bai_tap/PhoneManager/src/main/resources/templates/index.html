@@ -56,8 +56,9 @@
 
         $('#createPhone').click(function () {
             $('#idAddOrUpdate').val(0);
-            $('#phoneName').val('');
-            $('#phonePrice').val('');
+            $('#phoneName').prop('disabled', false).val('');
+            $('#phonePrice').prop('disabled', false).val('');
+            $('#submitCreateOrUpdatePhone').show();
             $('#formCreateOrUpdatePhone').show();
         });
 
@@ -103,8 +104,9 @@
                 type: 'GET',
                 success: function (data) {
                     $('#idAddOrUpdate').val(data.phoneId);
-                    $('#phoneName').val(data.phoneName);
-                    $('#phonePrice').val(data.phonePrice);
+                    $('#phoneName').prop('disabled', false).val(data.phoneName);
+                    $('#phonePrice').prop('disabled', false).val(data.phonePrice);
+                    $('#submitCreateOrUpdatePhone').show();
                     $('#formCreateOrUpdatePhone').show();
                 }
             });
@@ -120,9 +122,8 @@
                 url: window.location.origin + "/api/phone/" + phoneId,
                 type: 'GET',
                 success: function (data) {
-                    // disables fade and can not click inside
                     $('#phoneName').prop('disabled', true).val(data.phoneName);
-                    $('#phonePrice').prop('readonly', true).val(data.phonePrice);
+                    $('#phonePrice').prop('disabled', true).val(data.phonePrice);
                     $('#submitCreateOrUpdatePhone').hide();
                     $('#formCreateOrUpdatePhone').show();
                 }

@@ -1,0 +1,83 @@
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center">
+          <a [routerLink]="['/customer-type']">Customer Type</a>
+        </h3>
+      </div>
+      <div class="col-md-12">
+        <section class="bg-light">
+          <div class="card">
+            <div class="card-header">
+              <a class="btn btn-link float-left" [routerLink]="['/customer-type/add']">
+                Customer Type <i class="fa fa-plus"></i>
+              </a>
+              <input type="search" class="form-control w-auto float-right" placeholder="search" (keyup)="searchCustomerType($any($event).target.value)">
+            </div>
+            <div class="card-body">
+              <table class="table table-responsive table-striped w-100 d-flex d-md-table">
+                <thead>
+                <tr>
+                  <th>id</th>
+                  <th>name</th>
+                  <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let customerType of customerTypeArr">
+                  <td>{{customerType.id}}</td>
+                  <td>{{customerType.name}}</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        action
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" [routerLink]="['/customer-type/detail',customerType.id]">Detail</a>
+                        <a class="dropdown-item" [routerLink]="['/customer-type/edit',customerType.id]">Edit</a>
+                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#idModalCustomerType"
+                                (click)="btnDelete(customerType.id)">Delete</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="idModalCustomerType" tabindex="-1" role="dialog" aria-labelledby="al-ModalCustomerType" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="al-ModalCustomerType">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" [formGroup]="formGroup">
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label for="name">Customer Type Name</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="submitDelete(formGroup.get('id')?.value)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet (deactivate)="onDeactivate()"></router-outlet>

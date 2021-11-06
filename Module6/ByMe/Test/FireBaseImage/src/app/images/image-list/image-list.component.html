@@ -1,0 +1,50 @@
+<!--<table *ngIf="imageList">-->
+<!--  <tr>-->
+<!--    <th>category</th>-->
+<!--    <th>caption</th>-->
+<!--    <th>image</th>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let i of rowIndexArray">-->
+<!--    <td>-->
+<!--      {{imageList[3*i].category}}-->
+<!--      {{imageList[3*i+1].category}}-->
+<!--      {{imageList[3*i+2].category}}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      {{imageList[3*i].caption}}-->
+<!--      {{imageList[3*i+1].caption}}-->
+<!--      {{imageList[3*i+2].caption}}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      <img class="img-fluid" [src]="imageList[3*i].imageUrl" style="max-width: 350px; max-height: 250px;">-->
+<!--      <img class="img-fluid" [src]="imageList[3*i+1].imageUrl" style="max-width: 350px; max-height: 250px;">-->
+<!--      <img class="img-fluid" [src]="imageList[3*i+2].imageUrl" style="max-width: 350px; max-height: 250px;">-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<div class="container" *ngIf="imageList">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <caption>List of users</caption>
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">category</th>
+        <th scope="col">caption</th>
+        <th scope="col">image</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of rowIndexArray">
+        <th scope="row">{{i+1}}</th>
+        <td>{{imageList[3*i].category}}</td>
+        <td>{{imageList[3*i].caption}}</td>
+        <td>
+          <img [src]="imageList[3*i].imageUrl" alt="none" style="max-width: 50px; max-height: 50px">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

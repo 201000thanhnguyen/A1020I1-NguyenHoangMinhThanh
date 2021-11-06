@@ -12,10 +12,10 @@ export class StudentDetailComponent implements OnInit {
 
   studentList = iStudentList;
   student: Student | any;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const routerParams = this.route.snapshot.paramMap;
+    const routerParams = this.activatedRoute.snapshot.paramMap;
     const studentIdFromRoute = Number(routerParams.get('studentId'));
     this.student = this.studentList.find(student => student.studentId == studentIdFromRoute);
   }

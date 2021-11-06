@@ -144,7 +144,7 @@
               <button class="btn btn-success float-right rounded" data-dismiss="modal"
                       [hidden]="attributeHidden"
                       (click)="submitAddOrUpdate()">
-                {{ !formGroup.get('customerTypeId')?.value ? 'Create' : 'Update' }}
+                {{ !formGroup.get('customerId')?.value ? 'Create' : 'Update' }}
               </button>
               <button type="reset" class="btn btn-secondary rounded float-right mr-2"
                       [hidden]="attributeHidden">

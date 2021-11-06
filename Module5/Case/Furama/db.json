@@ -1,0 +1,154 @@
+{
+  "CustomerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    },
+    {
+      "id": 7,
+      "name": "a1x"
+    }
+  ],
+  "Customer": [
+    {
+      "id": 1,
+      "name": "11x",
+      "birthday": "2021-09-15",
+      "gender": "0",
+      "email": "11x@gmail.com",
+      "address": "11x",
+      "customerType": {
+        "customerTypeId": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 2,
+      "name": "22x2",
+      "birthday": "2021-09-10",
+      "gender": "1",
+      "email": "12x@gmail.com",
+      "address": "22x",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 3,
+      "name": "13x",
+      "birthday": "2021-09-10",
+      "gender": "1",
+      "email": "13x@gmail.com",
+      "address": "13x",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": 4,
+      "name": "aaz",
+      "birthday": "2000-09-24",
+      "gender": "0",
+      "email": "aa",
+      "address": "aa",
+      "customerType": {
+        "id": 5,
+        "name": "Member"
+      }
+    }
+  ],
+  "exCustomer": [
+    {
+      "id": 1,
+      "name": "thành pro"
+    },
+    {
+      "id": 2,
+      "name": "công"
+    },
+    {
+      "id": 3,
+      "name": "cường"
+    },
+    {
+      "id": 4,
+      "name": "đạt"
+    },
+    {
+      "id": 5,
+      "name": "thảo"
+    }
+  ],
+  "exSaving": [
+    {
+      "id": 1,
+      "exCustomer": {
+        "id": 1,
+        "name": "thành pro"
+      },
+      "dateOpenSaving": "2000-09-24",
+      "timeSaving": "2000-09-24",
+      "term": 6,
+      "money": 20000000,
+      "interest": 8,
+      "incentives": "có"
+    },
+    {
+      "id": 2,
+      "exCustomer": {
+        "id": 2,
+        "name": "công"
+      },
+      "dateOpenSaving": "2021-09-06",
+      "timeSaving": "2021-09-11",
+      "term": "1",
+      "money": 1,
+      "interest": 1,
+      "incentives": "1"
+    },
+    {
+      "id": 3,
+      "exCustomer": {
+        "id": 2,
+        "name": "công"
+      },
+      "dateOpenSaving": "2021-09-20",
+      "timeSaving": "2021-09-25",
+      "term": "2",
+      "money": 3,
+      "interest": 2,
+      "incentives": "1"
+    },
+    {
+      "id": 4,
+      "exCustomer": {
+        "id": 5,
+        "name": "thảo"
+      },
+      "dateOpenSaving": "2021-09-21",
+      "timeSaving": "2021-09-30",
+      "term": "4",
+      "money": 3,
+      "interest": 2,
+      "incentives": "1"
+    }
+  ]
+}

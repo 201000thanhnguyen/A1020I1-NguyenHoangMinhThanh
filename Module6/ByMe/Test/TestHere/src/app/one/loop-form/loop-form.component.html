@@ -1,0 +1,72 @@
+<H2 class="text-center">loop form <i class="fab fa-viber"></i></H2>
+
+<section class="bg-light my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 my-5">
+        <div class="card">
+          <div class="card-header">Service</div>
+          <div class="card-body">
+            <table class="table table-striped table-responsive d-md-table w-100">
+              <thead>
+              <tr>
+                <th>stt</th>
+                <th>service Id</th>
+                <th>service name</th>
+                <th>quantity</th>
+                <th>unit</th>
+                <th>price</th>
+                <th>action</th>
+              </tr>
+              </thead>
+              <tbody #tbody>
+              <tr *ngFor="let service of serviceArr, index as i">
+                <td>{{i}}</td>
+                <td>{{service.serviceId}}</td>
+                <td>{{service.serviceName}}</td>
+                <td>{{service.quantity}}</td>
+                <td>{{service.unit}}</td>
+                <td>{{service.price}}</td>
+                <td>action</td>
+              </tr>
+              <tr *ngFor="let formGroupX of formGroup, index as i" [formGroup]="formGroupX">
+                <td>no</td>
+                <td>
+                  <input class="form-control" type="text" formControlName="serviceId">
+                </td>
+                <td>
+                  <input class="form-control" type="text" formControlName="serviceName">
+                </td>
+                <td>
+                  <input class="form-control" type="number" formControlName="quantity">
+                </td>
+                <td>
+                  <select class="form-control" formControlName="unit">
+                    <option value="cái">cái</option>
+                    <option value="tô">tô</option>
+                    <option value="xxx">xxx</option>
+                  </select>
+                </td>
+                <td>
+                  <input class="form-control" type="number" formControlName="price">
+                </td>
+                <td>action</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <button class="btn btn-primary float-left" (click)="btnAddService()">
+              <i class="fa fa-plus"></i> add service
+            </button>
+            <button class="btn btn-success float-right" (click)="submitAddService()">
+              <i class="fa fa-plus"></i> submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
